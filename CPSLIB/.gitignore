@@ -1,0 +1,22 @@
+# git ignore file
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Bb]in/[Dd]ebug/
+[Oo]bj/[Dd]ebug/
+CPSLIB/bin/Debug/
+CPSLIB/obj/Debug/
+

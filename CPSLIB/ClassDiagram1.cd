@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CPSLIB.CPSLIB.Data.Connection.Consts" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAgAAA=</HashCode>
+      <FileName>Data\Connection\Consts.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Data.Connection.MSSQLClient" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAACYAAAAAhRgCSARBsIJQAWFQlAACgACEAYACCAAk=</HashCode>
+      <FileName>Data\Connection\MSSQLClient.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Data.Connection.SQLServerInfo" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Data\Connection\SQLServer.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Data.Validation" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAIAAA=</HashCode>
+      <FileName>Data\Validation.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Company.DICompanies" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkYAAAAAAAAAAAAAAAAAAIQAABCgAAAAAAAAJABAAAA=</HashCode>
+      <FileName>DataInterface\Company\DICompanies.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Company.DICompany" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAIAoIFAQlCAAgIERMIkABBAAAACAQAANAAAIQA=</HashCode>
+      <FileName>DataInterface\Company\DICompany.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Company.SAPVersion" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAAAAAAAAAkQAAAAAAAxAAFAAAAAAAAIAAAAACAA=</HashCode>
+      <FileName>DataInterface\Company\SAPVersion.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Connection" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterface\Connection.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Connections.Consts" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterface\Connections\Consts.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Document.Document" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataInterface\Document\Document.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Finiancial.Acount.SAPAccount" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAEAAAAIAJAAAAAAAABAQAAAABAAAAAAAA=</HashCode>
+      <FileName>DataInterface\Finiancial\Account\Account.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Finiancial.journalEntryLines" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAUCEwKIDACACADjpBgAC8QUEShIYCCQUAICkRKElA=</HashCode>
+      <FileName>DataInterface\Finiancial\journalEntrieLines.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Finiancial.JournalEntries" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAJQAwGKIAACASRCKYAAAASAABQAIggCQJwIAAQIABE=</HashCode>
+      <FileName>DataInterface\Finiancial\JournalEntries.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.Finiancial.JournalVoucher" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kABAAAACEAAAAAQAIIAAAAQAABAAAAAAAAQAoAQAgIA=</HashCode>
+      <FileName>DataInterface\Finiancial\JournalVoucher.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.DataInterface.MasterData.ExchangeRate.ExchangeRates" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAQAAAACAAAAAhAAAAAAEAEAIAQAAAg=</HashCode>
+      <FileName>DataInterface\MasterData\ExchangeRate\ExchangeRates.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.QueryTemplate" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>QueryTemplate.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.IO.Ascii.AsciiFile" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQADEAAAAEAAAAIIQAgAAAACAAEAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>IO\Ascii\File.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Logging.LogEvents.Consts" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\LogEvents\Consts.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Logging.LogFiles.Consts" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\LogFiles\Consts.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Logging.MessageCode" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIAAAIACIAAAQBAAkAABEAgAIBAAAAAAEQAAAAAQAA=</HashCode>
+      <FileName>Logging\MessageCode.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.My.MySettings" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Settings.File.Consts" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAABAAgAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Settings\File\Consts.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.Settings.File.Files" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAIAAAAAAAgAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Settings\File\Files.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPSLIB.CPSLIB.CPSException" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAIAA=</HashCode>
+      <FileName>Exception\Exception.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Module Name="CPSLIB.My.Resources.Resources" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="CPSLIB.My.MySettingsProperty" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

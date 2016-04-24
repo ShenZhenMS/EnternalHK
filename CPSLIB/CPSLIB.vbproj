@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ResGenToolArchitecture>Managed32Bit</ResGenToolArchitecture>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61C8B3F9-92E1-4006-AF0D-B5DCCDB5CD5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CPSLIB</RootNamespace>
+    <AssemblyName>CPSLIB</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CPSLIB.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CPSLIB.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="B1WizardBase, Version=1.4.3674.25481, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP\SAP Business One Development Environment\SAP Business One AddOn Wizard\B1WizardBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataInterface\Company\CompanyInfo.vb" />
+    <Compile Include="DataInterface\Company\DICompanies.vb" />
+    <Compile Include="DataInterface\Company\SAPVersion.vb" />
+    <Compile Include="DataInterface\Connection.vb" />
+    <Compile Include="DataInterface\Company\DICompany.vb" />
+    <Compile Include="DataInterface\Const.vb" />
+    <Compile Include="DataInterface\Document\Document.vb" />
+    <Compile Include="DataInterface\Document\Document_Line.vb" />
+    <Compile Include="DataInterface\Document\DocumentDraft.vb" />
+    <Compile Include="DataInterface\Document\SalesOrderDocumentDraft.vb" />
+    <Compile Include="DataInterface\Finiancial\Account\Account.vb" />
+    <Compile Include="DataInterface\Finiancial\JournaVoucherlEntries.vb" />
+    <Compile Include="DataInterface\Finiancial\ExchangeRates\ExAdjustment.vb" />
+    <Compile Include="DataInterface\Finiancial\ExchangeRates\ExchangeRate.vb" />
+    <Compile Include="DataInterface\Finiancial\ExchangeRates\ExchangeRatesDifferent.vb" />
+    <Compile Include="DataInterface\Finiancial\JournalEntries.vb" />
+    <Compile Include="DataInterface\MasterData\BP\BP.vb" />
+    <Compile Include="DataInterface\MasterData\ExchangeRate\ExchangeRates.vb" />
+    <Compile Include="DataInterface\Finiancial\JournalVoucher.vb" />
+    <Compile Include="DataInterface\Finiancial\journalEntrieLines.vb" />
+    <Compile Include="DataInterface\Payment\OutgoingPayment.vb" />
+    <Compile Include="DataInterface\UDO\UDF.vb" />
+    <Compile Include="DataInterface\UDO\UDODocuments.vb" />
+    <Compile Include="DataInterface\UDO\UserTable.vb" />
+    <Compile Include="Data\Connection\Consts.vb" />
+    <Compile Include="Data\Connection\MSSQLClient.vb" />
+    <Compile Include="Data\Connection\SQLServer.vb" />
+    <Compile Include="Data\SAPUDF.vb" />
+    <Compile Include="Data\Validation.vb" />
+    <Compile Include="DI_Server\Core\BatchNumbers.vb" />
+    <Compile Include="DI_Server\Core\DIServerTag.vb" />
+    <Compile Include="DI_Server\Core\DI_Object.vb" />
+    <Compile Include="DI_Server\Core\DocumentInfo.vb" />
+    <Compile Include="DI_Server\Core\OtherLines.vb" />
+    <Compile Include="DI_Server\DIServerConnection.vb" />
+    <Compile Include="DI_Server\Core\DI_Node.vb" />
+    <Compile Include="DI_Server\Core\DI_Core.vb" />
+    <Compile Include="DI_Server\Core\Document.vb" />
+    <Compile Include="DI_Server\DIConsts.vb" />
+    <Compile Include="DI_Server\Core\DocumentLines.vb" />
+    <Compile Include="DI_Server\Core\SerialNumber.vb" />
+    <Compile Include="DI_Server\Master\ItemMaster.vb" />
+    <Compile Include="DI_Server\Transaction\Sales Order\SalesOrder.vb" />
+    <Compile Include="DI_Server\Transaction\Sales Order\SalesOrderLines.vb" />
+    <Compile Include="DI_Server\Transaction\Stock Transfer\StockTransfer.vb" />
+    <Compile Include="DI_Server\Transaction\Stock Transfer\StockTransferLine.vb" />
+    <Compile Include="Exception\Exception.vb" />
+    <Compile Include="IO\Ascii\File.vb" />
+    <Compile Include="IO\Directory\Directory.vb" />
+    <Compile Include="IO\Excel\Application\ExcelApplication.vb" />
+    <Compile Include="IO\Excel\Application\ExcelTable.vb" />
+    <Compile Include="IO\Excel\Consts.vb" />
+    <Compile Include="IO\XML\XMLElement.vb" />
+    <Compile Include="IO\XML\XMLDocument.vb" />
+    <Compile Include="IO\XML\XMLNodeList.vb" />
+    <Compile Include="Network\FTPClient.vb" />
+    <Compile Include="Network\SMTP.vb" />
+    <Compile Include="Programming\BusinessConfig.vb" />
+    <Compile Include="Programming\Config.vb" />
+    <Compile Include="Programming\Debug.vb" />
+    <Compile Include="Programming\Debug\Database.vb" />
+    <Compile Include="Programming\Debug\File.vb" />
+    <Compile Include="Logging\MessageCode.vb" />
+    <Compile Include="Logging\LogEvents\Consts.vb" />
+    <Compile Include="Logging\LogFiles\Consts.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Programming\Debug\HtmlFile.vb" />
+    <Compile Include="Programming\Debug\TimeCheck.vb" />
+    <Compile Include="QueryTemplate.vb" />
+    <Compile Include="Settings\File\Consts.vb" />
+    <Compile Include="Settings\File\Files.vb" />
+    <Compile Include="System\Object.vb" />
+    <Compile Include="Tools.vb" />
+    <Compile Include="UserInterface\Application\TextBox\DateBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInterface\Application\TextBox\NumericBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInterface\SAP\SAPForm.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessObject\" />
+    <Folder Include="DataInterface\Connections\" />
+    <Folder Include="Data\DataType\" />
+    <Folder Include="DI_Server\Operation\" />
+    <Folder Include="IO\Words\" />
+    <Folder Include="Logging\LogDatabase\" />
+    <Folder Include="Logging\Log\" />
+    <Folder Include="Settings\Xml\" />
+    <Folder Include="UserInterface\Application\ComboBox\" />
+    <Folder Include="UserInterface\Application\GridView\" />
+    <Folder Include="UserInterface\Web\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SAPbobsCOM">
+      <Guid>{FC8030BE-F5D2-4B8E-8F92-44228FE30088}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SAPbouiCOM">
+      <Guid>{6048236A-956D-498D-A6F1-9C81C13AB6E8}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SBODI_Server">
+      <Guid>{D68328C8-4EDA-4427-8E76-5CE3ED1063C0}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
