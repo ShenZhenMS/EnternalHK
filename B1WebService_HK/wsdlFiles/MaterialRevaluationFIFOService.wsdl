@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="MaterialRevaluationFIFOService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="MaterialRevaluationFIFOService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="GetMaterialRevaluationFIFOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MaterialRevaluationFIFO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaterialRevaluationFIFOParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ItemCode" type="s:string" />
+            <s:element minOccurs="0" name="LocationType" type="s:string" />
+            <s:element minOccurs="0" name="LocationCode" type="s:string" />
+            <s:element minOccurs="0" name="ShowIssuedLayers">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaterialRevaluationFIFO">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Layers">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="Layer">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="TransactionSequenceNum" type="s:long" />
+                        <s:element minOccurs="0" name="LayerID" type="s:long" />
+                        <s:element minOccurs="0" name="DocNumber" type="s:string" />
+                        <s:element minOccurs="0" name="DocType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="ttAllTransactions" />
+                              <s:enumeration value="ttOpeningBalance" />
+                              <s:enumeration value="ttClosingBalance" />
+                              <s:enumeration value="ttARInvoice" />
+                              <s:enumeration value="ttARCredItnote" />
+                              <s:enumeration value="ttDelivery" />
+                              <s:enumeration value="ttReturn" />
+                              <s:enumeration value="ttAPInvoice" />
+                              <s:enumeration value="ttAPCreditNote" />
+                              <s:enumeration value="ttPurchaseDeliveryNote" />
+                              <s:enumeration value="ttPurchaseReturn" />
+                              <s:enumeration value="ttReceipt" />
+                              <s:enumeration value="ttDeposit" />
+                              <s:enumeration value="ttJournalEntry" />
+                              <s:enumeration value="ttVendorPayment" />
+                              <s:enumeration value="ttChequesForPayment" />
+                              <s:enumeration value="ttStockList" />
+                              <s:enumeration value="ttGeneralReceiptToStock" />
+                              <s:enumeration value="ttGeneralReleaseFromStock" />
+                              <s:enumeration value="ttTransferBetweenWarehouses" />
+                              <s:enumeration value="ttWorkInstructions" />
+                              <s:enumeration value="ttLandedCosts" />
+                              <s:enumeration value="ttDeferredDeposit" />
+                              <s:enumeration value="ttCorrectionInvoice" />
+                              <s:enumeration value="ttInventoryValuation" />
+                              <s:enumeration value="ttAPCorrectionInvoice" />
+                              <s:enumeration value="ttAPCorrectionInvoiceReversal" />
+                              <s:enumeration value="ttARCorrectionInvoice" />
+                              <s:enumeration value="ttARCorrectionInvoiceReversal" />
+                              <s:enumeration value="ttBoETransaction" />
+                              <s:enumeration value="ttProductionOrder" />
+                              <s:enumeration value="ttDownPayment" />
+                              <s:enumeration value="ttPurchaseDownPayment" />
+                              <s:enumeration value="ttInternalReconciliation" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="EntryDate" type="s:date" />
+                        <s:element minOccurs="0" name="CurrentCost" type="s:double" />
+                        <s:element minOccurs="0" name="OpenQty" type="s:double" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="MaterialRevaluationFIFOService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="MaterialRevaluationFIFOService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="GetMaterialRevaluationFIFO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MaterialRevaluationFIFOParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMaterialRevaluationFIFOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaterialRevaluationFIFO" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMaterialRevaluationFIFOSoapOut">
+    <wsdl:part name="parameters" element="s1:GetMaterialRevaluationFIFOResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MaterialRevaluationFIFOServiceSoap">
+    <wsdl:operation name="GetMaterialRevaluationFIFO">
+      <wsdl:input message="tns:GetMaterialRevaluationFIFOSoapIn" />
+      <wsdl:output message="tns:GetMaterialRevaluationFIFOSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MaterialRevaluationFIFOServiceSoap" type="tns:MaterialRevaluationFIFOServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMaterialRevaluationFIFO">
+      <soap:operation soapAction="MaterialRevaluationFIFOService/GetMaterialRevaluationFIFO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetMaterialRevaluationFIFOSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MaterialRevaluationFIFOServiceSoap12" type="tns:MaterialRevaluationFIFOServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMaterialRevaluationFIFO">
+      <soap12:operation soapAction="MaterialRevaluationFIFOService/GetMaterialRevaluationFIFO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetMaterialRevaluationFIFOSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaterialRevaluationFIFOService">
+    <wsdl:port name="MaterialRevaluationFIFOServiceSoap" binding="tns:MaterialRevaluationFIFOServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MaterialRevaluationFIFOServiceSoap12" binding="tns:MaterialRevaluationFIFOServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ApprovalTemplatesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ApprovalTemplatesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddApprovalTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplateParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateApprovalTemplateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveApprovalTemplateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplateListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplatesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovalTemplate">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Remarks" type="s:string" />
+            <s:element minOccurs="0" name="UseTerms">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IsActive">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ApprovalTemplateUsers">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ApprovalTemplateUser">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="UserID" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ApprovalTemplateStages">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ApprovalTemplateStage">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="SortID" type="s:long" />
+                        <s:element minOccurs="0" name="ApprovalStageCode" type="s:long" />
+                        <s:element minOccurs="0" name="Remarks" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ApprovalTemplateDocuments">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ApprovalTemplateDocument">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DocumentType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="atdtQuotation" />
+                              <s:enumeration value="atdtOrder" />
+                              <s:enumeration value="atdtDelivery" />
+                              <s:enumeration value="atdtReturns" />
+                              <s:enumeration value="atdtArDownPayment" />
+                              <s:enumeration value="atdtArInvoice" />
+                              <s:enumeration value="atdtArCreditMemo" />
+                              <s:enumeration value="atdtCorrectionInvoice" />
+                              <s:enumeration value="atdtPurchaseOrder" />
+                              <s:enumeration value="atdtGoodsReceiptPO" />
+                              <s:enumeration value="atdtGoodsReturns" />
+                              <s:enumeration value="atdtApDownPayment" />
+                              <s:enumeration value="atdtApInvoice" />
+                              <s:enumeration value="atdtApCreditMemo" />
+                              <s:enumeration value="atdtGoodsReceipt" />
+                              <s:enumeration value="atdtGoodsIssue" />
+                              <s:enumeration value="atdtInventoryTransfer" />
+                              <s:enumeration value="atdtPurchaseQuotation" />
+                              <s:enumeration value="atdtInventoryTransferRequest" />
+                              <s:enumeration value="atdtOutgoingPayment" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ApprovalTemplateTerms">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ApprovalTemplateTerm">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ConditionType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="atctUndefined" />
+                              <s:enumeration value="atctDeviationFromCreditLine" />
+                              <s:enumeration value="atctDeviationFromObligo" />
+                              <s:enumeration value="atctGrossProfitPercent" />
+                              <s:enumeration value="atctDiscountPercent" />
+                              <s:enumeration value="atctDeviationFromBudget" />
+                              <s:enumeration value="atctTotalDocument" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="OperationType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="opcodeUndefined" />
+                              <s:enumeration value="opcodeGreaterThan" />
+                              <s:enumeration value="opcodeGreaterOrEqual" />
+                              <s:enumeration value="opcodeLessThan" />
+                              <s:enumeration value="opcodeLessOrEqual" />
+                              <s:enumeration value="opcodeEqual" />
+                              <s:enumeration value="opcodeDoesNotEqual" />
+                              <s:enumeration value="opcodeInRange" />
+                              <s:enumeration value="opcodeNotInRange" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Value" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ApprovalTemplateQueries">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ApprovalTemplateQuery">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="QueryID" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovalTemplateParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovalTemplatesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="ApprovalTemplateParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ApprovalTemplatesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ApprovalTemplatesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddApprovalTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplateParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateApprovalTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveApprovalTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ApprovalTemplateParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplateList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddApprovalTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddApprovalTemplate" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddApprovalTemplateSoapOut">
+    <wsdl:part name="parameters" element="s1:AddApprovalTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApprovalTemplate" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplateSoapOut">
+    <wsdl:part name="parameters" element="s1:GetApprovalTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateApprovalTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateApprovalTemplate" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateApprovalTemplateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateApprovalTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveApprovalTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveApprovalTemplate" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveApprovalTemplateSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveApprovalTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplateListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApprovalTemplateList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplateListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetApprovalTemplateListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApprovalTemplatesServiceSoap">
+    <wsdl:operation name="AddApprovalTemplate">
+      <wsdl:input message="tns:AddApprovalTemplateSoapIn" />
+      <wsdl:output message="tns:AddApprovalTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplate">
+      <wsdl:input message="tns:GetApprovalTemplateSoapIn" />
+      <wsdl:output message="tns:GetApprovalTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApprovalTemplate">
+      <wsdl:input message="tns:UpdateApprovalTemplateSoapIn" />
+      <wsdl:output message="tns:UpdateApprovalTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApprovalTemplate">
+      <wsdl:input message="tns:RemoveApprovalTemplateSoapIn" />
+      <wsdl:output message="tns:RemoveApprovalTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplateList">
+      <wsdl:input message="tns:GetApprovalTemplateListSoapIn" />
+      <wsdl:output message="tns:GetApprovalTemplateListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApprovalTemplatesServiceSoap" type="tns:ApprovalTemplatesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddApprovalTemplate">
+      <soap:operation soapAction="ApprovalTemplatesService/AddApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplate">
+      <soap:operation soapAction="ApprovalTemplatesService/GetApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApprovalTemplate">
+      <soap:operation soapAction="ApprovalTemplatesService/UpdateApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApprovalTemplate">
+      <soap:operation soapAction="ApprovalTemplatesService/RemoveApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplateList">
+      <soap:operation soapAction="ApprovalTemplatesService/GetApprovalTemplateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetApprovalTemplateListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ApprovalTemplatesServiceSoap12" type="tns:ApprovalTemplatesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddApprovalTemplate">
+      <soap12:operation soapAction="ApprovalTemplatesService/AddApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplate">
+      <soap12:operation soapAction="ApprovalTemplatesService/GetApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApprovalTemplate">
+      <soap12:operation soapAction="ApprovalTemplatesService/UpdateApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApprovalTemplate">
+      <soap12:operation soapAction="ApprovalTemplatesService/RemoveApprovalTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveApprovalTemplateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplateList">
+      <soap12:operation soapAction="ApprovalTemplatesService/GetApprovalTemplateList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetApprovalTemplateListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApprovalTemplatesService">
+    <wsdl:port name="ApprovalTemplatesServiceSoap" binding="tns:ApprovalTemplatesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ApprovalTemplatesServiceSoap12" binding="tns:ApprovalTemplatesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

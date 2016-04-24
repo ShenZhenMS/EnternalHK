@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="StockTransferService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="StockTransferService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransfer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransferParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransfer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDraftToDocumentResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="StockTransferParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DocEntry" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="StockTransfer">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DocEntry" type="s:long" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="Printed">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DocDate" type="s:date" />
+            <s:element minOccurs="0" name="DueDate" type="s:date" />
+            <s:element minOccurs="0" name="CardCode" type="s:string" />
+            <s:element minOccurs="0" name="CardName" type="s:string" />
+            <s:element minOccurs="0" name="Address" type="s:string" />
+            <s:element minOccurs="0" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" name="Comments" type="s:string" />
+            <s:element minOccurs="0" name="JournalMemo" type="s:string" />
+            <s:element minOccurs="0" name="PriceList" type="s:long" />
+            <s:element minOccurs="0" name="SalesPersonCode" type="s:long" />
+            <s:element minOccurs="0" name="FromWarehouse" type="s:string" />
+            <s:element minOccurs="0" name="CreationDate" type="s:date" />
+            <s:element minOccurs="0" name="UpdateDate" type="s:date" />
+            <s:element minOccurs="0" name="FinancialPeriod" type="s:long" />
+            <s:element minOccurs="0" name="TransNum" type="s:long" />
+            <s:element minOccurs="0" name="DocNum" type="s:long" />
+            <s:element minOccurs="0" name="TaxDate" type="s:date" />
+            <s:element minOccurs="0" name="ContactPerson" type="s:long" />
+            <s:element minOccurs="0" name="FolioPrefixString" type="s:string" />
+            <s:element minOccurs="0" name="FolioNumber" type="s:long" />
+            <s:element minOccurs="0" name="DocObjectCode" type="s:string" />
+            <s:element minOccurs="0" name="AuthorizationStatus">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="sasWithout" />
+                  <s:enumeration value="sasPending" />
+                  <s:enumeration value="sasApproved" />
+                  <s:enumeration value="sasRejected" />
+                  <s:enumeration value="sasGenerated" />
+                  <s:enumeration value="sasGeneratedbyAuthorizer" />
+                  <s:enumeration value="sasCancelled" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BPLID" type="s:long" />
+            <s:element minOccurs="0" name="BPLName" type="s:string" />
+            <s:element minOccurs="0" name="VATRegNum" type="s:string" />
+            <s:element minOccurs="0" name="U_SOType" type="s:string" />
+            <s:element minOccurs="0" name="U_BPDelRmk1" type="s:string" />
+            <s:element minOccurs="0" name="U_BPDelRmk2" type="s:string" />
+            <s:element minOccurs="0" name="U_BPInvRmk1" type="s:string" />
+            <s:element minOccurs="0" name="U_BPInvRmk2" type="s:string" />
+            <s:element minOccurs="0" name="U_SORmk1" type="s:string" />
+            <s:element minOccurs="0" name="U_SORmk2" type="s:string" />
+            <s:element minOccurs="0" name="U_PDF" type="s:string" />
+            <s:element minOccurs="0" name="U_SONum" type="s:string" />
+            <s:element minOccurs="0" name="U_ConsFmWhs" type="s:string" />
+            <s:element minOccurs="0" name="U_ConsPrintType" type="s:string" />
+            <s:element minOccurs="0" name="U_DNwoPrice" type="s:string" />
+            <s:element minOccurs="0" name="U_GTSstatus" type="s:string" />
+            <s:element minOccurs="0" name="U_GTSInvNum" type="s:string" />
+            <s:element minOccurs="0" name="U_GTSInvAmt" type="s:double" />
+            <s:element minOccurs="0" name="U_GTSPDF" type="s:string" />
+            <s:element minOccurs="0" name="U_ShipImpNum" type="s:string" />
+            <s:element minOccurs="0" name="U_ShipOrdRef" type="s:string" />
+            <s:element minOccurs="0" name="U_ShipLevel" type="s:string" />
+            <s:element minOccurs="0" name="U_ShipStatus" type="s:string" />
+            <s:element minOccurs="0" name="U_ShipCreateDate" type="s:date" />
+            <s:element minOccurs="0" name="U_ShipReadyDate" type="s:date" />
+            <s:element minOccurs="0" name="U_ShipDate" type="s:date" />
+            <s:element minOccurs="0" name="U_Shipped" type="s:string" />
+            <s:element minOccurs="0" name="U_ShipArrDate" type="s:date" />
+            <s:element minOccurs="0" name="U_ShipArr" type="s:string" />
+            <s:element minOccurs="0" name="U_POL" type="s:string" />
+            <s:element minOccurs="0" name="U_Vessel" type="s:string" />
+            <s:element minOccurs="0" name="U_LandedCost" type="s:string" />
+            <s:element minOccurs="0" name="U_TransRecd" type="s:string" />
+            <s:element minOccurs="0" name="U_OrderConfirmed" type="s:string" />
+            <s:element minOccurs="0" name="U_Updated" type="s:string" />
+            <s:element minOccurs="0" name="U_Del_Number" type="s:string" />
+            <s:element minOccurs="0" name="StockTransfer_ApprovalRequests">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="StockTransfer_ApprovalRequest">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ApprovalTemplatesID" type="s:long" />
+                        <s:element minOccurs="0" name="Remarks" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="StockTransferLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="StockTransferLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="DocEntry" type="s:long" />
+                        <s:element minOccurs="0" name="ItemCode" type="s:string" />
+                        <s:element minOccurs="0" name="ItemDescription" type="s:string" />
+                        <s:element minOccurs="0" name="Quantity" type="s:double" />
+                        <s:element minOccurs="0" name="Price" type="s:double" />
+                        <s:element minOccurs="0" name="Currency" type="s:string" />
+                        <s:element minOccurs="0" name="Rate" type="s:double" />
+                        <s:element minOccurs="0" name="DiscountPercent" type="s:double" />
+                        <s:element minOccurs="0" name="VendorNum" type="s:string" />
+                        <s:element minOccurs="0" name="SerialNumber" type="s:string" />
+                        <s:element minOccurs="0" name="WarehouseCode" type="s:string" />
+                        <s:element minOccurs="0" name="ProjectCode" type="s:string" />
+                        <s:element minOccurs="0" name="Factor" type="s:double" />
+                        <s:element minOccurs="0" name="Factor2" type="s:double" />
+                        <s:element minOccurs="0" name="Factor3" type="s:double" />
+                        <s:element minOccurs="0" name="Factor4" type="s:double" />
+                        <s:element minOccurs="0" name="DistributionRule" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule2" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule3" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule4" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule5" type="s:string" />
+                        <s:element minOccurs="0" name="UseBaseUnits">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="MeasureUnit" type="s:string" />
+                        <s:element minOccurs="0" name="UnitsOfMeasurment" type="s:double" />
+                        <s:element minOccurs="0" name="BaseType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="Default" />
+                              <s:enumeration value="Empty" />
+                              <s:enumeration value="PurchaseDeliveryNotes" />
+                              <s:enumeration value="InventoryGeneralEntry" />
+                              <s:enumeration value="WarehouseTransfers" />
+                              <s:enumeration value="InventoryTransferRequest" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="BaseLine" type="s:long" />
+                        <s:element minOccurs="0" name="BaseEntry" type="s:long" />
+                        <s:element minOccurs="0" name="UnitPrice" type="s:double" />
+                        <s:element minOccurs="0" name="U_ShowPacking" type="s:string" />
+                        <s:element minOccurs="0" name="U_ShowBPCat" type="s:string" />
+                        <s:element minOccurs="0" name="U_ShowItemForNam" type="s:string" />
+                        <s:element minOccurs="0" name="U_ShowItemRmk1" type="s:string" />
+                        <s:element minOccurs="0" name="U_ShowItemRmk2" type="s:string" />
+                        <s:element minOccurs="0" name="U_VolPerBtl" type="s:double" />
+                        <s:element minOccurs="0" name="U_Sequence" type="s:long" />
+                        <s:element minOccurs="0" name="U_PricePerBtl" type="s:double" />
+                        <s:element minOccurs="0" name="SerialNumbers">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="unbounded" name="SerialNumber">
+                                <s:complexType>
+                                  <s:all>
+                                    <s:element minOccurs="0" name="ManufacturerSerialNumber" type="s:string" />
+                                    <s:element minOccurs="0" name="InternalSerialNumber" type="s:string" />
+                                    <s:element minOccurs="0" name="ExpiryDate" type="s:date" />
+                                    <s:element minOccurs="0" name="ManufactureDate" type="s:date" />
+                                    <s:element minOccurs="0" name="ReceptionDate" type="s:date" />
+                                    <s:element minOccurs="0" name="WarrantyStart" type="s:date" />
+                                    <s:element minOccurs="0" name="WarrantyEnd" type="s:date" />
+                                    <s:element minOccurs="0" name="Location" type="s:string" />
+                                    <s:element minOccurs="0" name="Notes" type="s:string" />
+                                    <s:element minOccurs="0" name="BatchID" type="s:string" />
+                                    <s:element minOccurs="0" name="SystemSerialNumber" type="s:long" />
+                                    <s:element minOccurs="0" name="BaseLineNumber" type="s:long" />
+                                    <s:element minOccurs="0" name="Quantity" type="s:double" />
+                                    <s:element minOccurs="0" name="U_FLabImg" type="s:string" />
+                                    <s:element minOccurs="0" name="U_BLabImg" type="s:string" />
+                                    <s:element minOccurs="0" name="U_BotCode" type="s:string" />
+                                    <s:element minOccurs="0" name="U_AlcoLvl" type="s:string" />
+                                    <s:element minOccurs="0" name="U_PermitNo" type="s:string" />
+                                  </s:all>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" name="BatchNumbers">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="unbounded" name="BatchNumber">
+                                <s:complexType>
+                                  <s:all>
+                                    <s:element minOccurs="0" name="BatchNumber" type="s:string" />
+                                    <s:element minOccurs="0" name="ManufacturerSerialNumber" type="s:string" />
+                                    <s:element minOccurs="0" name="InternalSerialNumber" type="s:string" />
+                                    <s:element minOccurs="0" name="ExpiryDate" type="s:date" />
+                                    <s:element minOccurs="0" name="ManufacturingDate" type="s:date" />
+                                    <s:element minOccurs="0" name="AddmisionDate" type="s:date" />
+                                    <s:element minOccurs="0" name="Location" type="s:string" />
+                                    <s:element minOccurs="0" name="Notes" type="s:string" />
+                                    <s:element minOccurs="0" name="Quantity" type="s:double" />
+                                    <s:element minOccurs="0" name="BaseLineNumber" type="s:long" />
+                                    <s:element minOccurs="0" name="U_FLabImg" type="s:string" />
+                                    <s:element minOccurs="0" name="U_BLabImg" type="s:string" />
+                                    <s:element minOccurs="0" name="U_BotCode" type="s:string" />
+                                    <s:element minOccurs="0" name="U_AlcoLvl" type="s:string" />
+                                    <s:element minOccurs="0" name="U_PermitNo" type="s:string" />
+                                  </s:all>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="StockTransferTaxExtension">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="SupportVAT">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="tNO" />
+                        <s:enumeration value="tYES" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="FormNumber" type="s:string" />
+                  <s:element minOccurs="0" name="TransactionCategory" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="StockTransferService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="StockTransferService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransferParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransfer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransfer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransferParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransferParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Close">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StockTransferParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplates">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDraftToDocument">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapIn">
+    <wsdl:part name="parameters" element="tns:Cancel" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapOut">
+    <wsdl:part name="parameters" element="s1:CancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseSoapIn">
+    <wsdl:part name="parameters" element="tns:Close" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CloseSoapOut">
+    <wsdl:part name="parameters" element="s1:CloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApprovalTemplates" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplatesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetApprovalTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDraftToDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDraftToDocument" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveDraftToDocumentSoapOut">
+    <wsdl:part name="parameters" element="s1:SaveDraftToDocumentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StockTransferServiceSoap">
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:input message="tns:CancelSoapIn" />
+      <wsdl:output message="tns:CancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <wsdl:input message="tns:CloseSoapIn" />
+      <wsdl:output message="tns:CloseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplates">
+      <wsdl:input message="tns:GetApprovalTemplatesSoapIn" />
+      <wsdl:output message="tns:GetApprovalTemplatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDraftToDocument">
+      <wsdl:input message="tns:SaveDraftToDocumentSoapIn" />
+      <wsdl:output message="tns:SaveDraftToDocumentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StockTransferServiceSoap" type="tns:StockTransferServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="StockTransferService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="StockTransferService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="StockTransferService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap:operation soapAction="StockTransferService/Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CancelSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="StockTransferService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <soap:operation soapAction="StockTransferService/Close" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CloseSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplates">
+      <soap:operation soapAction="StockTransferService/GetApprovalTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetApprovalTemplatesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDraftToDocument">
+      <soap:operation soapAction="StockTransferService/SaveDraftToDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SaveDraftToDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StockTransferServiceSoap12" type="tns:StockTransferServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="StockTransferService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="StockTransferService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="StockTransferService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap12:operation soapAction="StockTransferService/Cancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CancelSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="StockTransferService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <soap12:operation soapAction="StockTransferService/Close" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CloseSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplates">
+      <soap12:operation soapAction="StockTransferService/GetApprovalTemplates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetApprovalTemplatesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDraftToDocument">
+      <soap12:operation soapAction="StockTransferService/SaveDraftToDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SaveDraftToDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StockTransferService">
+    <wsdl:port name="StockTransferServiceSoap" binding="tns:StockTransferServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StockTransferServiceSoap12" binding="tns:StockTransferServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="CertificateSeriesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="CertificateSeriesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddCertificateSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCertificateSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCertificateSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeries" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateSeriesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeriesParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CertificateSeries">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Section" type="s:long" />
+            <s:element minOccurs="0" name="Location" type="s:long" />
+            <s:element minOccurs="0" name="DefaultSeries" type="s:long" />
+            <s:element minOccurs="0" name="SeriesLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="SeriesLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Series" type="s:long" />
+                        <s:element minOccurs="0" name="Prefix" type="s:string" />
+                        <s:element minOccurs="0" name="FirstNum" type="s:long" />
+                        <s:element minOccurs="0" name="NextNum" type="s:long" />
+                        <s:element minOccurs="0" name="LastNum" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CertificateSeriesParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Section" type="s:long" />
+            <s:element minOccurs="0" name="Location" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CertificateSeriesParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="CertificateSeriesParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Section" type="s:long" />
+                  <s:element minOccurs="0" name="Location" type="s:long" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="CertificateSeriesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="CertificateSeriesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddCertificateSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeries" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCertificateSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeries" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCertificateSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CertificateSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateSeriesList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddCertificateSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCertificateSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddCertificateSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:AddCertificateSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCertificateSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCertificateSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCertificateSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCertificateSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCertificateSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCertificateSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCertificateSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteCertificateSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCertificateSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateSeriesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateSeriesList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateSeriesListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCertificateSeriesListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CertificateSeriesServiceSoap">
+    <wsdl:operation name="AddCertificateSeries">
+      <wsdl:input message="tns:AddCertificateSeriesSoapIn" />
+      <wsdl:output message="tns:AddCertificateSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCertificateSeries">
+      <wsdl:input message="tns:UpdateCertificateSeriesSoapIn" />
+      <wsdl:output message="tns:UpdateCertificateSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCertificateSeries">
+      <wsdl:input message="tns:DeleteCertificateSeriesSoapIn" />
+      <wsdl:output message="tns:DeleteCertificateSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSeries">
+      <wsdl:input message="tns:GetCertificateSeriesSoapIn" />
+      <wsdl:output message="tns:GetCertificateSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSeriesList">
+      <wsdl:input message="tns:GetCertificateSeriesListSoapIn" />
+      <wsdl:output message="tns:GetCertificateSeriesListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CertificateSeriesServiceSoap" type="tns:CertificateSeriesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCertificateSeries">
+      <soap:operation soapAction="CertificateSeriesService/AddCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCertificateSeries">
+      <soap:operation soapAction="CertificateSeriesService/UpdateCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCertificateSeries">
+      <soap:operation soapAction="CertificateSeriesService/DeleteCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSeries">
+      <soap:operation soapAction="CertificateSeriesService/GetCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSeriesList">
+      <soap:operation soapAction="CertificateSeriesService/GetCertificateSeriesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCertificateSeriesListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CertificateSeriesServiceSoap12" type="tns:CertificateSeriesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCertificateSeries">
+      <soap12:operation soapAction="CertificateSeriesService/AddCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCertificateSeries">
+      <soap12:operation soapAction="CertificateSeriesService/UpdateCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCertificateSeries">
+      <soap12:operation soapAction="CertificateSeriesService/DeleteCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSeries">
+      <soap12:operation soapAction="CertificateSeriesService/GetCertificateSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCertificateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSeriesList">
+      <soap12:operation soapAction="CertificateSeriesService/GetCertificateSeriesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCertificateSeriesListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CertificateSeriesService">
+    <wsdl:port name="CertificateSeriesServiceSoap" binding="tns:CertificateSeriesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CertificateSeriesServiceSoap12" binding="tns:CertificateSeriesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

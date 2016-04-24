@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="DunningTermsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="DunningTermsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddDunningTermResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTermParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDunningTermResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDunningTermResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDunningTermResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTerm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDunningTermListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTermsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DunningTerm">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="GroupingMethod">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="gmPerInvoice" />
+                  <s:enumeration value="gmPerDunningLevel" />
+                  <s:enumeration value="gmPerBP" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DaysInYear" type="s:long" />
+            <s:element minOccurs="0" name="DaysInMonth" type="s:long" />
+            <s:element minOccurs="0" name="CalculateInterestMethod">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="cimOnRemainingAmount" />
+                  <s:enumeration value="cimOnOriginalSum" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ExchangeRateSelect">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ierFromInovice" />
+                  <s:enumeration value="ierCurrentRate" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="YearlyInterestRate" type="s:double" />
+            <s:element minOccurs="0" name="LetterFee" type="s:double" />
+            <s:element minOccurs="0" name="LetterFeeCurrency" type="s:string" />
+            <s:element minOccurs="0" name="MinimumBalance" type="s:double" />
+            <s:element minOccurs="0" name="MinimumBalanceCurrency" type="s:string" />
+            <s:element minOccurs="0" name="IncludeInterest">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ApplyHighestLetterTemplate">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="AutomaticPosting">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="apNo" />
+                  <s:enumeration value="apInterestAndFee" />
+                  <s:enumeration value="apInterestOnly" />
+                  <s:enumeration value="apFeeOnly" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="InterestAccount" type="s:string" />
+            <s:element minOccurs="0" name="FeeAccount" type="s:string" />
+            <s:element minOccurs="0" name="BaseDateSelect">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bdsFromDueDate" />
+                  <s:enumeration value="bdsFromLastDunningRun" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DunningTermLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="DunningTermLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LevelNum" type="s:long" />
+                        <s:element minOccurs="0" name="LetterFormat">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="dltDunningLetter1" />
+                              <s:enumeration value="dltDunningLetter2" />
+                              <s:enumeration value="dltDunningLetter3" />
+                              <s:enumeration value="dltDunningLetter4" />
+                              <s:enumeration value="dltDunningLetter5" />
+                              <s:enumeration value="dltDunningLetter6" />
+                              <s:enumeration value="dltDunningLetter7" />
+                              <s:enumeration value="dltDunningLetter8" />
+                              <s:enumeration value="dltDunningLetter9" />
+                              <s:enumeration value="dltDunningLetter10" />
+                              <s:enumeration value="dltDunningALL" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Effectiveafter" type="s:string" />
+                        <s:element minOccurs="0" name="LetterFee" type="s:double" />
+                        <s:element minOccurs="0" name="LetterFeeCurrency" type="s:string" />
+                        <s:element minOccurs="0" name="MininumBalance" type="s:double" />
+                        <s:element minOccurs="0" name="MininumBalanceCurrency" type="s:string" />
+                        <s:element minOccurs="0" name="CalculateInterest">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DunningTermParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DunningTermsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="DunningTermParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="DunningTermsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="DunningTermsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddDunningTerm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTerm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDunningTerm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTerm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDunningTerm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTermParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDunningTerm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DunningTermParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDunningTermList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDunningTermSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDunningTerm" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddDunningTermSoapOut">
+    <wsdl:part name="parameters" element="s1:AddDunningTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDunningTermSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDunningTerm" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDunningTermSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateDunningTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDunningTermSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDunningTerm" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDunningTermSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteDunningTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDunningTermSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDunningTerm" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDunningTermSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDunningTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDunningTermListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDunningTermList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDunningTermListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDunningTermListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DunningTermsServiceSoap">
+    <wsdl:operation name="AddDunningTerm">
+      <wsdl:input message="tns:AddDunningTermSoapIn" />
+      <wsdl:output message="tns:AddDunningTermSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDunningTerm">
+      <wsdl:input message="tns:UpdateDunningTermSoapIn" />
+      <wsdl:output message="tns:UpdateDunningTermSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDunningTerm">
+      <wsdl:input message="tns:DeleteDunningTermSoapIn" />
+      <wsdl:output message="tns:DeleteDunningTermSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDunningTerm">
+      <wsdl:input message="tns:GetDunningTermSoapIn" />
+      <wsdl:output message="tns:GetDunningTermSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDunningTermList">
+      <wsdl:input message="tns:GetDunningTermListSoapIn" />
+      <wsdl:output message="tns:GetDunningTermListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DunningTermsServiceSoap" type="tns:DunningTermsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDunningTerm">
+      <soap:operation soapAction="DunningTermsService/AddDunningTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDunningTerm">
+      <soap:operation soapAction="DunningTermsService/UpdateDunningTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDunningTerm">
+      <soap:operation soapAction="DunningTermsService/DeleteDunningTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDunningTerm">
+      <soap:operation soapAction="DunningTermsService/GetDunningTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDunningTermList">
+      <soap:operation soapAction="DunningTermsService/GetDunningTermList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDunningTermListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DunningTermsServiceSoap12" type="tns:DunningTermsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDunningTerm">
+      <soap12:operation soapAction="DunningTermsService/AddDunningTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDunningTerm">
+      <soap12:operation soapAction="DunningTermsService/UpdateDunningTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDunningTerm">
+      <soap12:operation soapAction="DunningTermsService/DeleteDunningTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDunningTerm">
+      <soap12:operation soapAction="DunningTermsService/GetDunningTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDunningTermSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDunningTermList">
+      <soap12:operation soapAction="DunningTermsService/GetDunningTermList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDunningTermListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DunningTermsService">
+    <wsdl:port name="DunningTermsServiceSoap" binding="tns:DunningTermsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DunningTermsServiceSoap12" binding="tns:DunningTermsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

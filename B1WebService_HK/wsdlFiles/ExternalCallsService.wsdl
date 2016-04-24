@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ExternalCallsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ExternalCallsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="SendCallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalCallParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCallResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalCall" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExternalCall">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ID" type="s:long" />
+            <s:element minOccurs="0" name="Category" type="s:long" />
+            <s:element minOccurs="0" name="Status">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ecsNew" />
+                  <s:enumeration value="ecsInProcess" />
+                  <s:enumeration value="ecsCompleted" />
+                  <s:enumeration value="ecsConfirmed" />
+                  <s:enumeration value="ecsFailed" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="CreationDate" type="s:date" />
+            <s:element minOccurs="0" name="CreationTime" type="s:long" />
+            <s:element minOccurs="0" name="LastUpdateDate" type="s:date" />
+            <s:element minOccurs="0" name="LastUpdateTime" type="s:long" />
+            <s:element minOccurs="0" name="LastUpdateUserCode" type="s:string" />
+            <s:element minOccurs="0" name="CallArguments">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="CallArgument">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Name" type="s:string" />
+                        <s:element minOccurs="0" name="Value" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="CallMessages">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="CallMessage">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ID" type="s:long" />
+                        <s:element minOccurs="0" name="Type">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="cmtInformation" />
+                              <s:enumeration value="cmtWarning" />
+                              <s:enumeration value="cmtError" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="ErrorCode" type="s:string" />
+                        <s:element minOccurs="0" name="MessageBody" type="s:string" />
+                        <s:element minOccurs="0" name="Status">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="cmsUnread" />
+                              <s:enumeration value="cmsRead" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="CreationDate" type="s:date" />
+                        <s:element minOccurs="0" name="CreationTime" type="s:long" />
+                        <s:element minOccurs="0" name="CallMessageArguments">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="unbounded" name="CallMessageArgument">
+                                <s:complexType>
+                                  <s:all>
+                                    <s:element minOccurs="0" name="Name" type="s:string" />
+                                    <s:element minOccurs="0" name="Value" type="s:string" />
+                                  </s:all>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExternalCallParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ID" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ExternalCallsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ExternalCallsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="SendCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalCall" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalCall" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalCallParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendCallSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCall" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendCallSoapOut">
+    <wsdl:part name="parameters" element="s1:SendCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCallSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCall" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCallSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCall" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCallSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCallResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExternalCallsServiceSoap">
+    <wsdl:operation name="SendCall">
+      <wsdl:input message="tns:SendCallSoapIn" />
+      <wsdl:output message="tns:SendCallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCall">
+      <wsdl:input message="tns:UpdateCallSoapIn" />
+      <wsdl:output message="tns:UpdateCallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCall">
+      <wsdl:input message="tns:GetCallSoapIn" />
+      <wsdl:output message="tns:GetCallSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExternalCallsServiceSoap" type="tns:ExternalCallsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendCall">
+      <soap:operation soapAction="ExternalCallsService/SendCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SendCallSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCall">
+      <soap:operation soapAction="ExternalCallsService/UpdateCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCallSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCall">
+      <soap:operation soapAction="ExternalCallsService/GetCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCallSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExternalCallsServiceSoap12" type="tns:ExternalCallsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendCall">
+      <soap12:operation soapAction="ExternalCallsService/SendCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SendCallSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCall">
+      <soap12:operation soapAction="ExternalCallsService/UpdateCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCallSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCall">
+      <soap12:operation soapAction="ExternalCallsService/GetCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCallSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExternalCallsService">
+    <wsdl:port name="ExternalCallsServiceSoap" binding="tns:ExternalCallsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExternalCallsServiceSoap12" binding="tns:ExternalCallsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

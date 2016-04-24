@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BusinessPartnerPropertiesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BusinessPartnerPropertiesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="UpdateBusinessPartnerPropertyResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessPartnerPropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessPartnerPropertyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerPropertiesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BusinessPartnerProperty">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="PropertyCode" type="s:long" />
+            <s:element minOccurs="0" name="PropertyName" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BusinessPartnerPropertyParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="PropertyCode" type="s:long" />
+            <s:element minOccurs="0" name="PropertyName" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BusinessPartnerPropertiesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="BusinessPartnerPropertyParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="PropertyCode" type="s:long" />
+                  <s:element minOccurs="0" name="PropertyName" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BusinessPartnerPropertiesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BusinessPartnerPropertiesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="UpdateBusinessPartnerProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessPartnerProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerPropertyParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessPartnerPropertyList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateBusinessPartnerPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBusinessPartnerProperty" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBusinessPartnerPropertySoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateBusinessPartnerPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessPartnerPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessPartnerProperty" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessPartnerPropertySoapOut">
+    <wsdl:part name="parameters" element="s1:GetBusinessPartnerPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessPartnerPropertyListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessPartnerPropertyList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessPartnerPropertyListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBusinessPartnerPropertyListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BusinessPartnerPropertiesServiceSoap">
+    <wsdl:operation name="UpdateBusinessPartnerProperty">
+      <wsdl:input message="tns:UpdateBusinessPartnerPropertySoapIn" />
+      <wsdl:output message="tns:UpdateBusinessPartnerPropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessPartnerProperty">
+      <wsdl:input message="tns:GetBusinessPartnerPropertySoapIn" />
+      <wsdl:output message="tns:GetBusinessPartnerPropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessPartnerPropertyList">
+      <wsdl:input message="tns:GetBusinessPartnerPropertyListSoapIn" />
+      <wsdl:output message="tns:GetBusinessPartnerPropertyListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BusinessPartnerPropertiesServiceSoap" type="tns:BusinessPartnerPropertiesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateBusinessPartnerProperty">
+      <soap:operation soapAction="BusinessPartnerPropertiesService/UpdateBusinessPartnerProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateBusinessPartnerPropertySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessPartnerProperty">
+      <soap:operation soapAction="BusinessPartnerPropertiesService/GetBusinessPartnerProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBusinessPartnerPropertySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessPartnerPropertyList">
+      <soap:operation soapAction="BusinessPartnerPropertiesService/GetBusinessPartnerPropertyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBusinessPartnerPropertyListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BusinessPartnerPropertiesServiceSoap12" type="tns:BusinessPartnerPropertiesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateBusinessPartnerProperty">
+      <soap12:operation soapAction="BusinessPartnerPropertiesService/UpdateBusinessPartnerProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateBusinessPartnerPropertySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessPartnerProperty">
+      <soap12:operation soapAction="BusinessPartnerPropertiesService/GetBusinessPartnerProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBusinessPartnerPropertySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessPartnerPropertyList">
+      <soap12:operation soapAction="BusinessPartnerPropertiesService/GetBusinessPartnerPropertyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBusinessPartnerPropertyListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BusinessPartnerPropertiesService">
+    <wsdl:port name="BusinessPartnerPropertiesServiceSoap" binding="tns:BusinessPartnerPropertiesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BusinessPartnerPropertiesServiceSoap12" binding="tns:BusinessPartnerPropertiesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

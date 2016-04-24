@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="SalesOpportunityReasonsSetupService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="SalesOpportunityReasonsSetupService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddSalesOpportunityReasonSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesOpportunityReasonSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSalesOpportunityReasonSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityReasonSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityReasonSetupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetupParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityReasonSetup">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+            <s:element minOccurs="0" name="Sort" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityReasonSetupParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityReasonSetupParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="SalesOpportunityReasonSetupParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+                  <s:element minOccurs="0" name="Description" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="SalesOpportunityReasonsSetupService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="SalesOpportunityReasonsSetupService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddSalesOpportunityReasonSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesOpportunityReasonSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSalesOpportunityReasonSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityReasonSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityReasonSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityReasonSetupList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSalesOpportunityReasonSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSalesOpportunityReasonSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSalesOpportunityReasonSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:AddSalesOpportunityReasonSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesOpportunityReasonSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSalesOpportunityReasonSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesOpportunityReasonSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateSalesOpportunityReasonSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSalesOpportunityReasonSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSalesOpportunityReasonSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSalesOpportunityReasonSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteSalesOpportunityReasonSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityReasonSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSalesOpportunityReasonSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityReasonSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSalesOpportunityReasonSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityReasonSetupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSalesOpportunityReasonSetupList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityReasonSetupListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSalesOpportunityReasonSetupListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SalesOpportunityReasonsSetupServiceSoap">
+    <wsdl:operation name="AddSalesOpportunityReasonSetup">
+      <wsdl:input message="tns:AddSalesOpportunityReasonSetupSoapIn" />
+      <wsdl:output message="tns:AddSalesOpportunityReasonSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityReasonSetup">
+      <wsdl:input message="tns:UpdateSalesOpportunityReasonSetupSoapIn" />
+      <wsdl:output message="tns:UpdateSalesOpportunityReasonSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityReasonSetup">
+      <wsdl:input message="tns:DeleteSalesOpportunityReasonSetupSoapIn" />
+      <wsdl:output message="tns:DeleteSalesOpportunityReasonSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityReasonSetup">
+      <wsdl:input message="tns:GetSalesOpportunityReasonSetupSoapIn" />
+      <wsdl:output message="tns:GetSalesOpportunityReasonSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityReasonSetupList">
+      <wsdl:input message="tns:GetSalesOpportunityReasonSetupListSoapIn" />
+      <wsdl:output message="tns:GetSalesOpportunityReasonSetupListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesOpportunityReasonsSetupServiceSoap" type="tns:SalesOpportunityReasonsSetupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSalesOpportunityReasonSetup">
+      <soap:operation soapAction="SalesOpportunityReasonsSetupService/AddSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityReasonSetup">
+      <soap:operation soapAction="SalesOpportunityReasonsSetupService/UpdateSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityReasonSetup">
+      <soap:operation soapAction="SalesOpportunityReasonsSetupService/DeleteSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityReasonSetup">
+      <soap:operation soapAction="SalesOpportunityReasonsSetupService/GetSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityReasonSetupList">
+      <soap:operation soapAction="SalesOpportunityReasonsSetupService/GetSalesOpportunityReasonSetupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSalesOpportunityReasonSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesOpportunityReasonsSetupServiceSoap12" type="tns:SalesOpportunityReasonsSetupServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSalesOpportunityReasonSetup">
+      <soap12:operation soapAction="SalesOpportunityReasonsSetupService/AddSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityReasonSetup">
+      <soap12:operation soapAction="SalesOpportunityReasonsSetupService/UpdateSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityReasonSetup">
+      <soap12:operation soapAction="SalesOpportunityReasonsSetupService/DeleteSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityReasonSetup">
+      <soap12:operation soapAction="SalesOpportunityReasonsSetupService/GetSalesOpportunityReasonSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSalesOpportunityReasonSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityReasonSetupList">
+      <soap12:operation soapAction="SalesOpportunityReasonsSetupService/GetSalesOpportunityReasonSetupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSalesOpportunityReasonSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesOpportunityReasonsSetupService">
+    <wsdl:port name="SalesOpportunityReasonsSetupServiceSoap" binding="tns:SalesOpportunityReasonsSetupServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesOpportunityReasonsSetupServiceSoap12" binding="tns:SalesOpportunityReasonsSetupServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

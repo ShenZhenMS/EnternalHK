@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ProductTreesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ProductTreesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductTreeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductTree">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="TreeCode" type="s:string" />
+            <s:element minOccurs="0" name="TreeType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="iNotATree" />
+                  <s:enumeration value="iAssemblyTree" />
+                  <s:enumeration value="iSalesTree" />
+                  <s:enumeration value="iProductionTree" />
+                  <s:enumeration value="iTemplateTree" />
+                  <s:enumeration value="iIngredient" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Quantity" type="s:double" />
+            <s:element minOccurs="0" name="DistributionRule" type="s:string" />
+            <s:element minOccurs="0" name="Project" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule2" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule3" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule4" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule5" type="s:string" />
+            <s:element minOccurs="0" name="PriceList" type="s:long" />
+            <s:element minOccurs="0" name="Warehouse" type="s:string" />
+            <s:element minOccurs="0" name="ProductTreeLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ProductTreeLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ItemCode" type="s:string" />
+                        <s:element minOccurs="0" name="Quantity" type="s:double" />
+                        <s:element minOccurs="0" name="Warehouse" type="s:string" />
+                        <s:element minOccurs="0" name="Price" type="s:double" />
+                        <s:element minOccurs="0" name="Currency" type="s:string" />
+                        <s:element minOccurs="0" name="IssueMethod">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="im_Backflush" />
+                              <s:enumeration value="im_Manual" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="InventoryUOM" type="s:string" />
+                        <s:element minOccurs="0" name="Comment" type="s:string" />
+                        <s:element minOccurs="0" name="ParentItem" type="s:string" />
+                        <s:element minOccurs="0" name="PriceList" type="s:long" />
+                        <s:element minOccurs="0" name="DistributionRule" type="s:string" />
+                        <s:element minOccurs="0" name="Project" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule2" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule3" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule4" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule5" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductTreeParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="TreeCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ProductTreesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ProductTreesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductTree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductTreeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductTreeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductTreesServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductTreesServiceSoap" type="tns:ProductTreesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="ProductTreesService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="ProductTreesService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="ProductTreesService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="ProductTreesService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductTreesServiceSoap12" type="tns:ProductTreesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="ProductTreesService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="ProductTreesService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="ProductTreesService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="ProductTreesService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductTreesService">
+    <wsdl:port name="ProductTreesServiceSoap" binding="tns:ProductTreesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductTreesServiceSoap12" binding="tns:ProductTreesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

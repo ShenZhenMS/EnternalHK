@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="UserMenuService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="UserMenuService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="GetCurrentUserMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserMenuItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCurrentUserMenuResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserMenuItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserMenuResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="UserMenuItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="UserMenuItem">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                  <s:element minOccurs="0" name="Position" type="s:long" />
+                  <s:element minOccurs="0" name="Type">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="umitForm" />
+                        <s:enumeration value="umitQuery" />
+                        <s:enumeration value="umitFolder" />
+                        <s:enumeration value="umitReport" />
+                        <s:enumeration value="umitLink" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="LinkedObjType" type="s:string" />
+                  <s:element minOccurs="0" name="LinkedObjKey" type="s:string" />
+                  <s:element minOccurs="0" name="LinkedFormMenuID" type="s:long" />
+                  <s:element minOccurs="0" name="LinkedFormNum" type="s:long" />
+                  <s:element minOccurs="0" name="ReportPath" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" ref="s:UserMenuItems" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserMenuParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="UserID" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="UserMenuService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="UserMenuService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="GetCurrentUserMenu">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCurrentUserMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserMenuItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserMenuParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserMenuParams" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserMenuItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCurrentUserMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentUserMenu" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserMenuSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCurrentUserMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCurrentUserMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCurrentUserMenu" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCurrentUserMenuSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCurrentUserMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserMenu" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetUserMenuSoapOut">
+    <wsdl:part name="parameters" element="s1:GetUserMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserMenu" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserMenuSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateUserMenuResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserMenuServiceSoap">
+    <wsdl:operation name="GetCurrentUserMenu">
+      <wsdl:input message="tns:GetCurrentUserMenuSoapIn" />
+      <wsdl:output message="tns:GetCurrentUserMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrentUserMenu">
+      <wsdl:input message="tns:UpdateCurrentUserMenuSoapIn" />
+      <wsdl:output message="tns:UpdateCurrentUserMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenu">
+      <wsdl:input message="tns:GetUserMenuSoapIn" />
+      <wsdl:output message="tns:GetUserMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenu">
+      <wsdl:input message="tns:UpdateUserMenuSoapIn" />
+      <wsdl:output message="tns:UpdateUserMenuSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserMenuServiceSoap" type="tns:UserMenuServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentUserMenu">
+      <soap:operation soapAction="UserMenuService/GetCurrentUserMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCurrentUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrentUserMenu">
+      <soap:operation soapAction="UserMenuService/UpdateCurrentUserMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCurrentUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenu">
+      <soap:operation soapAction="UserMenuService/GetUserMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenu">
+      <soap:operation soapAction="UserMenuService/UpdateUserMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserMenuServiceSoap12" type="tns:UserMenuServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentUserMenu">
+      <soap12:operation soapAction="UserMenuService/GetCurrentUserMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCurrentUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrentUserMenu">
+      <soap12:operation soapAction="UserMenuService/UpdateCurrentUserMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCurrentUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenu">
+      <soap12:operation soapAction="UserMenuService/GetUserMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenu">
+      <soap12:operation soapAction="UserMenuService/UpdateUserMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateUserMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserMenuService">
+    <wsdl:port name="UserMenuServiceSoap" binding="tns:UserMenuServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserMenuServiceSoap12" binding="tns:UserMenuServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

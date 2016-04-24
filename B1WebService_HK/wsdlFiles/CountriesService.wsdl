@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="CountriesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="CountriesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CountryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCountryResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCountryResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CountriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Country" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Country">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="CodeForReports" type="s:string" />
+            <s:element minOccurs="0" name="AddressFormat" type="s:long" />
+            <s:element minOccurs="0" name="EU">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="NumberOfDigitsForTaxID" type="s:long" />
+            <s:element minOccurs="0" name="BankCodeDigits" type="s:long" />
+            <s:element minOccurs="0" name="BankBranchDigits" type="s:long" />
+            <s:element minOccurs="0" name="BankAccountDigits" type="s:long" />
+            <s:element minOccurs="0" name="BankControlKeyDigits" type="s:long" />
+            <s:element minOccurs="0" name="DomesticAccountValidation">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="dbavNone" />
+                  <s:enumeration value="dbavBelgium" />
+                  <s:enumeration value="dbavSpain" />
+                  <s:enumeration value="dbavFrance" />
+                  <s:enumeration value="dbavItaly" />
+                  <s:enumeration value="dbavNetherlands" />
+                  <s:enumeration value="dbavPortugal" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IbanValidation">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Blacklisted">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="UICCountryCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountryParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountriesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="CountryParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="CountriesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="CountriesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Country" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Country" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CountryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CountryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:AddCountry" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddCountrySoapOut">
+    <wsdl:part name="parameters" element="s1:AddCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCountry" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCountrySoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCountry" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCountrySoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCountrySoapOut">
+    <wsdl:part name="parameters" element="s1:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CountriesServiceSoap">
+    <wsdl:operation name="AddCountry">
+      <wsdl:input message="tns:AddCountrySoapIn" />
+      <wsdl:output message="tns:AddCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <wsdl:input message="tns:UpdateCountrySoapIn" />
+      <wsdl:output message="tns:UpdateCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <wsdl:input message="tns:DeleteCountrySoapIn" />
+      <wsdl:output message="tns:DeleteCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <wsdl:input message="tns:GetCountryListSoapIn" />
+      <wsdl:output message="tns:GetCountryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <wsdl:input message="tns:GetCountrySoapIn" />
+      <wsdl:output message="tns:GetCountrySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CountriesServiceSoap" type="tns:CountriesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCountry">
+      <soap:operation soapAction="CountriesService/AddCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <soap:operation soapAction="CountriesService/UpdateCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <soap:operation soapAction="CountriesService/DeleteCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap:operation soapAction="CountriesService/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCountryListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap:operation soapAction="CountriesService/GetCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CountriesServiceSoap12" type="tns:CountriesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCountry">
+      <soap12:operation soapAction="CountriesService/AddCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <soap12:operation soapAction="CountriesService/UpdateCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <soap12:operation soapAction="CountriesService/DeleteCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap12:operation soapAction="CountriesService/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCountryListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap12:operation soapAction="CountriesService/GetCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCountrySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CountriesService">
+    <wsdl:port name="CountriesServiceSoap" binding="tns:CountriesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CountriesServiceSoap12" binding="tns:CountriesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

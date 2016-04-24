@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BillOfExchangeTransactionsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BillOfExchangeTransactionsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BillOfExchangeTransactionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BillOfExchangeTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BillOfExchangeTransaction">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="StatusFrom">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="btfs_Sent" />
+                  <s:enumeration value="btfs_Generated" />
+                  <s:enumeration value="btfs_Deposited" />
+                  <s:enumeration value="btfs_Paid" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="StatusTo">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="btts_Canceled" />
+                  <s:enumeration value="btts_Generated" />
+                  <s:enumeration value="btts_Deposit" />
+                  <s:enumeration value="btts_Paid" />
+                  <s:enumeration value="btts_Failed" />
+                  <s:enumeration value="btts_Closed" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TransactionDate" type="s:date" />
+            <s:element minOccurs="0" name="TransactionTime" type="s:time" />
+            <s:element minOccurs="0" name="IsBoeReconciled">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TransactionNumber" type="s:long" />
+            <s:element minOccurs="0" name="PostingDate" type="s:date" />
+            <s:element minOccurs="0" name="TaxDate" type="s:date" />
+            <s:element minOccurs="0" name="BOETransactionkey" type="s:long" />
+            <s:element minOccurs="0" name="BillOfExchangeTransactionLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BillOfExchangeTransactionLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="BillOfExchangeNo" type="s:long" />
+                        <s:element minOccurs="0" name="BillOfExchangeType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bobt_Incoming" />
+                              <s:enumeration value="bobt_Outgoing" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="BillOfExchangeDueDate" type="s:date" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BillOfExchangeTransDeposits">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BillOfExchangeTransDeposit">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DepositNorm" type="s:string" />
+                        <s:element minOccurs="0" name="PostingType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="dpt_Collection" />
+                              <s:enumeration value="dpt_Discounted" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="BankCountry" type="s:string" />
+                        <s:element minOccurs="0" name="BankAccount" type="s:string" />
+                        <s:element minOccurs="0" name="BankDepositAccount" type="s:string" />
+                        <s:element minOccurs="0" name="BankBranch" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BillOfExchangeTransBankPages">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BillOfExchangeTransBankPage">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="AccountCode" type="s:string" />
+                        <s:element minOccurs="0" name="Sequence" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BillOfExchangeTransactionParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="BOETransactionkey" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BillOfExchangeTransactionsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BillOfExchangeTransactionsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BillOfExchangeTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BillOfExchangeTransactionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BillOfExchangeTransactionsServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BillOfExchangeTransactionsServiceSoap" type="tns:BillOfExchangeTransactionsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="BillOfExchangeTransactionsService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="BillOfExchangeTransactionsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BillOfExchangeTransactionsServiceSoap12" type="tns:BillOfExchangeTransactionsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="BillOfExchangeTransactionsService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="BillOfExchangeTransactionsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillOfExchangeTransactionsService">
+    <wsdl:port name="BillOfExchangeTransactionsServiceSoap" binding="tns:BillOfExchangeTransactionsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BillOfExchangeTransactionsServiceSoap12" binding="tns:BillOfExchangeTransactionsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="AccountsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="AccountsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="CreateOpenBalanceResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenningBalanceAccount">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="OpenBalanceAccount" type="s:string" />
+            <s:element minOccurs="0" name="Date" type="s:date" />
+            <s:element minOccurs="0" name="Ref1" type="s:string" />
+            <s:element minOccurs="0" name="Ref2" type="s:string" />
+            <s:element minOccurs="0" name="Details" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="GLAccounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="GLAccount">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="DueDate" type="s:date" />
+                  <s:element minOccurs="0" name="Debit" type="s:double" />
+                  <s:element minOccurs="0" name="Credit" type="s:double" />
+                  <s:element minOccurs="0" name="SystemDebit" type="s:double" />
+                  <s:element minOccurs="0" name="SystemCredit" type="s:double" />
+                  <s:element minOccurs="0" name="ForeignDebit" type="s:double" />
+                  <s:element minOccurs="0" name="ForeignCredit" type="s:double" />
+                  <s:element minOccurs="0" name="ForeignCurrency" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="AccountsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="AccountsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="CreateOpenBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OpenningBalanceAccount" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:GLAccounts" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateOpenBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOpenBalance" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateOpenBalanceSoapOut">
+    <wsdl:part name="parameters" element="s1:CreateOpenBalanceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountsServiceSoap">
+    <wsdl:operation name="CreateOpenBalance">
+      <wsdl:input message="tns:CreateOpenBalanceSoapIn" />
+      <wsdl:output message="tns:CreateOpenBalanceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountsServiceSoap" type="tns:AccountsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateOpenBalance">
+      <soap:operation soapAction="AccountsService/CreateOpenBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CreateOpenBalanceSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AccountsServiceSoap12" type="tns:AccountsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateOpenBalance">
+      <soap12:operation soapAction="AccountsService/CreateOpenBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CreateOpenBalanceSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountsService">
+    <wsdl:port name="AccountsServiceSoap" binding="tns:AccountsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AccountsServiceSoap12" binding="tns:AccountsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

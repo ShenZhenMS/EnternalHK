@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BOEInstructionsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BOEInstructionsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddBOEInstructionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstructionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBOEInstructionResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBOEInstructionResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEInstructionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstruction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEInstructionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstructionsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEInstruction">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="InstructionEntry" type="s:long" />
+            <s:element minOccurs="0" name="InstructionCode" type="s:string" />
+            <s:element minOccurs="0" name="InstructionDesc" type="s:string" />
+            <s:element minOccurs="0" name="IsCancelInstruction">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEInstructionParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="InstructionEntry" type="s:long" />
+            <s:element minOccurs="0" name="InstructionCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEInstructionsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="BOEInstructionParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="InstructionEntry" type="s:long" />
+                  <s:element minOccurs="0" name="InstructionCode" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BOEInstructionsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BOEInstructionsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddBOEInstruction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstruction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBOEInstruction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstruction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBOEInstruction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstructionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEInstruction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEInstructionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEInstructionList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddBOEInstructionSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBOEInstruction" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddBOEInstructionSoapOut">
+    <wsdl:part name="parameters" element="s1:AddBOEInstructionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBOEInstructionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBOEInstruction" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBOEInstructionSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateBOEInstructionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBOEInstructionSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBOEInstruction" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBOEInstructionSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteBOEInstructionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEInstructionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOEInstruction" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEInstructionSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBOEInstructionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEInstructionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOEInstructionList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEInstructionListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBOEInstructionListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BOEInstructionsServiceSoap">
+    <wsdl:operation name="AddBOEInstruction">
+      <wsdl:input message="tns:AddBOEInstructionSoapIn" />
+      <wsdl:output message="tns:AddBOEInstructionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEInstruction">
+      <wsdl:input message="tns:UpdateBOEInstructionSoapIn" />
+      <wsdl:output message="tns:UpdateBOEInstructionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEInstruction">
+      <wsdl:input message="tns:DeleteBOEInstructionSoapIn" />
+      <wsdl:output message="tns:DeleteBOEInstructionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEInstruction">
+      <wsdl:input message="tns:GetBOEInstructionSoapIn" />
+      <wsdl:output message="tns:GetBOEInstructionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEInstructionList">
+      <wsdl:input message="tns:GetBOEInstructionListSoapIn" />
+      <wsdl:output message="tns:GetBOEInstructionListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BOEInstructionsServiceSoap" type="tns:BOEInstructionsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBOEInstruction">
+      <soap:operation soapAction="BOEInstructionsService/AddBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEInstruction">
+      <soap:operation soapAction="BOEInstructionsService/UpdateBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEInstruction">
+      <soap:operation soapAction="BOEInstructionsService/DeleteBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEInstruction">
+      <soap:operation soapAction="BOEInstructionsService/GetBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEInstructionList">
+      <soap:operation soapAction="BOEInstructionsService/GetBOEInstructionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBOEInstructionListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BOEInstructionsServiceSoap12" type="tns:BOEInstructionsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBOEInstruction">
+      <soap12:operation soapAction="BOEInstructionsService/AddBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEInstruction">
+      <soap12:operation soapAction="BOEInstructionsService/UpdateBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEInstruction">
+      <soap12:operation soapAction="BOEInstructionsService/DeleteBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEInstruction">
+      <soap12:operation soapAction="BOEInstructionsService/GetBOEInstruction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBOEInstructionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEInstructionList">
+      <soap12:operation soapAction="BOEInstructionsService/GetBOEInstructionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBOEInstructionListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOEInstructionsService">
+    <wsdl:port name="BOEInstructionsServiceSoap" binding="tns:BOEInstructionsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BOEInstructionsServiceSoap12" binding="tns:BOEInstructionsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

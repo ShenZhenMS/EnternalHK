@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="AccountCategoryService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="AccountCategoryService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategoryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCategoryResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCategoryResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategoryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategoriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountCategory">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CategoryCode" type="s:long" />
+            <s:element minOccurs="0" name="CategoryName" type="s:string" />
+            <s:element minOccurs="0" name="CategorySource">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="acsBalanceSheet" />
+                  <s:enumeration value="acsProfitAndLoss" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountCategoryParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CategoryCode" type="s:long" />
+            <s:element minOccurs="0" name="CategoryName" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountCategoriesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="AccountCategoryParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="CategoryCode" type="s:long" />
+                  <s:element minOccurs="0" name="CategoryName" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="AccountCategoryService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="AccountCategoryService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategoryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountCategoryParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategoryList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:AddCategory" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddCategorySoapOut">
+    <wsdl:part name="parameters" element="s1:AddCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCategorySoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCategorySoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCategory" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCategorySoapOut">
+    <wsdl:part name="parameters" element="s1:GetCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCategoryList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoryListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCategoryListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountCategoryServiceSoap">
+    <wsdl:operation name="AddCategory">
+      <wsdl:input message="tns:AddCategorySoapIn" />
+      <wsdl:output message="tns:AddCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <wsdl:input message="tns:UpdateCategorySoapIn" />
+      <wsdl:output message="tns:UpdateCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input message="tns:DeleteCategorySoapIn" />
+      <wsdl:output message="tns:DeleteCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <wsdl:input message="tns:GetCategorySoapIn" />
+      <wsdl:output message="tns:GetCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <wsdl:input message="tns:GetCategoryListSoapIn" />
+      <wsdl:output message="tns:GetCategoryListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountCategoryServiceSoap" type="tns:AccountCategoryServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCategory">
+      <soap:operation soapAction="AccountCategoryService/AddCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap:operation soapAction="AccountCategoryService/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="AccountCategoryService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <soap:operation soapAction="AccountCategoryService/GetCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <soap:operation soapAction="AccountCategoryService/GetCategoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCategoryListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AccountCategoryServiceSoap12" type="tns:AccountCategoryServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCategory">
+      <soap12:operation soapAction="AccountCategoryService/AddCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap12:operation soapAction="AccountCategoryService/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap12:operation soapAction="AccountCategoryService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <soap12:operation soapAction="AccountCategoryService/GetCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCategorySoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryList">
+      <soap12:operation soapAction="AccountCategoryService/GetCategoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCategoryListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountCategoryService">
+    <wsdl:port name="AccountCategoryServiceSoap" binding="tns:AccountCategoryServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AccountCategoryServiceSoap12" binding="tns:AccountCategoryServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

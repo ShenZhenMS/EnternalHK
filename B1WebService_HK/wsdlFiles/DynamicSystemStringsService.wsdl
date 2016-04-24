@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="DynamicSystemStringsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="DynamicSystemStringsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DynamicSystemString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DynamicSystemStringParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DynamicSystemStringParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="FormID" type="s:string" />
+            <s:element minOccurs="0" name="ItemID" type="s:string" />
+            <s:element minOccurs="0" name="ColumnID" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DynamicSystemString">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="FormID" type="s:string" />
+            <s:element minOccurs="0" name="ItemID" type="s:string" />
+            <s:element minOccurs="0" name="ColumnID" type="s:string" />
+            <s:element minOccurs="0" name="ItemString" type="s:string" />
+            <s:element minOccurs="0" name="IsBold">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IsItalics">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="DynamicSystemStringsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="DynamicSystemStringsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DynamicSystemStringParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DynamicSystemString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DynamicSystemStringParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DynamicSystemString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DynamicSystemStringsServiceSoap">
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DynamicSystemStringsServiceSoap" type="tns:DynamicSystemStringsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="DynamicSystemStringsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="DynamicSystemStringsService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="DynamicSystemStringsService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="DynamicSystemStringsService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DynamicSystemStringsServiceSoap12" type="tns:DynamicSystemStringsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="DynamicSystemStringsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="DynamicSystemStringsService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="DynamicSystemStringsService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="DynamicSystemStringsService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DynamicSystemStringsService">
+    <wsdl:port name="DynamicSystemStringsServiceSoap" binding="tns:DynamicSystemStringsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DynamicSystemStringsServiceSoap12" binding="tns:DynamicSystemStringsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

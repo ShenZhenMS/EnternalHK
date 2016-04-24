@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="EmployeeRolesSetupService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="EmployeeRolesSetupService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddEmployeeRoleSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeeRoleSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeRoleSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeRoleSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeRoleSetupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetupParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmployeeRoleSetup">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="TypeID" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmployeeRoleSetupParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="TypeID" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmployeeRoleSetupParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="EmployeeRoleSetupParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="TypeID" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="EmployeeRolesSetupService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="EmployeeRolesSetupService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddEmployeeRoleSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeeRoleSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeRoleSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeRoleSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:EmployeeRoleSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeRoleSetupList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddEmployeeRoleSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEmployeeRoleSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddEmployeeRoleSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:AddEmployeeRoleSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeRoleSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeRoleSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeRoleSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateEmployeeRoleSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeRoleSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeRoleSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeRoleSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteEmployeeRoleSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRoleSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeRoleSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRoleSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:GetEmployeeRoleSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRoleSetupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeRoleSetupList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeRoleSetupListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetEmployeeRoleSetupListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmployeeRolesSetupServiceSoap">
+    <wsdl:operation name="AddEmployeeRoleSetup">
+      <wsdl:input message="tns:AddEmployeeRoleSetupSoapIn" />
+      <wsdl:output message="tns:AddEmployeeRoleSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeRoleSetup">
+      <wsdl:input message="tns:UpdateEmployeeRoleSetupSoapIn" />
+      <wsdl:output message="tns:UpdateEmployeeRoleSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeRoleSetup">
+      <wsdl:input message="tns:DeleteEmployeeRoleSetupSoapIn" />
+      <wsdl:output message="tns:DeleteEmployeeRoleSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRoleSetup">
+      <wsdl:input message="tns:GetEmployeeRoleSetupSoapIn" />
+      <wsdl:output message="tns:GetEmployeeRoleSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRoleSetupList">
+      <wsdl:input message="tns:GetEmployeeRoleSetupListSoapIn" />
+      <wsdl:output message="tns:GetEmployeeRoleSetupListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeRolesSetupServiceSoap" type="tns:EmployeeRolesSetupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddEmployeeRoleSetup">
+      <soap:operation soapAction="EmployeeRolesSetupService/AddEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeRoleSetup">
+      <soap:operation soapAction="EmployeeRolesSetupService/UpdateEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeRoleSetup">
+      <soap:operation soapAction="EmployeeRolesSetupService/DeleteEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRoleSetup">
+      <soap:operation soapAction="EmployeeRolesSetupService/GetEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRoleSetupList">
+      <soap:operation soapAction="EmployeeRolesSetupService/GetEmployeeRoleSetupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetEmployeeRoleSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EmployeeRolesSetupServiceSoap12" type="tns:EmployeeRolesSetupServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddEmployeeRoleSetup">
+      <soap12:operation soapAction="EmployeeRolesSetupService/AddEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeRoleSetup">
+      <soap12:operation soapAction="EmployeeRolesSetupService/UpdateEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeRoleSetup">
+      <soap12:operation soapAction="EmployeeRolesSetupService/DeleteEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRoleSetup">
+      <soap12:operation soapAction="EmployeeRolesSetupService/GetEmployeeRoleSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetEmployeeRoleSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeRoleSetupList">
+      <soap12:operation soapAction="EmployeeRolesSetupService/GetEmployeeRoleSetupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetEmployeeRoleSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeRolesSetupService">
+    <wsdl:port name="EmployeeRolesSetupServiceSoap" binding="tns:EmployeeRolesSetupServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EmployeeRolesSetupServiceSoap12" binding="tns:EmployeeRolesSetupServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

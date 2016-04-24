@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ServiceCallOriginsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ServiceCallOriginsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddServiceCallOriginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOriginParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceCallOriginResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceCallOriginResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallOriginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOrigin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallOriginListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOriginParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallOrigin">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="OriginID" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallOriginParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="OriginID" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallOriginParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallOriginParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="OriginID" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ServiceCallOriginsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ServiceCallOriginsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddServiceCallOrigin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOrigin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceCallOrigin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOrigin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceCallOrigin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOriginParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallOrigin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallOriginParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallOriginList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddServiceCallOriginSoapIn">
+    <wsdl:part name="parameters" element="tns:AddServiceCallOrigin" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddServiceCallOriginSoapOut">
+    <wsdl:part name="parameters" element="s1:AddServiceCallOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceCallOriginSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateServiceCallOrigin" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceCallOriginSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateServiceCallOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceCallOriginSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteServiceCallOrigin" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceCallOriginSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteServiceCallOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallOriginSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceCallOrigin" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallOriginSoapOut">
+    <wsdl:part name="parameters" element="s1:GetServiceCallOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallOriginListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceCallOriginList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallOriginListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetServiceCallOriginListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceCallOriginsServiceSoap">
+    <wsdl:operation name="AddServiceCallOrigin">
+      <wsdl:input message="tns:AddServiceCallOriginSoapIn" />
+      <wsdl:output message="tns:AddServiceCallOriginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallOrigin">
+      <wsdl:input message="tns:UpdateServiceCallOriginSoapIn" />
+      <wsdl:output message="tns:UpdateServiceCallOriginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallOrigin">
+      <wsdl:input message="tns:DeleteServiceCallOriginSoapIn" />
+      <wsdl:output message="tns:DeleteServiceCallOriginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallOrigin">
+      <wsdl:input message="tns:GetServiceCallOriginSoapIn" />
+      <wsdl:output message="tns:GetServiceCallOriginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallOriginList">
+      <wsdl:input message="tns:GetServiceCallOriginListSoapIn" />
+      <wsdl:output message="tns:GetServiceCallOriginListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceCallOriginsServiceSoap" type="tns:ServiceCallOriginsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddServiceCallOrigin">
+      <soap:operation soapAction="ServiceCallOriginsService/AddServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallOrigin">
+      <soap:operation soapAction="ServiceCallOriginsService/UpdateServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallOrigin">
+      <soap:operation soapAction="ServiceCallOriginsService/DeleteServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallOrigin">
+      <soap:operation soapAction="ServiceCallOriginsService/GetServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallOriginList">
+      <soap:operation soapAction="ServiceCallOriginsService/GetServiceCallOriginList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetServiceCallOriginListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceCallOriginsServiceSoap12" type="tns:ServiceCallOriginsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddServiceCallOrigin">
+      <soap12:operation soapAction="ServiceCallOriginsService/AddServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallOrigin">
+      <soap12:operation soapAction="ServiceCallOriginsService/UpdateServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallOrigin">
+      <soap12:operation soapAction="ServiceCallOriginsService/DeleteServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallOrigin">
+      <soap12:operation soapAction="ServiceCallOriginsService/GetServiceCallOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetServiceCallOriginSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallOriginList">
+      <soap12:operation soapAction="ServiceCallOriginsService/GetServiceCallOriginList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetServiceCallOriginListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCallOriginsService">
+    <wsdl:port name="ServiceCallOriginsServiceSoap" binding="tns:ServiceCallOriginsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceCallOriginsServiceSoap12" binding="tns:ServiceCallOriginsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

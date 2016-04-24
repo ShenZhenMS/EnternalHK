@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="UsersService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="UsersService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="User">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="InternalKey" type="s:long" />
+            <s:element minOccurs="0" name="UserPassword" type="s:string" />
+            <s:element minOccurs="0" name="UserCode" type="s:string" />
+            <s:element minOccurs="0" name="UserName" type="s:string" />
+            <s:element minOccurs="0" name="Superuser">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="eMail" type="s:string" />
+            <s:element minOccurs="0" name="MobilePhoneNumber" type="s:string" />
+            <s:element minOccurs="0" name="Defaults" type="s:string" />
+            <s:element minOccurs="0" name="FaxNumber" type="s:string" />
+            <s:element minOccurs="0" name="Branch" type="s:long" />
+            <s:element minOccurs="0" name="Department" type="s:long" />
+            <s:element minOccurs="0" name="Locked">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Group">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ug_Regular" />
+                  <s:enumeration value="ug_Deleted" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="MaxDiscountGeneral" type="s:double" />
+            <s:element minOccurs="0" name="MaxDiscountSales" type="s:double" />
+            <s:element minOccurs="0" name="MaxDiscountPurchase" type="s:double" />
+            <s:element minOccurs="0" name="CashLimit">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="MaxCashAmtForIncmngPayts" type="s:double" />
+            <s:element minOccurs="0" name="LastLogoutDate" type="s:date" />
+            <s:element minOccurs="0" name="LastLoginTime" type="s:time" />
+            <s:element minOccurs="0" name="LastLogoutTime" type="s:time" />
+            <s:element minOccurs="0" name="LastPasswordChangeTime" type="s:time" />
+            <s:element minOccurs="0" name="LastPasswordChangedBy" type="s:string" />
+            <s:element minOccurs="0" name="UserPermission">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="UserPermissionItem">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="UserCode" type="s:long" />
+                        <s:element minOccurs="0" name="PermissionID" type="s:string" />
+                        <s:element minOccurs="0" name="Permission">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="boper_Full" />
+                              <s:enumeration value="boper_ReadOnly" />
+                              <s:enumeration value="boper_None" />
+                              <s:enumeration value="boper_Various" />
+                              <s:enumeration value="boper_Undefined" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="UserActionRecord">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="UserActionRecordItem">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="UserCode" type="s:string" />
+                        <s:element minOccurs="0" name="Action">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="actionLogin" />
+                              <s:enumeration value="actionLoginFail" />
+                              <s:enumeration value="actionLogoff" />
+                              <s:enumeration value="actionCreateUser" />
+                              <s:enumeration value="actionRemoveUser" />
+                              <s:enumeration value="actionSelectSU" />
+                              <s:enumeration value="actionDeselectSU" />
+                              <s:enumeration value="actionLock" />
+                              <s:enumeration value="actionUnlock" />
+                              <s:enumeration value="actionChPasswd" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="ActionBy" type="s:string" />
+                        <s:element minOccurs="0" name="ClientIP" type="s:string" />
+                        <s:element minOccurs="0" name="ClientName" type="s:string" />
+                        <s:element minOccurs="0" name="ActionDate" type="s:date" />
+                        <s:element minOccurs="0" name="ActionTime" type="s:time" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="UserBranchAssignment">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="UserBranchAssignmentItem">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="UserCode" type="s:string" />
+                        <s:element minOccurs="0" name="BPLID" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="InternalKey" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="UsersService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="UsersService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Close">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:UserParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseSoapIn">
+    <wsdl:part name="parameters" element="tns:Close" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CloseSoapOut">
+    <wsdl:part name="parameters" element="s1:CloseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UsersServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <wsdl:input message="tns:CloseSoapIn" />
+      <wsdl:output message="tns:CloseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsersServiceSoap" type="tns:UsersServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="UsersService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="UsersService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="UsersService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="UsersService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <soap:operation soapAction="UsersService/Close" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CloseSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UsersServiceSoap12" type="tns:UsersServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="UsersService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="UsersService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="UsersService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="UsersService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <soap12:operation soapAction="UsersService/Close" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CloseSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UsersService">
+    <wsdl:port name="UsersServiceSoap" binding="tns:UsersServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UsersServiceSoap12" binding="tns:UsersServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

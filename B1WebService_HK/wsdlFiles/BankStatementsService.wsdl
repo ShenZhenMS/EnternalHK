@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BankStatementsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BankStatementsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddBankStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatementParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBankStatementResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBankStatementResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankStatementListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatementsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankStatement">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="InternalNumber" type="s:long" />
+            <s:element minOccurs="0" name="BankAccountKey" type="s:long" />
+            <s:element minOccurs="0" name="StatementNumber" type="s:string" />
+            <s:element minOccurs="0" name="StatementDate" type="s:date" />
+            <s:element minOccurs="0" name="Status">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bssExecuted" />
+                  <s:enumeration value="bssDraft" />
+                  <s:enumeration value="bssOld" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Imported">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="StartingBalanceF" type="s:double" />
+            <s:element minOccurs="0" name="EndingBalanceF" type="s:double" />
+            <s:element minOccurs="0" name="Currency" type="s:string" />
+            <s:element minOccurs="0" name="StartingBalanceL" type="s:double" />
+            <s:element minOccurs="0" name="EndingBalanceL" type="s:double" />
+            <s:element minOccurs="0" name="BankStatementFileHash" type="s:string" />
+            <s:element minOccurs="0" name="BankStatementGUID" type="s:string" />
+            <s:element minOccurs="0" name="BankStatementRows">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BankStatementRow">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ExternalBankStatementNo" type="s:long" />
+                        <s:element minOccurs="0" name="AccountNumber" type="s:string" />
+                        <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+                        <s:element minOccurs="0" name="AccountName" type="s:string" />
+                        <s:element minOccurs="0" name="Reference" type="s:string" />
+                        <s:element minOccurs="0" name="DueDate" type="s:date" />
+                        <s:element minOccurs="0" name="Details" type="s:string" />
+                        <s:element minOccurs="0" name="DebitAmountFC" type="s:double" />
+                        <s:element minOccurs="0" name="CreditAmountFC" type="s:double" />
+                        <s:element minOccurs="0" name="CreditCurrency" type="s:string" />
+                        <s:element minOccurs="0" name="Balance" type="s:double" />
+                        <s:element minOccurs="0" name="ReconciliationNo" type="s:long" />
+                        <s:element minOccurs="0" name="ExternalCode" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                        <s:element minOccurs="0" name="BPName" type="s:string" />
+                        <s:element minOccurs="0" name="StatementNumber" type="s:long" />
+                        <s:element minOccurs="0" name="RowStatus" type="s:string" />
+                        <s:element minOccurs="0" name="VisualOrder" type="s:long" />
+                        <s:element minOccurs="0" name="DocNumType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bpdt_PaymentReference" />
+                              <s:enumeration value="bpdt_ISR" />
+                              <s:enumeration value="bpdt_DocNum" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Details2" type="s:string" />
+                        <s:element minOccurs="0" name="PaymentReferenceNo" type="s:string" />
+                        <s:element minOccurs="0" name="CreateMethod">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="cmManual" />
+                              <s:enumeration value="cmAutomatic" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="BankStmtLineDate" type="s:date" />
+                        <s:element minOccurs="0" name="BankStmtDueDate" type="s:date" />
+                        <s:element minOccurs="0" name="InternalBankOpCode" type="s:long" />
+                        <s:element minOccurs="0" name="BPBankAccount" type="s:string" />
+                        <s:element minOccurs="0" name="DebitAmountLC" type="s:double" />
+                        <s:element minOccurs="0" name="CreditAmountLC" type="s:double" />
+                        <s:element minOccurs="0" name="ExchangeRate" type="s:double" />
+                        <s:element minOccurs="0" name="IBANofBPBankAccount" type="s:string" />
+                        <s:element minOccurs="0" name="FeeOnTheLine" type="s:double" />
+                        <s:element minOccurs="0" name="VATAmountLC" type="s:double" />
+                        <s:element minOccurs="0" name="VATAmountFC" type="s:double" />
+                        <s:element minOccurs="0" name="JournalEntryID" type="s:long" />
+                        <s:element minOccurs="0" name="PaymentID" type="s:long" />
+                        <s:element minOccurs="0" name="DocumentType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bsdtReceipts" />
+                              <s:enumeration value="bsdtPaymentToVendor" />
+                              <s:enumeration value="bsdtInvoices" />
+                              <s:enumeration value="bsdtPurchases" />
+                              <s:enumeration value="bsdtDownPaymentIncoming" />
+                              <s:enumeration value="bsdtDownPaymentOutgoing" />
+                              <s:enumeration value="bsdtRevertInvoices" />
+                              <s:enumeration value="bsdtRevertPurchases" />
+                              <s:enumeration value="bsdtJournalEntry" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="PostingMethod">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="pmGLAccountBankAccount" />
+                              <s:enumeration value="pmBussinessPartnerBankAccount" />
+                              <s:enumeration value="pmInterimAccountBankAccount" />
+                              <s:enumeration value="pmExternalReconciliation" />
+                              <s:enumeration value="pmIgnore" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="GLAccountforFee" type="s:string" />
+                        <s:element minOccurs="0" name="FeeProfitCenter" type="s:string" />
+                        <s:element minOccurs="0" name="FeeProject" type="s:string" />
+                        <s:element minOccurs="0" name="BPBankCode" type="s:string" />
+                        <s:element minOccurs="0" name="FeeDistributionRule" type="s:string" />
+                        <s:element minOccurs="0" name="FeeDistributionRule2" type="s:string" />
+                        <s:element minOccurs="0" name="FeeDistributionRule3" type="s:string" />
+                        <s:element minOccurs="0" name="FeeDistributionRule4" type="s:string" />
+                        <s:element minOccurs="0" name="FeeDistributionRule5" type="s:string" />
+                        <s:element minOccurs="0" name="BPBICSwiftCode" type="s:string" />
+                        <s:element minOccurs="0" name="Source">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bsImported" />
+                              <s:enumeration value="bsImportedAndAmended" />
+                              <s:enumeration value="bsManuallyEntered" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="MultiplePayments">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="unbounded" name="MultiplePayment">
+                                <s:complexType>
+                                  <s:all>
+                                    <s:element minOccurs="0" name="BankStatmentLineID" type="s:long" />
+                                    <s:element minOccurs="0" name="ListLineID" type="s:long" />
+                                    <s:element minOccurs="0" name="DocumentIdentifier" type="s:string" />
+                                    <s:element minOccurs="0" name="AmountLC" type="s:double" />
+                                    <s:element minOccurs="0" name="AmountFC" type="s:double" />
+                                    <s:element minOccurs="0" name="IsDebit">
+                                      <s:simpleType>
+                                        <s:restriction base="s:string">
+                                          <s:enumeration value="tNO" />
+                                          <s:enumeration value="tYES" />
+                                        </s:restriction>
+                                      </s:simpleType>
+                                    </s:element>
+                                  </s:all>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankStatementParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="InternalNumber" type="s:long" />
+            <s:element minOccurs="0" name="BankAccountKey" type="s:long" />
+            <s:element minOccurs="0" name="StatementNumber" type="s:string" />
+            <s:element minOccurs="0" name="StatementDate" type="s:date" />
+            <s:element minOccurs="0" name="Status">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bssExecuted" />
+                  <s:enumeration value="bssDraft" />
+                  <s:enumeration value="bssOld" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Imported">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="StartingBalanceF" type="s:double" />
+            <s:element minOccurs="0" name="EndingBalanceF" type="s:double" />
+            <s:element minOccurs="0" name="Currency" type="s:string" />
+            <s:element minOccurs="0" name="StartingBalanceL" type="s:double" />
+            <s:element minOccurs="0" name="EndingBalanceL" type="s:double" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankStatementsFilter">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Country" type="s:string" />
+            <s:element minOccurs="0" name="Bank" type="s:string" />
+            <s:element minOccurs="0" name="Account" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankStatementsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="BankStatementParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="InternalNumber" type="s:long" />
+                  <s:element minOccurs="0" name="BankAccountKey" type="s:long" />
+                  <s:element minOccurs="0" name="StatementNumber" type="s:string" />
+                  <s:element minOccurs="0" name="StatementDate" type="s:date" />
+                  <s:element minOccurs="0" name="Status">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="bssExecuted" />
+                        <s:enumeration value="bssDraft" />
+                        <s:enumeration value="bssOld" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="Imported">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="tNO" />
+                        <s:enumeration value="tYES" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="StartingBalanceF" type="s:double" />
+                  <s:element minOccurs="0" name="EndingBalanceF" type="s:double" />
+                  <s:element minOccurs="0" name="Currency" type="s:string" />
+                  <s:element minOccurs="0" name="StartingBalanceL" type="s:double" />
+                  <s:element minOccurs="0" name="EndingBalanceL" type="s:double" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BankStatementsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BankStatementsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddBankStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBankStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBankStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatementParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatementParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankStatementList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BankStatementsFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddBankStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBankStatement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddBankStatementSoapOut">
+    <wsdl:part name="parameters" element="s1:AddBankStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBankStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBankStatement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBankStatementSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateBankStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBankStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBankStatement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBankStatementSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteBankStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankStatement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBankStatementSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBankStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankStatementListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankStatementList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBankStatementListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBankStatementListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BankStatementsServiceSoap">
+    <wsdl:operation name="AddBankStatement">
+      <wsdl:input message="tns:AddBankStatementSoapIn" />
+      <wsdl:output message="tns:AddBankStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankStatement">
+      <wsdl:input message="tns:UpdateBankStatementSoapIn" />
+      <wsdl:output message="tns:UpdateBankStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankStatement">
+      <wsdl:input message="tns:DeleteBankStatementSoapIn" />
+      <wsdl:output message="tns:DeleteBankStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatement">
+      <wsdl:input message="tns:GetBankStatementSoapIn" />
+      <wsdl:output message="tns:GetBankStatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatementList">
+      <wsdl:input message="tns:GetBankStatementListSoapIn" />
+      <wsdl:output message="tns:GetBankStatementListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BankStatementsServiceSoap" type="tns:BankStatementsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBankStatement">
+      <soap:operation soapAction="BankStatementsService/AddBankStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankStatement">
+      <soap:operation soapAction="BankStatementsService/UpdateBankStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankStatement">
+      <soap:operation soapAction="BankStatementsService/DeleteBankStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatement">
+      <soap:operation soapAction="BankStatementsService/GetBankStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatementList">
+      <soap:operation soapAction="BankStatementsService/GetBankStatementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBankStatementListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BankStatementsServiceSoap12" type="tns:BankStatementsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBankStatement">
+      <soap12:operation soapAction="BankStatementsService/AddBankStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBankStatement">
+      <soap12:operation soapAction="BankStatementsService/UpdateBankStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBankStatement">
+      <soap12:operation soapAction="BankStatementsService/DeleteBankStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatement">
+      <soap12:operation soapAction="BankStatementsService/GetBankStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBankStatementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankStatementList">
+      <soap12:operation soapAction="BankStatementsService/GetBankStatementList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBankStatementListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BankStatementsService">
+    <wsdl:port name="BankStatementsServiceSoap" binding="tns:BankStatementsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BankStatementsServiceSoap12" binding="tns:BankStatementsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

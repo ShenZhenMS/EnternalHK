@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11263E75-C5AD-41BE-8F00-31DA58D37725}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>B1WebService</RootNamespace>
+    <AssemblyName>B1WebService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>C:\inetpub\wwwroot\HKENTENAL\Bin\</OutputPath>
+    <DocumentationFile>B1WebService.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>B1WebService.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="WebService.asmx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\SAPDIConnections.vb" />
+    <Compile Include="Connection\SAPSQLConnections.vb" />
+    <Compile Include="Connection\WMSSQLConnections.vb" />
+    <Compile Include="DIService\DIServer_APCreditMemo.vb" />
+    <Compile Include="DIService\DIServer_ARCreditMemo.vb" />
+    <Compile Include="DIService\DIServer_GRPO.vb" />
+    <Compile Include="DIService\DIServer_SalesDelivery.vb" />
+    <Compile Include="DIService\DIServer_SalesInvoice.vb" />
+    <Compile Include="DIService\DIServer_StockIn.vb" />
+    <Compile Include="DIService\DIServer_StockOut.vb" />
+    <Compile Include="DIService\DIServer_StockTransfer.vb" />
+    <Compile Include="DIService\ReturnOpertion.vb" />
+    <Compile Include="DIService\WS_APCreditMemo.vb" />
+    <Compile Include="DIService\DeliveryOperation.vb" />
+    <Compile Include="DIService\DIServerConnection.vb" />
+    <Compile Include="DIService\InventoryInoutOperation.vb" />
+    <Compile Include="DIService\WS_GRPO.vb" />
+    <Compile Include="DIService\WS_SalesDelivery.vb" />
+    <Compile Include="DIService\WS_StockIn.vb" />
+    <Compile Include="DIService\WS_StockTransfer.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="SAPConfig.vb" />
+    <Compile Include="SAP\COASetting.vb" />
+    <Compile Include="SAP\SAPExport.vb" />
+    <Compile Include="Settings.vb" />
+    <Compile Include="Web References\APCreditMemo\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DocDraft\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GRPO\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\InventoryIssue\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\InventoryReceive\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ARCreditMemo\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\LoginService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PurchaseReturnService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SalesDelivery\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SalesInvoice\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SalesReturnService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\StockTransfer\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebService.asmx.vb">
+      <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="WMSModules\BinLocation\BinLocationForWMS.vb" />
+    <Compile Include="WMSModules\BinLocation\BinLocationForSAP.vb" />
+    <Compile Include="WMSModules\BinLocation\BinLocationUpdateStatus.vb" />
+    <Compile Include="WMSModules\InventoryInOut\InventoryInoutConfig.vb" />
+    <Compile Include="WMSModules\InventoryInOut\InventoryInout.vb" />
+    <Compile Include="WMSModules\InventoryInOut\InventoryInoutForWMS.vb" />
+    <Compile Include="WMSModules\InventoryInOut\InventoryInoutForSAP.vb" />
+    <Compile Include="WMSModules\InventoryTransaction\InventoryTransaction.vb" />
+    <Compile Include="WMSModules\InventoryTransaction\InventoryTransactionConfig.vb" />
+    <Compile Include="WMSModules\InventoryTransaction\InventoryTransactionForSAP.vb" />
+    <Compile Include="WMSModules\InventoryTransaction\InventoryTransactionForWMS.vb" />
+    <Compile Include="WMSModules\Master\MasterForSAP.vb" />
+    <Compile Include="WMSModules\Master\MasterForWMS.vb" />
+    <Compile Include="WMSModules\Production\ProductionForSAP.vb" />
+    <Compile Include="WMSModules\PurchaseCreditMemo\PurchaseCreditMemoForSAP.vb" />
+    <Compile Include="WMSModules\PurchaseCreditMemo\PurchaseCreditMemoForWMS.vb" />
+    <Compile Include="WMSModules\PurchaseCreditMemo\PurchaseCreditMemoConfig.vb" />
+    <Compile Include="WMSModules\PurchaseCreditMemo\PurchaseCreditMemo.vb" />
+    <Compile Include="WMSModules\Purchase\Purchase.vb" />
+    <Compile Include="WMSModules\Purchase\PurchaseConfig.vb" />
+    <Compile Include="WMSModules\Purchase\PurchaseForSAP.vb" />
+    <Compile Include="WMSModules\Purchase\PurchaseForWMS.vb" />
+    <Compile Include="WMSModules\SalesCreditMemo\SalesCreditMemoForWMS.vb" />
+    <Compile Include="WMSModules\SalesCreditMemo\SalesCreditMemoForSAP.vb" />
+    <Compile Include="WMSModules\SalesCreditMemo\SalesCreditMemoConfig.vb" />
+    <Compile Include="WMSModules\SalesCreditMemo\SalesCreditMemo.vb" />
+    <Compile Include="WMSModules\Sales\Sales.vb" />
+    <Compile Include="WMSModules\Sales\SalesConfig.vb" />
+    <Compile Include="WMSModules\Sales\SalesForSAP.vb" />
+    <Compile Include="WMSModules\Sales\SalesForWMS.vb" />
+    <Compile Include="WMSModules\StockTake\StockTake.vb" />
+    <Compile Include="WMSModules\StockTake\StockTakeConfig.vb" />
+    <Compile Include="WMSModules\StockTake\StockTakeForSAP.vb" />
+    <Compile Include="WMSModules\StockTake\StockTakeForWMS.vb" />
+    <Compile Include="WMSModules\Validation\BinLocationValidation.vb" />
+    <Compile Include="WMSModules\Validation\SalesCreditMemoValidation.vb" />
+    <Compile Include="WMSModules\Validation\PurchaseCreditMemoValidation.vb" />
+    <Compile Include="WMSModules\Validation\InventoryInOutValidation.vb" />
+    <Compile Include="WMSModules\Validation\InventoryTransactionValidation.vb" />
+    <Compile Include="WMSModules\Validation\Message.vb" />
+    <Compile Include="WMSModules\Validation\PurchaseValidation.vb" />
+    <Compile Include="WMSModules\Validation\SalesValidation.vb" />
+    <Compile Include="WMSModules\Validation\StockTakeValidation.vb" />
+    <Compile Include="WMSModules\Validation\Validation.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\APCreditMemo\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\APCreditMemo\DocumentParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\APCreditMemo\PurchaseCreditNotesService.wsdl" />
+    <None Include="Web References\APCreditMemo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ARCreditMemo\Document1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ARCreditMemo\DocumentParams1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocDraft\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocDraft\DocumentParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DocDraft\DraftsService.wsdl" />
+    <None Include="Web References\DocDraft\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\GRPO\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\GRPO\DocumentParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\GRPO\PurchaseDeliveryNotesService.wsdl" />
+    <None Include="Web References\GRPO\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\InventoryIssue\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\InventoryIssue\DocumentParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\InventoryIssue\InventoryGenExitService.wsdl" />
+    <None Include="Web References\InventoryIssue\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\InventoryReceive\Document1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\InventoryReceive\DocumentParams1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\InventoryReceive\InventoryGenEntryService.wsdl" />
+    <None Include="Web References\InventoryReceive\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ARCreditMemo\CreditNotesService.wsdl" />
+    <None Include="Web References\ARCreditMemo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\LoginService\LoginService.wsdl" />
+    <Content Include="Web References\LoginService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\PurchaseReturnService\Document1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PurchaseReturnService\DocumentParams1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PurchaseReturnService\PurchaseReturnsService.wsdl" />
+    <None Include="Web References\PurchaseReturnService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\SalesDelivery\DeliveryNotesService.wsdl" />
+    <None Include="Web References\SalesDelivery\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SalesDelivery\DocumentParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SalesDelivery\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\SalesInvoice\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SalesInvoice\DocumentParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SalesInvoice\InvoicesService.wsdl" />
+    <None Include="Web References\SalesInvoice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\SalesReturnService\Document1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SalesReturnService\DocumentParams1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SalesReturnService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\SalesReturnService\ReturnsService.wsdl" />
+    <None Include="Web References\StockTransfer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\StockTransfer\StockTransfer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StockTransfer\StockTransferParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\StockTransfer\StockTransferService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SAPbobsCOM">
+      <Guid>{FC8030BE-F5D2-4B8E-8F92-44228FE30088}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SBODI_Server">
+      <Guid>{D68328C8-4EDA-4427-8E76-5CE3ED1063C0}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/DeliveryNotesService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SalesDelivery\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/DeliveryNotesService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_SalesDelivery_DeliveryNotesService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/CreditNotesService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ARCreditMemo\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/CreditNotesService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_SalesCreditMemo_CreditNotesService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/DraftsService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DocDraft\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/DraftsService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_DocDraft_DraftsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/InventoryGenEntryService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\InventoryReceive\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/InventoryGenEntryService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_InventoryIssue_InventoryGenEntryService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/InventoryGenExitService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\InventoryIssue\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/InventoryGenExitService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_InventoryIssue_InventoryGenExitService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/LoginService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\LoginService\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/LoginService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_LoginService_LoginService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/PurchaseDeliveryNotesService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GRPO\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/PurchaseDeliveryNotesService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_GRPO_PurchaseDeliveryNotesService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/PurchaseCreditNotesService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\APCreditMemo\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/PurchaseCreditNotesService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_APCreditMemo_PurchaseCreditNotesService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/PurchaseReturnsService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PurchaseReturnService\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/PurchaseReturnsService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_PurchaseReturn_PurchaseReturnsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/ReturnsService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SalesReturnService\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/ReturnsService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_SalesReturn_ReturnsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/StockTransferService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StockTransfer\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/StockTransferService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_StockTransfer_StockTransferService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/B1WS/WebReferences/InvoicesService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SalesInvoice\</RelPath>
+      <UpdateFromURL>http://localhost/B1WS/WebReferences/InvoicesService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>B1WebService_SalesInvoice_InvoicesService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CPSLIB\CPSLIB.vbproj">
+      <Project>{61C8B3F9-92E1-4006-AF0D-B5DCCDB5CD5D}</Project>
+      <Name>CPSLIB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51973</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

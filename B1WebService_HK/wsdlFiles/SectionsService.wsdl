@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="SectionsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="SectionsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddSectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SectionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSectionResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSectionResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Section" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSectionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SectionsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Section">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+            <s:element minOccurs="0" name="ECode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SectionParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SectionsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="SectionParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Description" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="SectionsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="SectionsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddSection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Section" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Section" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SectionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SectionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSectionList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSectionSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSection" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSectionSoapOut">
+    <wsdl:part name="parameters" element="s1:AddSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSectionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSection" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSectionSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSectionSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSection" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSectionSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSection" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSectionSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSectionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSectionList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSectionListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSectionListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SectionsServiceSoap">
+    <wsdl:operation name="AddSection">
+      <wsdl:input message="tns:AddSectionSoapIn" />
+      <wsdl:output message="tns:AddSectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSection">
+      <wsdl:input message="tns:UpdateSectionSoapIn" />
+      <wsdl:output message="tns:UpdateSectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSection">
+      <wsdl:input message="tns:DeleteSectionSoapIn" />
+      <wsdl:output message="tns:DeleteSectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSection">
+      <wsdl:input message="tns:GetSectionSoapIn" />
+      <wsdl:output message="tns:GetSectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionList">
+      <wsdl:input message="tns:GetSectionListSoapIn" />
+      <wsdl:output message="tns:GetSectionListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SectionsServiceSoap" type="tns:SectionsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSection">
+      <soap:operation soapAction="SectionsService/AddSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSection">
+      <soap:operation soapAction="SectionsService/UpdateSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSection">
+      <soap:operation soapAction="SectionsService/DeleteSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSection">
+      <soap:operation soapAction="SectionsService/GetSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionList">
+      <soap:operation soapAction="SectionsService/GetSectionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSectionListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SectionsServiceSoap12" type="tns:SectionsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSection">
+      <soap12:operation soapAction="SectionsService/AddSection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSection">
+      <soap12:operation soapAction="SectionsService/UpdateSection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSection">
+      <soap12:operation soapAction="SectionsService/DeleteSection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSection">
+      <soap12:operation soapAction="SectionsService/GetSection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSectionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionList">
+      <soap12:operation soapAction="SectionsService/GetSectionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSectionListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SectionsService">
+    <wsdl:port name="SectionsServiceSoap" binding="tns:SectionsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SectionsServiceSoap12" binding="tns:SectionsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

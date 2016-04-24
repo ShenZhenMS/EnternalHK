@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ProductionOrdersService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ProductionOrdersService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrderParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductionOrder">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsoluteEntry" type="s:long" />
+            <s:element minOccurs="0" name="DocumentNumber" type="s:long" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="ItemNo" type="s:string" />
+            <s:element minOccurs="0" name="ProductionOrderStatus">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="boposPlanned" />
+                  <s:enumeration value="boposReleased" />
+                  <s:enumeration value="boposClosed" />
+                  <s:enumeration value="boposCancelled" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ProductionOrderType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bopotStandard" />
+                  <s:enumeration value="bopotSpecial" />
+                  <s:enumeration value="bopotDisassembly" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PlannedQuantity" type="s:double" />
+            <s:element minOccurs="0" name="CompletedQuantity" type="s:double" />
+            <s:element minOccurs="0" name="RejectedQuantity" type="s:double" />
+            <s:element minOccurs="0" name="PostingDate" type="s:date" />
+            <s:element minOccurs="0" name="DueDate" type="s:date" />
+            <s:element minOccurs="0" name="ProductionOrderOriginEntry" type="s:long" />
+            <s:element minOccurs="0" name="ProductionOrderOriginNumber" type="s:long" />
+            <s:element minOccurs="0" name="ProductionOrderOrigin">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bopooManual" />
+                  <s:enumeration value="bopooMRP" />
+                  <s:enumeration value="bopooSalesOrder" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="UserSignature" type="s:long" />
+            <s:element minOccurs="0" name="Remarks" type="s:string" />
+            <s:element minOccurs="0" name="ClosingDate" type="s:date" />
+            <s:element minOccurs="0" name="ReleaseDate" type="s:date" />
+            <s:element minOccurs="0" name="CustomerCode" type="s:string" />
+            <s:element minOccurs="0" name="Warehouse" type="s:string" />
+            <s:element minOccurs="0" name="InventoryUOM" type="s:string" />
+            <s:element minOccurs="0" name="JournalRemarks" type="s:string" />
+            <s:element minOccurs="0" name="TransactionNumber" type="s:long" />
+            <s:element minOccurs="0" name="CreationDate" type="s:date" />
+            <s:element minOccurs="0" name="Printed">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DistributionRule" type="s:string" />
+            <s:element minOccurs="0" name="Project" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule2" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule3" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule4" type="s:string" />
+            <s:element minOccurs="0" name="DistributionRule5" type="s:string" />
+            <s:element minOccurs="0" name="ProductionOrderLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ProductionOrderLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DocumentAbsoluteEntry" type="s:long" />
+                        <s:element minOccurs="0" name="LineNumber" type="s:long" />
+                        <s:element minOccurs="0" name="ItemNo" type="s:string" />
+                        <s:element minOccurs="0" name="BaseQuantity" type="s:double" />
+                        <s:element minOccurs="0" name="PlannedQuantity" type="s:double" />
+                        <s:element minOccurs="0" name="IssuedQuantity" type="s:double" />
+                        <s:element minOccurs="0" name="ProductionOrderIssueType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="im_Backflush" />
+                              <s:enumeration value="im_Manual" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Warehouse" type="s:string" />
+                        <s:element minOccurs="0" name="VisualOrder" type="s:long" />
+                        <s:element minOccurs="0" name="DistributionRule" type="s:string" />
+                        <s:element minOccurs="0" name="LocationCode" type="s:long" />
+                        <s:element minOccurs="0" name="Project" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule2" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule3" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule4" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule5" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ProductionOrdersSalesOrderLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ProductionOrdersSalesOrderLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DocEntry" type="s:long" />
+                        <s:element minOccurs="0" name="BaseNumber" type="s:long" />
+                        <s:element minOccurs="0" name="BaseAbsEntry" type="s:long" />
+                        <s:element minOccurs="0" name="BaseLine" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductionOrderParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsoluteEntry" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ProductionOrdersService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ProductionOrdersService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrderParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrderParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ProductionOrderParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapIn">
+    <wsdl:part name="parameters" element="tns:Cancel" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapOut">
+    <wsdl:part name="parameters" element="s1:CancelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductionOrdersServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:input message="tns:CancelSoapIn" />
+      <wsdl:output message="tns:CancelSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductionOrdersServiceSoap" type="tns:ProductionOrdersServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="ProductionOrdersService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="ProductionOrdersService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="ProductionOrdersService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="ProductionOrdersService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap:operation soapAction="ProductionOrdersService/Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CancelSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductionOrdersServiceSoap12" type="tns:ProductionOrdersServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="ProductionOrdersService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="ProductionOrdersService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="ProductionOrdersService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="ProductionOrdersService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap12:operation soapAction="ProductionOrdersService/Cancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CancelSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductionOrdersService">
+    <wsdl:port name="ProductionOrdersServiceSoap" binding="tns:ProductionOrdersServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductionOrdersServiceSoap12" binding="tns:ProductionOrdersServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

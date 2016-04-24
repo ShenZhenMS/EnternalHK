@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="PredefinedTextsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="PredefinedTextsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddPredefinedTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedTextParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePredefinedTextResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePredefinedTextResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefinedTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedText" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefinedTextListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedTextsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PredefinedText">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Numerator" type="s:long" />
+            <s:element minOccurs="0" name="TextCode" type="s:string" />
+            <s:element minOccurs="0" name="Text" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="PredefinedTextParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Numerator" type="s:long" />
+            <s:element minOccurs="0" name="TextCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="PredefinedTextsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="PredefinedTextParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Numerator" type="s:long" />
+                  <s:element minOccurs="0" name="TextCode" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="PredefinedTextsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="PredefinedTextsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddPredefinedText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedText" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePredefinedText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedText" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePredefinedText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedTextParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefinedText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PredefinedTextParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefinedTextList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddPredefinedTextSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPredefinedText" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddPredefinedTextSoapOut">
+    <wsdl:part name="parameters" element="s1:AddPredefinedTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePredefinedTextSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePredefinedText" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePredefinedTextSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdatePredefinedTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePredefinedTextSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePredefinedText" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeletePredefinedTextSoapOut">
+    <wsdl:part name="parameters" element="s1:DeletePredefinedTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefinedTextSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPredefinedText" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefinedTextSoapOut">
+    <wsdl:part name="parameters" element="s1:GetPredefinedTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefinedTextListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPredefinedTextList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefinedTextListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetPredefinedTextListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PredefinedTextsServiceSoap">
+    <wsdl:operation name="AddPredefinedText">
+      <wsdl:input message="tns:AddPredefinedTextSoapIn" />
+      <wsdl:output message="tns:AddPredefinedTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePredefinedText">
+      <wsdl:input message="tns:UpdatePredefinedTextSoapIn" />
+      <wsdl:output message="tns:UpdatePredefinedTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePredefinedText">
+      <wsdl:input message="tns:DeletePredefinedTextSoapIn" />
+      <wsdl:output message="tns:DeletePredefinedTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedText">
+      <wsdl:input message="tns:GetPredefinedTextSoapIn" />
+      <wsdl:output message="tns:GetPredefinedTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedTextList">
+      <wsdl:input message="tns:GetPredefinedTextListSoapIn" />
+      <wsdl:output message="tns:GetPredefinedTextListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PredefinedTextsServiceSoap" type="tns:PredefinedTextsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPredefinedText">
+      <soap:operation soapAction="PredefinedTextsService/AddPredefinedText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddPredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePredefinedText">
+      <soap:operation soapAction="PredefinedTextsService/UpdatePredefinedText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdatePredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePredefinedText">
+      <soap:operation soapAction="PredefinedTextsService/DeletePredefinedText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeletePredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedText">
+      <soap:operation soapAction="PredefinedTextsService/GetPredefinedText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetPredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedTextList">
+      <soap:operation soapAction="PredefinedTextsService/GetPredefinedTextList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetPredefinedTextListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PredefinedTextsServiceSoap12" type="tns:PredefinedTextsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPredefinedText">
+      <soap12:operation soapAction="PredefinedTextsService/AddPredefinedText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddPredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePredefinedText">
+      <soap12:operation soapAction="PredefinedTextsService/UpdatePredefinedText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdatePredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePredefinedText">
+      <soap12:operation soapAction="PredefinedTextsService/DeletePredefinedText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeletePredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedText">
+      <soap12:operation soapAction="PredefinedTextsService/GetPredefinedText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetPredefinedTextSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedTextList">
+      <soap12:operation soapAction="PredefinedTextsService/GetPredefinedTextList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetPredefinedTextListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PredefinedTextsService">
+    <wsdl:port name="PredefinedTextsServiceSoap" binding="tns:PredefinedTextsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PredefinedTextsServiceSoap12" binding="tns:PredefinedTextsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

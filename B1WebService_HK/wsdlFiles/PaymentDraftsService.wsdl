@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="PaymentDraftsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="PaymentDraftsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PaymentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Payment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDraftToDocumentResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Payment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Payment">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DocNum" type="s:long" />
+            <s:element minOccurs="0" name="DocType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="rCustomer" />
+                  <s:enumeration value="rAccount" />
+                  <s:enumeration value="rSupplier" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="HandWritten">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Printed">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DocDate" type="s:date" />
+            <s:element minOccurs="0" name="CardCode" type="s:string" />
+            <s:element minOccurs="0" name="CardName" type="s:string" />
+            <s:element minOccurs="0" name="Address" type="s:string" />
+            <s:element minOccurs="0" name="CashAccount" type="s:string" />
+            <s:element minOccurs="0" name="DocCurrency" type="s:string" />
+            <s:element minOccurs="0" name="CashSum" type="s:double" />
+            <s:element minOccurs="0" name="CheckAccount" type="s:string" />
+            <s:element minOccurs="0" name="TransferAccount" type="s:string" />
+            <s:element minOccurs="0" name="TransferSum" type="s:double" />
+            <s:element minOccurs="0" name="TransferDate" type="s:date" />
+            <s:element minOccurs="0" name="TransferReference" type="s:string" />
+            <s:element minOccurs="0" name="LocalCurrency">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DocRate" type="s:double" />
+            <s:element minOccurs="0" name="Reference1" type="s:string" />
+            <s:element minOccurs="0" name="Reference2" type="s:string" />
+            <s:element minOccurs="0" name="CounterReference" type="s:string" />
+            <s:element minOccurs="0" name="Remarks" type="s:string" />
+            <s:element minOccurs="0" name="JournalRemarks" type="s:string" />
+            <s:element minOccurs="0" name="SplitTransaction">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ContactPersonCode" type="s:long" />
+            <s:element minOccurs="0" name="ApplyVAT">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxDate" type="s:date" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="BankCode" type="s:string" />
+            <s:element minOccurs="0" name="BankAccount" type="s:string" />
+            <s:element minOccurs="0" name="DiscountPercent" type="s:double" />
+            <s:element minOccurs="0" name="ProjectCode" type="s:string" />
+            <s:element minOccurs="0" name="CurrencyIsLocal">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DeductionPercent" type="s:double" />
+            <s:element minOccurs="0" name="DeductionSum" type="s:double" />
+            <s:element minOccurs="0" name="CashSumFC" type="s:double" />
+            <s:element minOccurs="0" name="CashSumSys" type="s:double" />
+            <s:element minOccurs="0" name="BoeAccount" type="s:string" />
+            <s:element minOccurs="0" name="BillOfExchangeAmount" type="s:double" />
+            <s:element minOccurs="0" name="BillofExchangeStatus">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="boes_Created" />
+                  <s:enumeration value="boes_Sent" />
+                  <s:enumeration value="boes_Deposited" />
+                  <s:enumeration value="boes_Paid" />
+                  <s:enumeration value="boes_Cancelled" />
+                  <s:enumeration value="boes_Closed" />
+                  <s:enumeration value="boes_Failed" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BillOfExchangeAmountFC" type="s:double" />
+            <s:element minOccurs="0" name="BillOfExchangeAmountSC" type="s:double" />
+            <s:element minOccurs="0" name="BillOfExchangeAgent" type="s:string" />
+            <s:element minOccurs="0" name="WTCode" type="s:string" />
+            <s:element minOccurs="0" name="WTAmount" type="s:double" />
+            <s:element minOccurs="0" name="WTAmountFC" type="s:double" />
+            <s:element minOccurs="0" name="WTAmountSC" type="s:double" />
+            <s:element minOccurs="0" name="WTAccount" type="s:string" />
+            <s:element minOccurs="0" name="WTTaxableAmount" type="s:double" />
+            <s:element minOccurs="0" name="Proforma">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PayToBankCode" type="s:string" />
+            <s:element minOccurs="0" name="PayToBankBranch" type="s:string" />
+            <s:element minOccurs="0" name="PayToBankAccountNo" type="s:string" />
+            <s:element minOccurs="0" name="PayToCode" type="s:string" />
+            <s:element minOccurs="0" name="PayToBankCountry" type="s:string" />
+            <s:element minOccurs="0" name="IsPayToBank">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DocEntry" type="s:long" />
+            <s:element minOccurs="0" name="PaymentPriority">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bopp_Priority_1" />
+                  <s:enumeration value="bopp_Priority_2" />
+                  <s:enumeration value="bopp_Priority_3" />
+                  <s:enumeration value="bopp_Priority_4" />
+                  <s:enumeration value="bopp_Priority_5" />
+                  <s:enumeration value="bopp_Priority_6" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxGroup" type="s:string" />
+            <s:element minOccurs="0" name="BankChargeAmount" type="s:double" />
+            <s:element minOccurs="0" name="BankChargeAmountInFC" type="s:double" />
+            <s:element minOccurs="0" name="BankChargeAmountInSC" type="s:double" />
+            <s:element minOccurs="0" name="UnderOverpaymentdifference" type="s:double" />
+            <s:element minOccurs="0" name="UnderOverpaymentdiffSC" type="s:double" />
+            <s:element minOccurs="0" name="WtBaseSum" type="s:double" />
+            <s:element minOccurs="0" name="WtBaseSumFC" type="s:double" />
+            <s:element minOccurs="0" name="WtBaseSumSC" type="s:double" />
+            <s:element minOccurs="0" name="VatDate" type="s:date" />
+            <s:element minOccurs="0" name="TransactionCode" type="s:string" />
+            <s:element minOccurs="0" name="PaymentType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bopt_None" />
+                  <s:enumeration value="bopt_Electronic" />
+                  <s:enumeration value="bopt_Post" />
+                  <s:enumeration value="bopt_Telegraph" />
+                  <s:enumeration value="bopt_Express" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TransferRealAmount" type="s:double" />
+            <s:element minOccurs="0" name="DocObjectCode">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bopot_IncomingPayments" />
+                  <s:enumeration value="bopot_OutgoingPayments" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DocTypte">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="rCustomer" />
+                  <s:enumeration value="rAccount" />
+                  <s:enumeration value="rSupplier" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DueDate" type="s:date" />
+            <s:element minOccurs="0" name="LocationCode" type="s:long" />
+            <s:element minOccurs="0" name="Cancelled">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ControlAccount" type="s:string" />
+            <s:element minOccurs="0" name="UnderOverpaymentdiffFC" type="s:double" />
+            <s:element minOccurs="0" name="AuthorizationStatus">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="pasWithout" />
+                  <s:enumeration value="pasPending" />
+                  <s:enumeration value="pasApproved" />
+                  <s:enumeration value="pasRejected" />
+                  <s:enumeration value="pasGenerated" />
+                  <s:enumeration value="pasGeneratedbyAuthorizer" />
+                  <s:enumeration value="pasCancelled" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BPLID" type="s:long" />
+            <s:element minOccurs="0" name="BPLName" type="s:string" />
+            <s:element minOccurs="0" name="VATRegNum" type="s:string" />
+            <s:element minOccurs="0" name="PaymentChecks">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentCheck">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="DueDate" type="s:date" />
+                        <s:element minOccurs="0" name="CheckNumber" type="s:long" />
+                        <s:element minOccurs="0" name="BankCode" type="s:string" />
+                        <s:element minOccurs="0" name="Branch" type="s:string" />
+                        <s:element minOccurs="0" name="AccounttNum" type="s:string" />
+                        <s:element minOccurs="0" name="Details" type="s:string" />
+                        <s:element minOccurs="0" name="Trnsfrable">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="CheckSum" type="s:double" />
+                        <s:element minOccurs="0" name="Currency" type="s:string" />
+                        <s:element minOccurs="0" name="CountryCode" type="s:string" />
+                        <s:element minOccurs="0" name="CheckAbsEntry" type="s:long" />
+                        <s:element minOccurs="0" name="CheckAccount" type="s:string" />
+                        <s:element minOccurs="0" name="ManualCheck">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="PaymentInvoices">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentInvoice">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="DocEntry" type="s:long" />
+                        <s:element minOccurs="0" name="SumApplied" type="s:double" />
+                        <s:element minOccurs="0" name="AppliedFC" type="s:double" />
+                        <s:element minOccurs="0" name="AppliedSys" type="s:double" />
+                        <s:element minOccurs="0" name="DocRate" type="s:double" />
+                        <s:element minOccurs="0" name="DocLine" type="s:long" />
+                        <s:element minOccurs="0" name="InvoiceType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="it_AllTransactions" />
+                              <s:enumeration value="it_OpeningBalance" />
+                              <s:enumeration value="it_ClosingBalance" />
+                              <s:enumeration value="it_Invoice" />
+                              <s:enumeration value="it_CredItnote" />
+                              <s:enumeration value="it_TaxInvoice" />
+                              <s:enumeration value="it_Return" />
+                              <s:enumeration value="it_PurchaseInvoice" />
+                              <s:enumeration value="it_PurchaseCreditNote" />
+                              <s:enumeration value="it_PurchaseDeliveryNote" />
+                              <s:enumeration value="it_PurchaseReturn" />
+                              <s:enumeration value="it_Receipt" />
+                              <s:enumeration value="it_Deposit" />
+                              <s:enumeration value="it_JournalEntry" />
+                              <s:enumeration value="it_PaymentAdvice" />
+                              <s:enumeration value="it_ChequesForPayment" />
+                              <s:enumeration value="it_StockReconciliations" />
+                              <s:enumeration value="it_GeneralReceiptToStock" />
+                              <s:enumeration value="it_GeneralReleaseFromStock" />
+                              <s:enumeration value="it_TransferBetweenWarehouses" />
+                              <s:enumeration value="it_WorkInstructions" />
+                              <s:enumeration value="it_DeferredDeposit" />
+                              <s:enumeration value="it_CorrectionInvoice" />
+                              <s:enumeration value="it_APCorrectionInvoice" />
+                              <s:enumeration value="it_ARCorrectionInvoice" />
+                              <s:enumeration value="it_DownPayment" />
+                              <s:enumeration value="it_PurchaseDownPayment" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DiscountPercent" type="s:double" />
+                        <s:element minOccurs="0" name="PaidSum" type="s:double" />
+                        <s:element minOccurs="0" name="InstallmentId" type="s:long" />
+                        <s:element minOccurs="0" name="WitholdingTaxApplied" type="s:double" />
+                        <s:element minOccurs="0" name="WitholdingTaxAppliedFC" type="s:double" />
+                        <s:element minOccurs="0" name="WitholdingTaxAppliedSC" type="s:double" />
+                        <s:element minOccurs="0" name="LinkDate" type="s:date" />
+                        <s:element minOccurs="0" name="DistributionRule" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule2" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule3" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule4" type="s:string" />
+                        <s:element minOccurs="0" name="DistributionRule5" type="s:string" />
+                        <s:element minOccurs="0" name="TotalDiscount" type="s:double" />
+                        <s:element minOccurs="0" name="TotalDiscountFC" type="s:double" />
+                        <s:element minOccurs="0" name="TotalDiscountSC" type="s:double" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="PaymentCreditCards">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentCreditCard">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="CreditCard" type="s:long" />
+                        <s:element minOccurs="0" name="CreditAcct" type="s:string" />
+                        <s:element minOccurs="0" name="CreditCardNumber" type="s:string" />
+                        <s:element minOccurs="0" name="CardValidUntil" type="s:date" />
+                        <s:element minOccurs="0" name="VoucherNum" type="s:string" />
+                        <s:element minOccurs="0" name="OwnerIdNum" type="s:string" />
+                        <s:element minOccurs="0" name="OwnerPhone" type="s:string" />
+                        <s:element minOccurs="0" name="PaymentMethodCode" type="s:long" />
+                        <s:element minOccurs="0" name="NumOfPayments" type="s:long" />
+                        <s:element minOccurs="0" name="FirstPaymentDue" type="s:date" />
+                        <s:element minOccurs="0" name="FirstPaymentSum" type="s:double" />
+                        <s:element minOccurs="0" name="AdditionalPaymentSum" type="s:double" />
+                        <s:element minOccurs="0" name="CreditSum" type="s:double" />
+                        <s:element minOccurs="0" name="CreditCur" type="s:string" />
+                        <s:element minOccurs="0" name="CreditRate" type="s:double" />
+                        <s:element minOccurs="0" name="ConfirmationNum" type="s:string" />
+                        <s:element minOccurs="0" name="NumOfCreditPayments" type="s:long" />
+                        <s:element minOccurs="0" name="CreditType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="cr_Regular" />
+                              <s:enumeration value="cr_Telephone" />
+                              <s:enumeration value="cr_InternetTransaction" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SplitPayments">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="PaymentAccounts">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentAccount">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="AccountCode" type="s:string" />
+                        <s:element minOccurs="0" name="SumPaid" type="s:double" />
+                        <s:element minOccurs="0" name="SumPaidFC" type="s:double" />
+                        <s:element minOccurs="0" name="Decription" type="s:string" />
+                        <s:element minOccurs="0" name="VatGroup" type="s:string" />
+                        <s:element minOccurs="0" name="AccountName" type="s:string" />
+                        <s:element minOccurs="0" name="GrossAmount" type="s:double" />
+                        <s:element minOccurs="0" name="ProfitCenter" type="s:string" />
+                        <s:element minOccurs="0" name="ProjectCode" type="s:string" />
+                        <s:element minOccurs="0" name="VatAmount" type="s:double" />
+                        <s:element minOccurs="0" name="ProfitCenter2" type="s:string" />
+                        <s:element minOccurs="0" name="ProfitCenter3" type="s:string" />
+                        <s:element minOccurs="0" name="ProfitCenter4" type="s:string" />
+                        <s:element minOccurs="0" name="ProfitCenter5" type="s:string" />
+                        <s:element minOccurs="0" name="LocationCode" type="s:long" />
+                        <s:element minOccurs="0" name="EqualizationVatAmount" type="s:double" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BillOfExchange">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="BillOfExchangeNo" type="s:long" />
+                  <s:element minOccurs="0" name="BillOfExchangeDueDate" type="s:date" />
+                  <s:element minOccurs="0" name="Details" type="s:string" />
+                  <s:element minOccurs="0" name="ReferenceNo" type="s:string" />
+                  <s:element minOccurs="0" name="Remarks" type="s:string" />
+                  <s:element minOccurs="0" name="PaymentMethodCode" type="s:string" />
+                  <s:element minOccurs="0" name="BPBankCode" type="s:string" />
+                  <s:element minOccurs="0" name="BPBankAct" type="s:string" />
+                  <s:element minOccurs="0" name="BPBankCountry" type="s:string" />
+                  <s:element minOccurs="0" name="ControlKey" type="s:string" />
+                  <s:element minOccurs="0" name="PaymentEngineStatus1" type="s:string" />
+                  <s:element minOccurs="0" name="PaymentEngineStatus2" type="s:string" />
+                  <s:element minOccurs="0" name="PaymentEngineStatus3" type="s:string" />
+                  <s:element minOccurs="0" name="StampTaxCode" type="s:string" />
+                  <s:element minOccurs="0" name="StampTaxAmount" type="s:double" />
+                  <s:element minOccurs="0" name="FolioNumber" type="s:long" />
+                  <s:element minOccurs="0" name="FolioPrefixString" type="s:string" />
+                  <s:element minOccurs="0" name="InterestAmount" type="s:double" />
+                  <s:element minOccurs="0" name="DiscountAmount" type="s:double" />
+                  <s:element minOccurs="0" name="FineAmount" type="s:double" />
+                  <s:element minOccurs="0" name="InterestDate" type="s:date" />
+                  <s:element minOccurs="0" name="DiscountDate" type="s:date" />
+                  <s:element minOccurs="0" name="FineDate" type="s:date" />
+                  <s:element minOccurs="0" name="IOFAmount" type="s:double" />
+                  <s:element minOccurs="0" name="ServiceFeeAmount" type="s:double" />
+                  <s:element minOccurs="0" name="OtherExpensesAmount" type="s:double" />
+                  <s:element minOccurs="0" name="OtherIncomesAmount" type="s:double" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="CashFlowAssignments">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="CashFlowAssignment">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="CashFlowAssignmentsID" type="s:long" />
+                        <s:element minOccurs="0" name="CashFlowLineItemID" type="s:long" />
+                        <s:element minOccurs="0" name="Credit" type="s:double" />
+                        <s:element minOccurs="0" name="PaymentMeans">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="pmtNotAssigned" />
+                              <s:enumeration value="pmtChecks" />
+                              <s:enumeration value="pmtBankTransfer" />
+                              <s:enumeration value="pmtCash" />
+                              <s:enumeration value="pmtCreditCard" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="CheckNumber" type="s:string" />
+                        <s:element minOccurs="0" name="AmountLC" type="s:double" />
+                        <s:element minOccurs="0" name="AmountFC" type="s:double" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="Payments_ApprovalRequests">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="Payments_ApprovalRequest">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ApprovalTemplatesID" type="s:long" />
+                        <s:element minOccurs="0" name="Remarks" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DocEntry" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="PaymentDraftsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="PaymentDraftsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Payment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PaymentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Payment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PaymentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PaymentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDraftToDocument">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApprovalTemplates">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapIn">
+    <wsdl:part name="parameters" element="tns:Cancel" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapOut">
+    <wsdl:part name="parameters" element="s1:CancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDraftToDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDraftToDocument" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveDraftToDocumentSoapOut">
+    <wsdl:part name="parameters" element="s1:SaveDraftToDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApprovalTemplates" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetApprovalTemplatesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetApprovalTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentDraftsServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:input message="tns:CancelSoapIn" />
+      <wsdl:output message="tns:CancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDraftToDocument">
+      <wsdl:input message="tns:SaveDraftToDocumentSoapIn" />
+      <wsdl:output message="tns:SaveDraftToDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplates">
+      <wsdl:input message="tns:GetApprovalTemplatesSoapIn" />
+      <wsdl:output message="tns:GetApprovalTemplatesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentDraftsServiceSoap" type="tns:PaymentDraftsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="PaymentDraftsService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="PaymentDraftsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="PaymentDraftsService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="PaymentDraftsService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap:operation soapAction="PaymentDraftsService/Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CancelSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDraftToDocument">
+      <soap:operation soapAction="PaymentDraftsService/SaveDraftToDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SaveDraftToDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplates">
+      <soap:operation soapAction="PaymentDraftsService/GetApprovalTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetApprovalTemplatesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentDraftsServiceSoap12" type="tns:PaymentDraftsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="PaymentDraftsService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="PaymentDraftsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="PaymentDraftsService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="PaymentDraftsService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap12:operation soapAction="PaymentDraftsService/Cancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CancelSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDraftToDocument">
+      <soap12:operation soapAction="PaymentDraftsService/SaveDraftToDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SaveDraftToDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTemplates">
+      <soap12:operation soapAction="PaymentDraftsService/GetApprovalTemplates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetApprovalTemplatesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentDraftsService">
+    <wsdl:port name="PaymentDraftsServiceSoap" binding="tns:PaymentDraftsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PaymentDraftsServiceSoap12" binding="tns:PaymentDraftsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="SalesOpportunityCompetitorsSetupService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="SalesOpportunityCompetitorsSetupService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddSalesOpportunityCompetitorSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesOpportunityCompetitorSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSalesOpportunityCompetitorSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityCompetitorSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityCompetitorSetupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetupParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityCompetitorSetup">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="ThreatLevel">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tlLow" />
+                  <s:enumeration value="tlMedium" />
+                  <s:enumeration value="tlHigh" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Details" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityCompetitorSetupParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="ThreatLevel">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tlLow" />
+                  <s:enumeration value="tlMedium" />
+                  <s:enumeration value="tlHigh" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityCompetitorSetupParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="SalesOpportunityCompetitorSetupParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                  <s:element minOccurs="0" name="ThreatLevel">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="tlLow" />
+                        <s:enumeration value="tlMedium" />
+                        <s:enumeration value="tlHigh" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="SalesOpportunityCompetitorsSetupService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="SalesOpportunityCompetitorsSetupService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddSalesOpportunityCompetitorSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesOpportunityCompetitorSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSalesOpportunityCompetitorSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityCompetitorSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityCompetitorSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityCompetitorSetupList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSalesOpportunityCompetitorSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSalesOpportunityCompetitorSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSalesOpportunityCompetitorSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:AddSalesOpportunityCompetitorSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesOpportunityCompetitorSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSalesOpportunityCompetitorSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesOpportunityCompetitorSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateSalesOpportunityCompetitorSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSalesOpportunityCompetitorSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSalesOpportunityCompetitorSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSalesOpportunityCompetitorSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteSalesOpportunityCompetitorSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityCompetitorSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSalesOpportunityCompetitorSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityCompetitorSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSalesOpportunityCompetitorSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityCompetitorSetupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSalesOpportunityCompetitorSetupList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityCompetitorSetupListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSalesOpportunityCompetitorSetupListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SalesOpportunityCompetitorsSetupServiceSoap">
+    <wsdl:operation name="AddSalesOpportunityCompetitorSetup">
+      <wsdl:input message="tns:AddSalesOpportunityCompetitorSetupSoapIn" />
+      <wsdl:output message="tns:AddSalesOpportunityCompetitorSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityCompetitorSetup">
+      <wsdl:input message="tns:UpdateSalesOpportunityCompetitorSetupSoapIn" />
+      <wsdl:output message="tns:UpdateSalesOpportunityCompetitorSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityCompetitorSetup">
+      <wsdl:input message="tns:DeleteSalesOpportunityCompetitorSetupSoapIn" />
+      <wsdl:output message="tns:DeleteSalesOpportunityCompetitorSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityCompetitorSetup">
+      <wsdl:input message="tns:GetSalesOpportunityCompetitorSetupSoapIn" />
+      <wsdl:output message="tns:GetSalesOpportunityCompetitorSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityCompetitorSetupList">
+      <wsdl:input message="tns:GetSalesOpportunityCompetitorSetupListSoapIn" />
+      <wsdl:output message="tns:GetSalesOpportunityCompetitorSetupListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesOpportunityCompetitorsSetupServiceSoap" type="tns:SalesOpportunityCompetitorsSetupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSalesOpportunityCompetitorSetup">
+      <soap:operation soapAction="SalesOpportunityCompetitorsSetupService/AddSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityCompetitorSetup">
+      <soap:operation soapAction="SalesOpportunityCompetitorsSetupService/UpdateSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityCompetitorSetup">
+      <soap:operation soapAction="SalesOpportunityCompetitorsSetupService/DeleteSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityCompetitorSetup">
+      <soap:operation soapAction="SalesOpportunityCompetitorsSetupService/GetSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityCompetitorSetupList">
+      <soap:operation soapAction="SalesOpportunityCompetitorsSetupService/GetSalesOpportunityCompetitorSetupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSalesOpportunityCompetitorSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesOpportunityCompetitorsSetupServiceSoap12" type="tns:SalesOpportunityCompetitorsSetupServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSalesOpportunityCompetitorSetup">
+      <soap12:operation soapAction="SalesOpportunityCompetitorsSetupService/AddSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityCompetitorSetup">
+      <soap12:operation soapAction="SalesOpportunityCompetitorsSetupService/UpdateSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityCompetitorSetup">
+      <soap12:operation soapAction="SalesOpportunityCompetitorsSetupService/DeleteSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityCompetitorSetup">
+      <soap12:operation soapAction="SalesOpportunityCompetitorsSetupService/GetSalesOpportunityCompetitorSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSalesOpportunityCompetitorSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityCompetitorSetupList">
+      <soap12:operation soapAction="SalesOpportunityCompetitorsSetupService/GetSalesOpportunityCompetitorSetupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSalesOpportunityCompetitorSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesOpportunityCompetitorsSetupService">
+    <wsdl:port name="SalesOpportunityCompetitorsSetupServiceSoap" binding="tns:SalesOpportunityCompetitorsSetupServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesOpportunityCompetitorsSetupServiceSoap12" binding="tns:SalesOpportunityCompetitorsSetupServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

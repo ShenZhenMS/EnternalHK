@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="B1WebService_SalesInvoice_InvoicesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_GRPO_PurchaseDeliveryNotesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_SalesDelivery_DeliveryNotesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_StockTransfer_StockTransferService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_InventoryIssue_InventoryGenEntryService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_InventoryIssue_InventoryGenExitService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_DocDraft_DraftsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_APCreditMemo_PurchaseCreditNotesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_SalesCreditMemo_CreditNotesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_SalesReturn_ReturnsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_PurchaseReturn_PurchaseReturnsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+    <Setting Name="B1WebService_LoginService_LoginService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/B1WS/Service.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

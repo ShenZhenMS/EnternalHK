@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="AlertManagementService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="AlertManagementService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="GetAlertManagementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAlertManagementResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAlertManagementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagementParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlertManagementListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagementParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlertManagementParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Type">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="att_User" />
+                  <s:enumeration value="att_System" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlertManagement">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Type">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="att_User" />
+                  <s:enumeration value="att_System" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Priority">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="atp_Low" />
+                  <s:enumeration value="atp_Normal" />
+                  <s:enumeration value="atp_High" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Active">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Param" type="s:string" />
+            <s:element minOccurs="0" name="QueryID" type="s:long" />
+            <s:element minOccurs="0" name="FrequencyType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="atfi_Minutes" />
+                  <s:enumeration value="atfi_Hours" />
+                  <s:enumeration value="atfi_Days" />
+                  <s:enumeration value="atfi_Weeks" />
+                  <s:enumeration value="atfi_Monthly" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DayOfExecution" type="s:long" />
+            <s:element minOccurs="0" name="ExecutionTime" type="s:time" />
+            <s:element minOccurs="0" name="LastExecutionDate" type="s:date" />
+            <s:element minOccurs="0" name="LastExecutionTime" type="s:long" />
+            <s:element minOccurs="0" name="NextExecutionDate" type="s:date" />
+            <s:element minOccurs="0" name="NextExecutionTime" type="s:time" />
+            <s:element minOccurs="0" name="SaveHistory">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FrequencyInterval" type="s:long" />
+            <s:element minOccurs="0" name="AlertManagementRecipients">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="AlertManagementRecipient">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="UserCode" type="s:long" />
+                        <s:element minOccurs="0" name="SendEMail">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SendSMS">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SendFax">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SendInternal">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="AlertManagementDocuments">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="AlertManagementDocument">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Document">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="atd_NOB" />
+                              <s:enumeration value="atd_Invoices" />
+                              <s:enumeration value="atd_RevertInvoice" />
+                              <s:enumeration value="atd_DeliveryNotes" />
+                              <s:enumeration value="atd_Returns" />
+                              <s:enumeration value="atd_Orders" />
+                              <s:enumeration value="atd_PurchaseInvoices" />
+                              <s:enumeration value="atd_PurchaseDeliveryNotes" />
+                              <s:enumeration value="atd_PurchaseOrders" />
+                              <s:enumeration value="atd_Quotations" />
+                              <s:enumeration value="atd_IncomingPayments" />
+                              <s:enumeration value="atd_JournalEntries" />
+                              <s:enumeration value="atd_OutgoingPayments" />
+                              <s:enumeration value="atd_ChecksForPayment" />
+                              <s:enumeration value="atd_CorrectionInvoice" />
+                              <s:enumeration value="atd_DownPaymentIncoming" />
+                              <s:enumeration value="atd_DownPaymentOutgoing" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Active">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlertManagementParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="AlertManagementParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:long" />
+                  <s:element minOccurs="0" name="Type">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="att_User" />
+                        <s:enumeration value="att_System" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="AlertManagementService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="AlertManagementService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="GetAlertManagement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagementParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAlertManagement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAlertManagement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlertManagementList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AlertManagementParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAlertManagementSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlertManagement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAlertManagementSoapOut">
+    <wsdl:part name="parameters" element="s1:GetAlertManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAlertManagementSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAlertManagement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAlertManagementSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateAlertManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAlertManagementSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAlertManagement" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddAlertManagementSoapOut">
+    <wsdl:part name="parameters" element="s1:AddAlertManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlertManagementListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlertManagementList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAlertManagementListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetAlertManagementListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AlertManagementServiceSoap">
+    <wsdl:operation name="GetAlertManagement">
+      <wsdl:input message="tns:GetAlertManagementSoapIn" />
+      <wsdl:output message="tns:GetAlertManagementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAlertManagement">
+      <wsdl:input message="tns:UpdateAlertManagementSoapIn" />
+      <wsdl:output message="tns:UpdateAlertManagementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAlertManagement">
+      <wsdl:input message="tns:AddAlertManagementSoapIn" />
+      <wsdl:output message="tns:AddAlertManagementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertManagementList">
+      <wsdl:input message="tns:GetAlertManagementListSoapIn" />
+      <wsdl:output message="tns:GetAlertManagementListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlertManagementServiceSoap" type="tns:AlertManagementServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAlertManagement">
+      <soap:operation soapAction="AlertManagementService/GetAlertManagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetAlertManagementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAlertManagement">
+      <soap:operation soapAction="AlertManagementService/UpdateAlertManagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateAlertManagementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlertManagement">
+      <soap:operation soapAction="AlertManagementService/AddAlertManagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddAlertManagementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertManagementList">
+      <soap:operation soapAction="AlertManagementService/GetAlertManagementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetAlertManagementListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AlertManagementServiceSoap12" type="tns:AlertManagementServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAlertManagement">
+      <soap12:operation soapAction="AlertManagementService/GetAlertManagement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetAlertManagementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAlertManagement">
+      <soap12:operation soapAction="AlertManagementService/UpdateAlertManagement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateAlertManagementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlertManagement">
+      <soap12:operation soapAction="AlertManagementService/AddAlertManagement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddAlertManagementSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertManagementList">
+      <soap12:operation soapAction="AlertManagementService/GetAlertManagementList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetAlertManagementListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlertManagementService">
+    <wsdl:port name="AlertManagementServiceSoap" binding="tns:AlertManagementServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AlertManagementServiceSoap12" binding="tns:AlertManagementServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

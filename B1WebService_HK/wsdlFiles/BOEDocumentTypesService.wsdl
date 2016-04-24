@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BOEDocumentTypesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BOEDocumentTypesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddBOEDocumentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBOEDocumentTypeResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBOEDocumentTypeResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEDocumentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEDocumentTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentTypesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEDocumentType">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DocEntry" type="s:long" />
+            <s:element minOccurs="0" name="DocType" type="s:string" />
+            <s:element minOccurs="0" name="DocDescription" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEDocumentTypeParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DocEntry" type="s:long" />
+            <s:element minOccurs="0" name="DocType" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEDocumentTypesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="BOEDocumentTypeParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="DocEntry" type="s:long" />
+                  <s:element minOccurs="0" name="DocType" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BOEDocumentTypesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BOEDocumentTypesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddBOEDocumentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBOEDocumentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBOEDocumentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEDocumentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEDocumentTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEDocumentTypeList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddBOEDocumentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBOEDocumentType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddBOEDocumentTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:AddBOEDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBOEDocumentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBOEDocumentType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBOEDocumentTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateBOEDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBOEDocumentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBOEDocumentType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBOEDocumentTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteBOEDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEDocumentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOEDocumentType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEDocumentTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBOEDocumentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEDocumentTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOEDocumentTypeList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEDocumentTypeListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBOEDocumentTypeListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BOEDocumentTypesServiceSoap">
+    <wsdl:operation name="AddBOEDocumentType">
+      <wsdl:input message="tns:AddBOEDocumentTypeSoapIn" />
+      <wsdl:output message="tns:AddBOEDocumentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEDocumentType">
+      <wsdl:input message="tns:UpdateBOEDocumentTypeSoapIn" />
+      <wsdl:output message="tns:UpdateBOEDocumentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEDocumentType">
+      <wsdl:input message="tns:DeleteBOEDocumentTypeSoapIn" />
+      <wsdl:output message="tns:DeleteBOEDocumentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEDocumentType">
+      <wsdl:input message="tns:GetBOEDocumentTypeSoapIn" />
+      <wsdl:output message="tns:GetBOEDocumentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEDocumentTypeList">
+      <wsdl:input message="tns:GetBOEDocumentTypeListSoapIn" />
+      <wsdl:output message="tns:GetBOEDocumentTypeListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BOEDocumentTypesServiceSoap" type="tns:BOEDocumentTypesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBOEDocumentType">
+      <soap:operation soapAction="BOEDocumentTypesService/AddBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEDocumentType">
+      <soap:operation soapAction="BOEDocumentTypesService/UpdateBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEDocumentType">
+      <soap:operation soapAction="BOEDocumentTypesService/DeleteBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEDocumentType">
+      <soap:operation soapAction="BOEDocumentTypesService/GetBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEDocumentTypeList">
+      <soap:operation soapAction="BOEDocumentTypesService/GetBOEDocumentTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBOEDocumentTypeListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BOEDocumentTypesServiceSoap12" type="tns:BOEDocumentTypesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBOEDocumentType">
+      <soap12:operation soapAction="BOEDocumentTypesService/AddBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEDocumentType">
+      <soap12:operation soapAction="BOEDocumentTypesService/UpdateBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEDocumentType">
+      <soap12:operation soapAction="BOEDocumentTypesService/DeleteBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEDocumentType">
+      <soap12:operation soapAction="BOEDocumentTypesService/GetBOEDocumentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBOEDocumentTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEDocumentTypeList">
+      <soap12:operation soapAction="BOEDocumentTypesService/GetBOEDocumentTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBOEDocumentTypeListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOEDocumentTypesService">
+    <wsdl:port name="BOEDocumentTypesServiceSoap" binding="tns:BOEDocumentTypesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BOEDocumentTypesServiceSoap12" binding="tns:BOEDocumentTypesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

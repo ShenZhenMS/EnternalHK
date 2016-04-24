@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BOEPortfoliosService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BOEPortfoliosService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddBOEPortfolioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfolioParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBOEPortfolioResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBOEPortfolioResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEPortfolioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfolio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEPortfolioListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfoliosParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEPortfolio">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="PortfolioEntry" type="s:long" />
+            <s:element minOccurs="0" name="PortfolioID" type="s:string" />
+            <s:element minOccurs="0" name="PortfolioCode" type="s:string" />
+            <s:element minOccurs="0" name="PortfolioNum" type="s:string" />
+            <s:element minOccurs="0" name="PortfolioDescription" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEPortfolioParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="PortfolioEntry" type="s:long" />
+            <s:element minOccurs="0" name="PortfolioID" type="s:string" />
+            <s:element minOccurs="0" name="PortfolioCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BOEPortfoliosParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="BOEPortfolioParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="PortfolioEntry" type="s:long" />
+                  <s:element minOccurs="0" name="PortfolioID" type="s:string" />
+                  <s:element minOccurs="0" name="PortfolioCode" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BOEPortfoliosService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BOEPortfoliosService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddBOEPortfolio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfolio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBOEPortfolio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfolio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBOEPortfolio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfolioParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEPortfolio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BOEPortfolioParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOEPortfolioList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddBOEPortfolioSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBOEPortfolio" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddBOEPortfolioSoapOut">
+    <wsdl:part name="parameters" element="s1:AddBOEPortfolioResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBOEPortfolioSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBOEPortfolio" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBOEPortfolioSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateBOEPortfolioResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBOEPortfolioSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBOEPortfolio" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBOEPortfolioSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteBOEPortfolioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEPortfolioSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOEPortfolio" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEPortfolioSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBOEPortfolioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEPortfolioListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOEPortfolioList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBOEPortfolioListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetBOEPortfolioListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BOEPortfoliosServiceSoap">
+    <wsdl:operation name="AddBOEPortfolio">
+      <wsdl:input message="tns:AddBOEPortfolioSoapIn" />
+      <wsdl:output message="tns:AddBOEPortfolioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEPortfolio">
+      <wsdl:input message="tns:UpdateBOEPortfolioSoapIn" />
+      <wsdl:output message="tns:UpdateBOEPortfolioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEPortfolio">
+      <wsdl:input message="tns:DeleteBOEPortfolioSoapIn" />
+      <wsdl:output message="tns:DeleteBOEPortfolioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEPortfolio">
+      <wsdl:input message="tns:GetBOEPortfolioSoapIn" />
+      <wsdl:output message="tns:GetBOEPortfolioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEPortfolioList">
+      <wsdl:input message="tns:GetBOEPortfolioListSoapIn" />
+      <wsdl:output message="tns:GetBOEPortfolioListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BOEPortfoliosServiceSoap" type="tns:BOEPortfoliosServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBOEPortfolio">
+      <soap:operation soapAction="BOEPortfoliosService/AddBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEPortfolio">
+      <soap:operation soapAction="BOEPortfoliosService/UpdateBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEPortfolio">
+      <soap:operation soapAction="BOEPortfoliosService/DeleteBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEPortfolio">
+      <soap:operation soapAction="BOEPortfoliosService/GetBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEPortfolioList">
+      <soap:operation soapAction="BOEPortfoliosService/GetBOEPortfolioList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetBOEPortfolioListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BOEPortfoliosServiceSoap12" type="tns:BOEPortfoliosServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBOEPortfolio">
+      <soap12:operation soapAction="BOEPortfoliosService/AddBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBOEPortfolio">
+      <soap12:operation soapAction="BOEPortfoliosService/UpdateBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBOEPortfolio">
+      <soap12:operation soapAction="BOEPortfoliosService/DeleteBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEPortfolio">
+      <soap12:operation soapAction="BOEPortfoliosService/GetBOEPortfolio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBOEPortfolioSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOEPortfolioList">
+      <soap12:operation soapAction="BOEPortfoliosService/GetBOEPortfolioList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetBOEPortfolioListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BOEPortfoliosService">
+    <wsdl:port name="BOEPortfoliosServiceSoap" binding="tns:BOEPortfoliosServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BOEPortfoliosServiceSoap12" binding="tns:BOEPortfoliosServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="SeriesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="SeriesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="AttachSeriesToDocumentResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="UnattachSeriesFromDocumentResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultSeriesForAllUsersResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultSeriesForCurrentUserResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultSeriesForUserResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Series" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SeriesCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Series" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentChangedMenuNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentChangeMenuName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeDocumentMenuNameResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetElectronicSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeries" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddElectronicSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveElectronicSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateElectronicSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultElectronicSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultElectronicSeriesResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="Series">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Document" type="s:string" />
+            <s:element minOccurs="0" name="DocumentSubType" type="s:string" />
+            <s:element minOccurs="0" name="InitialNumber" type="s:long" />
+            <s:element minOccurs="0" name="LastNumber" type="s:long" />
+            <s:element minOccurs="0" name="NextNumber" type="s:long" />
+            <s:element minOccurs="0" name="Prefix" type="s:string" />
+            <s:element minOccurs="0" name="Suffix" type="s:string" />
+            <s:element minOccurs="0" name="Remarks" type="s:string" />
+            <s:element minOccurs="0" name="GroupCode">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="sg_Group1" />
+                  <s:enumeration value="sg_Group2" />
+                  <s:enumeration value="sg_Group3" />
+                  <s:enumeration value="sg_Group4" />
+                  <s:enumeration value="sg_Group5" />
+                  <s:enumeration value="sg_Group6" />
+                  <s:enumeration value="sg_Group7" />
+                  <s:enumeration value="sg_Group8" />
+                  <s:enumeration value="sg_Group9" />
+                  <s:enumeration value="sg_Group10" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Locked">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PeriodIndicator" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="IsDigitalSeries">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DigitNumber" type="s:long" />
+            <s:element minOccurs="0" name="SeriesType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="stDocument" />
+                  <s:enumeration value="stBusinessPartner" />
+                  <s:enumeration value="stItem" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BPLID" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeriesParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Series" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentSeriesParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Document" type="s:string" />
+            <s:element minOccurs="0" name="DocumentSubType" type="s:string" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentSeriesUserParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Document" type="s:string" />
+            <s:element minOccurs="0" name="DocumentSubType" type="s:string" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="User" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentTypeParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Document" type="s:string" />
+            <s:element minOccurs="0" name="DocumentSubType" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeriesCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Series">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Document" type="s:string" />
+                  <s:element minOccurs="0" name="DocumentSubType" type="s:string" />
+                  <s:element minOccurs="0" name="InitialNumber" type="s:long" />
+                  <s:element minOccurs="0" name="LastNumber" type="s:long" />
+                  <s:element minOccurs="0" name="NextNumber" type="s:long" />
+                  <s:element minOccurs="0" name="Prefix" type="s:string" />
+                  <s:element minOccurs="0" name="Suffix" type="s:string" />
+                  <s:element minOccurs="0" name="Remarks" type="s:string" />
+                  <s:element minOccurs="0" name="GroupCode">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="sg_Group1" />
+                        <s:enumeration value="sg_Group2" />
+                        <s:enumeration value="sg_Group3" />
+                        <s:enumeration value="sg_Group4" />
+                        <s:enumeration value="sg_Group5" />
+                        <s:enumeration value="sg_Group6" />
+                        <s:enumeration value="sg_Group7" />
+                        <s:enumeration value="sg_Group8" />
+                        <s:enumeration value="sg_Group9" />
+                        <s:enumeration value="sg_Group10" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="Locked">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="tNO" />
+                        <s:enumeration value="tYES" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="PeriodIndicator" type="s:string" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                  <s:element minOccurs="0" name="Series" type="s:long" />
+                  <s:element minOccurs="0" name="IsDigitalSeries">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="tNO" />
+                        <s:enumeration value="tYES" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="DigitNumber" type="s:long" />
+                  <s:element minOccurs="0" name="SeriesType">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="stDocument" />
+                        <s:enumeration value="stBusinessPartner" />
+                        <s:enumeration value="stItem" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="0" name="BPLID" type="s:long" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentChangeMenuName">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Document" type="s:string" />
+            <s:element minOccurs="0" name="DocumentSubType" type="s:string" />
+            <s:element minOccurs="0" name="ChangedMenuName" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ElectronicSeriesParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ElectronicSeries" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ElectronicSeries">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ElectronicSeries" type="s:long" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="InitialNumber" type="s:string" />
+            <s:element minOccurs="0" name="NextNumber" type="s:string" />
+            <s:element minOccurs="0" name="LastNumber" type="s:string" />
+            <s:element minOccurs="0" name="Prefix" type="s:string" />
+            <s:element minOccurs="0" name="ApprovalYear" type="s:long" />
+            <s:element minOccurs="0" name="ApprovalNumber" type="s:long" />
+            <s:element minOccurs="0" name="Remarks" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DefaultElectronicSeriesParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="ElectronicSeries" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="SeriesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="SeriesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Series" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AttachSeriesToDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnattachSeriesFromDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultSeriesForAllUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultSeriesForCurrentUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultSeriesForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentSeriesUserParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Series" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentChangedMenuName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeDocumentMenuName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DocumentChangeMenuName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetElectronicSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddElectronicSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeries" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveElectronicSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateElectronicSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ElectronicSeries" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultElectronicSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultElectronicSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DefaultElectronicSeriesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:AddSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttachSeriesToDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:AttachSeriesToDocument" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AttachSeriesToDocumentSoapOut">
+    <wsdl:part name="parameters" element="s1:AttachSeriesToDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnattachSeriesFromDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:UnattachSeriesFromDocument" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnattachSeriesFromDocumentSoapOut">
+    <wsdl:part name="parameters" element="s1:UnattachSeriesFromDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultSeriesForAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultSeriesForAllUsers" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultSeriesForAllUsersSoapOut">
+    <wsdl:part name="parameters" element="s1:SetDefaultSeriesForAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultSeriesForCurrentUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultSeriesForCurrentUser" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultSeriesForCurrentUserSoapOut">
+    <wsdl:part name="parameters" element="s1:SetDefaultSeriesForCurrentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultSeriesForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultSeriesForUser" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultSeriesForUserSoapOut">
+    <wsdl:part name="parameters" element="s1:SetDefaultSeriesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDefaultSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDocumentSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentChangedMenuNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentChangedMenuName" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentChangedMenuNameSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDocumentChangedMenuNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDocumentMenuNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeDocumentMenuName" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="ChangeDocumentMenuNameSoapOut">
+    <wsdl:part name="parameters" element="s1:ChangeDocumentMenuNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetElectronicSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetElectronicSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetElectronicSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetElectronicSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddElectronicSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:AddElectronicSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddElectronicSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:AddElectronicSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveElectronicSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveElectronicSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveElectronicSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveElectronicSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateElectronicSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateElectronicSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateElectronicSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateElectronicSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultElectronicSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultElectronicSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultElectronicSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDefaultElectronicSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultElectronicSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultElectronicSeries" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultElectronicSeriesSoapOut">
+    <wsdl:part name="parameters" element="s1:SetDefaultElectronicSeriesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SeriesServiceSoap">
+    <wsdl:operation name="AddSeries">
+      <wsdl:input message="tns:AddSeriesSoapIn" />
+      <wsdl:output message="tns:AddSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSeries">
+      <wsdl:input message="tns:RemoveSeriesSoapIn" />
+      <wsdl:output message="tns:RemoveSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AttachSeriesToDocument">
+      <wsdl:input message="tns:AttachSeriesToDocumentSoapIn" />
+      <wsdl:output message="tns:AttachSeriesToDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnattachSeriesFromDocument">
+      <wsdl:input message="tns:UnattachSeriesFromDocumentSoapIn" />
+      <wsdl:output message="tns:UnattachSeriesFromDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForAllUsers">
+      <wsdl:input message="tns:SetDefaultSeriesForAllUsersSoapIn" />
+      <wsdl:output message="tns:SetDefaultSeriesForAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForCurrentUser">
+      <wsdl:input message="tns:SetDefaultSeriesForCurrentUserSoapIn" />
+      <wsdl:output message="tns:SetDefaultSeriesForCurrentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForUser">
+      <wsdl:input message="tns:SetDefaultSeriesForUserSoapIn" />
+      <wsdl:output message="tns:SetDefaultSeriesForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSeries">
+      <wsdl:input message="tns:UpdateSeriesSoapIn" />
+      <wsdl:output message="tns:UpdateSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultSeries">
+      <wsdl:input message="tns:GetDefaultSeriesSoapIn" />
+      <wsdl:output message="tns:GetDefaultSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSeries">
+      <wsdl:input message="tns:GetDocumentSeriesSoapIn" />
+      <wsdl:output message="tns:GetDocumentSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeries">
+      <wsdl:input message="tns:GetSeriesSoapIn" />
+      <wsdl:output message="tns:GetSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentChangedMenuName">
+      <wsdl:input message="tns:GetDocumentChangedMenuNameSoapIn" />
+      <wsdl:output message="tns:GetDocumentChangedMenuNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDocumentMenuName">
+      <wsdl:input message="tns:ChangeDocumentMenuNameSoapIn" />
+      <wsdl:output message="tns:ChangeDocumentMenuNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElectronicSeries">
+      <wsdl:input message="tns:GetElectronicSeriesSoapIn" />
+      <wsdl:output message="tns:GetElectronicSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElectronicSeries">
+      <wsdl:input message="tns:AddElectronicSeriesSoapIn" />
+      <wsdl:output message="tns:AddElectronicSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElectronicSeries">
+      <wsdl:input message="tns:RemoveElectronicSeriesSoapIn" />
+      <wsdl:output message="tns:RemoveElectronicSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElectronicSeries">
+      <wsdl:input message="tns:UpdateElectronicSeriesSoapIn" />
+      <wsdl:output message="tns:UpdateElectronicSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultElectronicSeries">
+      <wsdl:input message="tns:GetDefaultElectronicSeriesSoapIn" />
+      <wsdl:output message="tns:GetDefaultElectronicSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultElectronicSeries">
+      <wsdl:input message="tns:SetDefaultElectronicSeriesSoapIn" />
+      <wsdl:output message="tns:SetDefaultElectronicSeriesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SeriesServiceSoap" type="tns:SeriesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSeries">
+      <soap:operation soapAction="SeriesService/AddSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSeries">
+      <soap:operation soapAction="SeriesService/RemoveSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttachSeriesToDocument">
+      <soap:operation soapAction="SeriesService/AttachSeriesToDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AttachSeriesToDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnattachSeriesFromDocument">
+      <soap:operation soapAction="SeriesService/UnattachSeriesFromDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UnattachSeriesFromDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForAllUsers">
+      <soap:operation soapAction="SeriesService/SetDefaultSeriesForAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SetDefaultSeriesForAllUsersSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForCurrentUser">
+      <soap:operation soapAction="SeriesService/SetDefaultSeriesForCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SetDefaultSeriesForCurrentUserSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForUser">
+      <soap:operation soapAction="SeriesService/SetDefaultSeriesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SetDefaultSeriesForUserSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSeries">
+      <soap:operation soapAction="SeriesService/UpdateSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultSeries">
+      <soap:operation soapAction="SeriesService/GetDefaultSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDefaultSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSeries">
+      <soap:operation soapAction="SeriesService/GetDocumentSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDocumentSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeries">
+      <soap:operation soapAction="SeriesService/GetSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentChangedMenuName">
+      <soap:operation soapAction="SeriesService/GetDocumentChangedMenuName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDocumentChangedMenuNameSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDocumentMenuName">
+      <soap:operation soapAction="SeriesService/ChangeDocumentMenuName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:ChangeDocumentMenuNameSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetElectronicSeries">
+      <soap:operation soapAction="SeriesService/GetElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElectronicSeries">
+      <soap:operation soapAction="SeriesService/AddElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElectronicSeries">
+      <soap:operation soapAction="SeriesService/RemoveElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElectronicSeries">
+      <soap:operation soapAction="SeriesService/UpdateElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultElectronicSeries">
+      <soap:operation soapAction="SeriesService/GetDefaultElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDefaultElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultElectronicSeries">
+      <soap:operation soapAction="SeriesService/SetDefaultElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SetDefaultElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SeriesServiceSoap12" type="tns:SeriesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSeries">
+      <soap12:operation soapAction="SeriesService/AddSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSeries">
+      <soap12:operation soapAction="SeriesService/RemoveSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttachSeriesToDocument">
+      <soap12:operation soapAction="SeriesService/AttachSeriesToDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AttachSeriesToDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnattachSeriesFromDocument">
+      <soap12:operation soapAction="SeriesService/UnattachSeriesFromDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UnattachSeriesFromDocumentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForAllUsers">
+      <soap12:operation soapAction="SeriesService/SetDefaultSeriesForAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetDefaultSeriesForAllUsersSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForCurrentUser">
+      <soap12:operation soapAction="SeriesService/SetDefaultSeriesForCurrentUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetDefaultSeriesForCurrentUserSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultSeriesForUser">
+      <soap12:operation soapAction="SeriesService/SetDefaultSeriesForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetDefaultSeriesForUserSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSeries">
+      <soap12:operation soapAction="SeriesService/UpdateSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultSeries">
+      <soap12:operation soapAction="SeriesService/GetDefaultSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDefaultSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSeries">
+      <soap12:operation soapAction="SeriesService/GetDocumentSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDocumentSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeries">
+      <soap12:operation soapAction="SeriesService/GetSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentChangedMenuName">
+      <soap12:operation soapAction="SeriesService/GetDocumentChangedMenuName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDocumentChangedMenuNameSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDocumentMenuName">
+      <soap12:operation soapAction="SeriesService/ChangeDocumentMenuName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:ChangeDocumentMenuNameSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetElectronicSeries">
+      <soap12:operation soapAction="SeriesService/GetElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElectronicSeries">
+      <soap12:operation soapAction="SeriesService/AddElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveElectronicSeries">
+      <soap12:operation soapAction="SeriesService/RemoveElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElectronicSeries">
+      <soap12:operation soapAction="SeriesService/UpdateElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultElectronicSeries">
+      <soap12:operation soapAction="SeriesService/GetDefaultElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDefaultElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultElectronicSeries">
+      <soap12:operation soapAction="SeriesService/SetDefaultElectronicSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetDefaultElectronicSeriesSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SeriesService">
+    <wsdl:port name="SeriesServiceSoap" binding="tns:SeriesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SeriesServiceSoap12" binding="tns:SeriesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

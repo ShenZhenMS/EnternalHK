@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="DimensionsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="DimensionsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="UpdateDimensionResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDimensionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Dimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDimensionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DimensionsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Dimension">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DimensionCode" type="s:long" />
+            <s:element minOccurs="0" name="DimensionName" type="s:string" />
+            <s:element minOccurs="0" name="IsActive">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DimensionDescription" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DimensionParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="DimensionCode" type="s:long" />
+            <s:element minOccurs="0" name="DimensionName" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DimensionsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="DimensionParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="DimensionCode" type="s:long" />
+                  <s:element minOccurs="0" name="DimensionName" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="DimensionsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="DimensionsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="UpdateDimension">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Dimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDimension">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DimensionParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDimensionList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateDimensionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDimension" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDimensionSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateDimensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDimensionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDimension" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDimensionSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDimensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDimensionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDimensionList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDimensionListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDimensionListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DimensionsServiceSoap">
+    <wsdl:operation name="UpdateDimension">
+      <wsdl:input message="tns:UpdateDimensionSoapIn" />
+      <wsdl:output message="tns:UpdateDimensionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDimension">
+      <wsdl:input message="tns:GetDimensionSoapIn" />
+      <wsdl:output message="tns:GetDimensionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDimensionList">
+      <wsdl:input message="tns:GetDimensionListSoapIn" />
+      <wsdl:output message="tns:GetDimensionListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DimensionsServiceSoap" type="tns:DimensionsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateDimension">
+      <soap:operation soapAction="DimensionsService/UpdateDimension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateDimensionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDimension">
+      <soap:operation soapAction="DimensionsService/GetDimension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDimensionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDimensionList">
+      <soap:operation soapAction="DimensionsService/GetDimensionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDimensionListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DimensionsServiceSoap12" type="tns:DimensionsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateDimension">
+      <soap12:operation soapAction="DimensionsService/UpdateDimension" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateDimensionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDimension">
+      <soap12:operation soapAction="DimensionsService/GetDimension" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDimensionSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDimensionList">
+      <soap12:operation soapAction="DimensionsService/GetDimensionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDimensionListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DimensionsService">
+    <wsdl:port name="DimensionsServiceSoap" binding="tns:DimensionsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DimensionsServiceSoap12" binding="tns:DimensionsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

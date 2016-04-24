@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="DNFCodeSetupService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="DNFCodeSetupService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddDNFCodeSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDNFCodeSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDNFCodeSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDNFCodeSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDNFCodeSetupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetupParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DNFCodeSetup">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="NCMCode" type="s:long" />
+            <s:element minOccurs="0" name="DNFCode" type="s:string" />
+            <s:element minOccurs="0" name="UoM" type="s:string" />
+            <s:element minOccurs="0" name="Factor" type="s:double" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DNFCodeSetupParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="NCMCode" type="s:long" />
+            <s:element minOccurs="0" name="DNFCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DNFCodeSetupParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="DNFCodeSetupParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+                  <s:element minOccurs="0" name="NCMCode" type="s:long" />
+                  <s:element minOccurs="0" name="DNFCode" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="DNFCodeSetupService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="DNFCodeSetupService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddDNFCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDNFCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDNFCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDNFCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DNFCodeSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDNFCodeSetupList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDNFCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDNFCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddDNFCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:AddDNFCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDNFCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDNFCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDNFCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateDNFCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDNFCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDNFCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDNFCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteDNFCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDNFCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDNFCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDNFCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDNFCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDNFCodeSetupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDNFCodeSetupList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDNFCodeSetupListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDNFCodeSetupListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DNFCodeSetupServiceSoap">
+    <wsdl:operation name="AddDNFCodeSetup">
+      <wsdl:input message="tns:AddDNFCodeSetupSoapIn" />
+      <wsdl:output message="tns:AddDNFCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDNFCodeSetup">
+      <wsdl:input message="tns:UpdateDNFCodeSetupSoapIn" />
+      <wsdl:output message="tns:UpdateDNFCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNFCodeSetup">
+      <wsdl:input message="tns:DeleteDNFCodeSetupSoapIn" />
+      <wsdl:output message="tns:DeleteDNFCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDNFCodeSetup">
+      <wsdl:input message="tns:GetDNFCodeSetupSoapIn" />
+      <wsdl:output message="tns:GetDNFCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDNFCodeSetupList">
+      <wsdl:input message="tns:GetDNFCodeSetupListSoapIn" />
+      <wsdl:output message="tns:GetDNFCodeSetupListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DNFCodeSetupServiceSoap" type="tns:DNFCodeSetupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDNFCodeSetup">
+      <soap:operation soapAction="DNFCodeSetupService/AddDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDNFCodeSetup">
+      <soap:operation soapAction="DNFCodeSetupService/UpdateDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNFCodeSetup">
+      <soap:operation soapAction="DNFCodeSetupService/DeleteDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDNFCodeSetup">
+      <soap:operation soapAction="DNFCodeSetupService/GetDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDNFCodeSetupList">
+      <soap:operation soapAction="DNFCodeSetupService/GetDNFCodeSetupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDNFCodeSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DNFCodeSetupServiceSoap12" type="tns:DNFCodeSetupServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDNFCodeSetup">
+      <soap12:operation soapAction="DNFCodeSetupService/AddDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDNFCodeSetup">
+      <soap12:operation soapAction="DNFCodeSetupService/UpdateDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDNFCodeSetup">
+      <soap12:operation soapAction="DNFCodeSetupService/DeleteDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDNFCodeSetup">
+      <soap12:operation soapAction="DNFCodeSetupService/GetDNFCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDNFCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDNFCodeSetupList">
+      <soap12:operation soapAction="DNFCodeSetupService/GetDNFCodeSetupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDNFCodeSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DNFCodeSetupService">
+    <wsdl:port name="DNFCodeSetupServiceSoap" binding="tns:DNFCodeSetupServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DNFCodeSetupServiceSoap12" binding="tns:DNFCodeSetupServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

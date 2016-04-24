@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="AlternativeItemsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="AlternativeItemsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OriginalItemParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateItemResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteItemResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OriginalItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OriginalItem">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ItemCode" type="s:string" />
+            <s:element minOccurs="0" name="ItemName" type="s:string" />
+            <s:element minOccurs="0" name="AlternativeItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="AlternativeItem">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="AlternativeItemCode" type="s:string" />
+                        <s:element minOccurs="0" name="MatchFactor" type="s:double" />
+                        <s:element minOccurs="0" name="Remarks" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="OriginalItemParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ItemCode" type="s:string" />
+            <s:element minOccurs="0" name="ItemName" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="AlternativeItemsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="AlternativeItemsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OriginalItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OriginalItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OriginalItemParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OriginalItemParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AddItem" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddItemSoapOut">
+    <wsdl:part name="parameters" element="s1:AddItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateItem" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteItem" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteItemSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItem" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetItemSoapOut">
+    <wsdl:part name="parameters" element="s1:GetItemResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AlternativeItemsServiceSoap">
+    <wsdl:operation name="AddItem">
+      <wsdl:input message="tns:AddItemSoapIn" />
+      <wsdl:output message="tns:AddItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input message="tns:UpdateItemSoapIn" />
+      <wsdl:output message="tns:UpdateItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <wsdl:input message="tns:DeleteItemSoapIn" />
+      <wsdl:output message="tns:DeleteItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <wsdl:input message="tns:GetItemSoapIn" />
+      <wsdl:output message="tns:GetItemSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlternativeItemsServiceSoap" type="tns:AlternativeItemsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddItem">
+      <soap:operation soapAction="AlternativeItemsService/AddItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap:operation soapAction="AlternativeItemsService/UpdateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <soap:operation soapAction="AlternativeItemsService/DeleteItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <soap:operation soapAction="AlternativeItemsService/GetItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AlternativeItemsServiceSoap12" type="tns:AlternativeItemsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddItem">
+      <soap12:operation soapAction="AlternativeItemsService/AddItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap12:operation soapAction="AlternativeItemsService/UpdateItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <soap12:operation soapAction="AlternativeItemsService/DeleteItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <soap12:operation soapAction="AlternativeItemsService/GetItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetItemSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlternativeItemsService">
+    <wsdl:port name="AlternativeItemsServiceSoap" binding="tns:AlternativeItemsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AlternativeItemsServiceSoap12" binding="tns:AlternativeItemsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

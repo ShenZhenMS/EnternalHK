@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ReportFilterService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ReportFilterService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="GetTaxReportFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTaxReportFilterResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTaxReportFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilterParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxReportFilterListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFiltersParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaxReportFilterResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxReportFilterParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="FilterType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trft_TaxReport" />
+                  <s:enumeration value="trft_WTReport" />
+                  <s:enumeration value="trft_Report347" />
+                  <s:enumeration value="trft_Report349" />
+                  <s:enumeration value="trft_ReconciliationReport" />
+                  <s:enumeration value="trft_StampTax" />
+                  <s:enumeration value="trft_SalesReport" />
+                  <s:enumeration value="trft_None" />
+                  <s:enumeration value="trft_BoxReport" />
+                  <s:enumeration value="trft_AppendixOP" />
+                  <s:enumeration value="trft_AnnualSalesReport" />
+                  <s:enumeration value="trft_VATRefundReport" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxReportFilter">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="ReportLayout">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trfrlt_RegisterBookLayout" />
+                  <s:enumeration value="trfrlt_DeclarationLayout" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FirstPrintedNumber" type="s:long" />
+            <s:element minOccurs="0" name="FromDate" type="s:date" />
+            <s:element minOccurs="0" name="ToDate" type="s:date" />
+            <s:element minOccurs="0" name="TaxDate">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="RoundAmount">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DeclarationType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trfdt_Original" />
+                  <s:enumeration value="trfdt_Substitute" />
+                  <s:enumeration value="trfdt_Complementary" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FilterType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trft_TaxReport" />
+                  <s:enumeration value="trft_WTReport" />
+                  <s:enumeration value="trft_Report347" />
+                  <s:enumeration value="trft_Report349" />
+                  <s:enumeration value="trft_ReconciliationReport" />
+                  <s:enumeration value="trft_StampTax" />
+                  <s:enumeration value="trft_SalesReport" />
+                  <s:enumeration value="trft_None" />
+                  <s:enumeration value="trft_BoxReport" />
+                  <s:enumeration value="trft_AppendixOP" />
+                  <s:enumeration value="trft_AnnualSalesReport" />
+                  <s:enumeration value="trft_VATRefundReport" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ExcludeWT">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IncludeCustomers">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IncludeVendors">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Period">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trfP_Quarter" />
+                  <s:enumeration value="trfP_Year" />
+                  <s:enumeration value="trfP_Month" />
+                  <s:enumeration value="trfP_NULL" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Quarter" type="s:long" />
+            <s:element minOccurs="0" name="Year" type="s:long" />
+            <s:element minOccurs="0" name="DocumentType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trfadt_APDocuments" />
+                  <s:enumeration value="trfadt_ARDocuments" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FirstRegisterNumber" type="s:long" />
+            <s:element minOccurs="0" name="IncludeGLAccounts">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="AppendixOorPSelection">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="OpeningAndClosingBalance">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FromSeries" type="s:long" />
+            <s:element minOccurs="0" name="ToSeries" type="s:long" />
+            <s:element minOccurs="0" name="Cancellation">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="HideTaxWithoutTransaction">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IncludeSeriesFilter">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="IncludeDocumentType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DiplayCreditMemosInSeparateColumn">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ShowPaymentsWithDeferredTax">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="QuarterOrDates">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trfqd_Interval" />
+                  <s:enumeration value="trfqd_Date" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxReportGroups">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="TaxReportGroup">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Code" type="s:string" />
+                        <s:element minOccurs="0" name="Sum">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxReportBusinessPartners">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="TaxReportBusinessPartner">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Code" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxReportDocuments">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="TaxReportDocument">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DocumentType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="trfdt_ARInvoices" />
+                              <s:enumeration value="trfdt_ARCreditMemos" />
+                              <s:enumeration value="trfdt_APInvoices" />
+                              <s:enumeration value="trfdt_APCreditMemos" />
+                              <s:enumeration value="trfdt_IncomingPayments" />
+                              <s:enumeration value="trfdt_JournalEntries" />
+                              <s:enumeration value="trfdt_OutgoingPayments" />
+                              <s:enumeration value="trfdt_ChecksforPayment" />
+                              <s:enumeration value="trfdt_InventoryTransfers" />
+                              <s:enumeration value="trfdt_ARDownPayment" />
+                              <s:enumeration value="trfdt_APDownPayment" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="FromNumber" type="s:long" />
+                        <s:element minOccurs="0" name="ToNumber" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxReportSeriesCollection">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="TaxReportSeries">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DocumentType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="trfdt_ARInvoices" />
+                              <s:enumeration value="trfdt_ARCreditMemos" />
+                              <s:enumeration value="trfdt_APInvoices" />
+                              <s:enumeration value="trfdt_APCreditMemos" />
+                              <s:enumeration value="trfdt_IncomingPayments" />
+                              <s:enumeration value="trfdt_JournalEntries" />
+                              <s:enumeration value="trfdt_OutgoingPayments" />
+                              <s:enumeration value="trfdt_ChecksforPayment" />
+                              <s:enumeration value="trfdt_InventoryTransfers" />
+                              <s:enumeration value="trfdt_ARDownPayment" />
+                              <s:enumeration value="trfdt_APDownPayment" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SeriesCode" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="TaxReportAccounts">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="TaxReportAccount">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Code" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaxReportFiltersParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="TaxReportFilterParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                  <s:element minOccurs="0" name="FilterType">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="trft_TaxReport" />
+                        <s:enumeration value="trft_WTReport" />
+                        <s:enumeration value="trft_Report347" />
+                        <s:enumeration value="trft_Report349" />
+                        <s:enumeration value="trft_ReconciliationReport" />
+                        <s:enumeration value="trft_StampTax" />
+                        <s:enumeration value="trft_SalesReport" />
+                        <s:enumeration value="trft_None" />
+                        <s:enumeration value="trft_BoxReport" />
+                        <s:enumeration value="trft_AppendixOP" />
+                        <s:enumeration value="trft_AnnualSalesReport" />
+                        <s:enumeration value="trft_VATRefundReport" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ReportFilterService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ReportFilterService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="GetTaxReportFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilterParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTaxReportFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTaxReportFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxReportFilterList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilterParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaxReportFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TaxReportFilterParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTaxReportFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxReportFilter" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxReportFilterSoapOut">
+    <wsdl:part name="parameters" element="s1:GetTaxReportFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTaxReportFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTaxReportFilter" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTaxReportFilterSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateTaxReportFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTaxReportFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTaxReportFilter" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddTaxReportFilterSoapOut">
+    <wsdl:part name="parameters" element="s1:AddTaxReportFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxReportFilterListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxReportFilterList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxReportFilterListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetTaxReportFilterListResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaxReportFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTaxReportFilter" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaxReportFilterSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteTaxReportFilterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportFilterServiceSoap">
+    <wsdl:operation name="GetTaxReportFilter">
+      <wsdl:input message="tns:GetTaxReportFilterSoapIn" />
+      <wsdl:output message="tns:GetTaxReportFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxReportFilter">
+      <wsdl:input message="tns:UpdateTaxReportFilterSoapIn" />
+      <wsdl:output message="tns:UpdateTaxReportFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTaxReportFilter">
+      <wsdl:input message="tns:AddTaxReportFilterSoapIn" />
+      <wsdl:output message="tns:AddTaxReportFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxReportFilterList">
+      <wsdl:input message="tns:GetTaxReportFilterListSoapIn" />
+      <wsdl:output message="tns:GetTaxReportFilterListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxReportFilter">
+      <wsdl:input message="tns:DeleteTaxReportFilterSoapIn" />
+      <wsdl:output message="tns:DeleteTaxReportFilterSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportFilterServiceSoap" type="tns:ReportFilterServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTaxReportFilter">
+      <soap:operation soapAction="ReportFilterService/GetTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxReportFilter">
+      <soap:operation soapAction="ReportFilterService/UpdateTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTaxReportFilter">
+      <soap:operation soapAction="ReportFilterService/AddTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxReportFilterList">
+      <soap:operation soapAction="ReportFilterService/GetTaxReportFilterList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetTaxReportFilterListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxReportFilter">
+      <soap:operation soapAction="ReportFilterService/DeleteTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportFilterServiceSoap12" type="tns:ReportFilterServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTaxReportFilter">
+      <soap12:operation soapAction="ReportFilterService/GetTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxReportFilter">
+      <soap12:operation soapAction="ReportFilterService/UpdateTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTaxReportFilter">
+      <soap12:operation soapAction="ReportFilterService/AddTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxReportFilterList">
+      <soap12:operation soapAction="ReportFilterService/GetTaxReportFilterList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetTaxReportFilterListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxReportFilter">
+      <soap12:operation soapAction="ReportFilterService/DeleteTaxReportFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteTaxReportFilterSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportFilterService">
+    <wsdl:port name="ReportFilterServiceSoap" binding="tns:ReportFilterServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportFilterServiceSoap12" binding="tns:ReportFilterServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

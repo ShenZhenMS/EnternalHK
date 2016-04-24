@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ServiceCallStatusService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ServiceCallStatusService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddServiceCallStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatusParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceCallStatusResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceCallStatusResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallStatusListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatusParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallStatus">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="StatusId" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallStatusParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="StatusId" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallStatusParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallStatusParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="StatusId" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ServiceCallStatusService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ServiceCallStatusService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddServiceCallStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceCallStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceCallStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatusParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallStatusParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallStatusList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddServiceCallStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:AddServiceCallStatus" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddServiceCallStatusSoapOut">
+    <wsdl:part name="parameters" element="s1:AddServiceCallStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceCallStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateServiceCallStatus" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceCallStatusSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateServiceCallStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceCallStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteServiceCallStatus" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceCallStatusSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteServiceCallStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceCallStatus" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallStatusSoapOut">
+    <wsdl:part name="parameters" element="s1:GetServiceCallStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallStatusListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceCallStatusList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallStatusListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetServiceCallStatusListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceCallStatusServiceSoap">
+    <wsdl:operation name="AddServiceCallStatus">
+      <wsdl:input message="tns:AddServiceCallStatusSoapIn" />
+      <wsdl:output message="tns:AddServiceCallStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallStatus">
+      <wsdl:input message="tns:UpdateServiceCallStatusSoapIn" />
+      <wsdl:output message="tns:UpdateServiceCallStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallStatus">
+      <wsdl:input message="tns:DeleteServiceCallStatusSoapIn" />
+      <wsdl:output message="tns:DeleteServiceCallStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallStatus">
+      <wsdl:input message="tns:GetServiceCallStatusSoapIn" />
+      <wsdl:output message="tns:GetServiceCallStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallStatusList">
+      <wsdl:input message="tns:GetServiceCallStatusListSoapIn" />
+      <wsdl:output message="tns:GetServiceCallStatusListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceCallStatusServiceSoap" type="tns:ServiceCallStatusServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddServiceCallStatus">
+      <soap:operation soapAction="ServiceCallStatusService/AddServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallStatus">
+      <soap:operation soapAction="ServiceCallStatusService/UpdateServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallStatus">
+      <soap:operation soapAction="ServiceCallStatusService/DeleteServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallStatus">
+      <soap:operation soapAction="ServiceCallStatusService/GetServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallStatusList">
+      <soap:operation soapAction="ServiceCallStatusService/GetServiceCallStatusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetServiceCallStatusListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceCallStatusServiceSoap12" type="tns:ServiceCallStatusServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddServiceCallStatus">
+      <soap12:operation soapAction="ServiceCallStatusService/AddServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallStatus">
+      <soap12:operation soapAction="ServiceCallStatusService/UpdateServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallStatus">
+      <soap12:operation soapAction="ServiceCallStatusService/DeleteServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallStatus">
+      <soap12:operation soapAction="ServiceCallStatusService/GetServiceCallStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetServiceCallStatusSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallStatusList">
+      <soap12:operation soapAction="ServiceCallStatusService/GetServiceCallStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetServiceCallStatusListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCallStatusService">
+    <wsdl:port name="ServiceCallStatusServiceSoap" binding="tns:ServiceCallStatusServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceCallStatusServiceSoap12" binding="tns:ServiceCallStatusServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

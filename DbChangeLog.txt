@@ -1,0 +1,231 @@
+DB CHANGE LOG  DATE:2016/04/13
+
+/*1:SAP DB CHANGE*/
+/****** Object:  View [dbo].[CPS_View_ORDR]    Script Date: 04/12/2016 22:02:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER VIEW [dbo].[CPS_View_ORDR]
+AS
+SELECT     dbo.OPKL.AbsEntry AS PickNum,
+ dbo.PKL1.OrderEntry AS DocEntry, 
+ dbo.PKL1.OrderLine AS LineNum, 
+ dbo.ORDR.DocNum,
+ CONVERT(nvarchar(10), dbo.ORDR.DocDueDate, 120) AS DocDueDate,
+                       dbo.ORDR.CardCode, dbo.RDR1.ItemCode, 
+                      isNull(OITL.Quantity,
+                      Case When PKL1.PickQtty = 0 then PKL1.RelQtty Else PKL1.PickQtty END) AS Quantity, 
+                      --PKL1.PickQtty as Quantity,
+                      isNull(dbo.RDR1.unitMsr2,'') AS UoM, 
+                      dbo.RDR1.WhsCode, 
+                      dbo.OWHS.WhsName, 
+                      RDR1.OpenQty AS LineQuantity,
+                       ISNULL(OITL.DistNumber, N'') AS BatchNum, 
+                      dbo.OITM.U_OldItemNo AS OldItemcode, 
+                      dbo.ORDR.CardName, 
+                      dbo.OITM.ItemName,
+                      isNull(ORDR.Address,'') as Address, 
+                      RDR1.PriceBefDi as UnitPrice,
+						CASE When T2.U_ShelfLife is Null Then ISNULL(T1.U_ShelfLife,0) Else ISNULL(T2.U_ShelfLife,0) End as ShelfLife,
+					  case when RDR1.WhsCode  = 'C-00-001' then ORDR.U_COUNTER --Header
+						when  RDR1.WhsCode = 'K-OP-001' then ORDR.U_Keeper --Line
+						else '' end as [LocCode]
+
+FROM         dbo.OPKL INNER JOIN
+                      dbo.PKL1 ON dbo.PKL1.AbsEntry = dbo.OPKL.AbsEntry INNER JOIN
+                      dbo.RDR1 ON dbo.RDR1.DocEntry = dbo.PKL1.OrderEntry 
+                      AND dbo.PKL1.OrderLine = dbo.RDR1.LineNum INNER JOIN
+                      dbo.ORDR ON dbo.ORDR.DocEntry = dbo.RDR1.DocEntry INNER JOIN
+                      dbo.OITM ON dbo.OITM.ItemCode = dbo.RDR1.ItemCode INNER JOIN
+                      dbo.OWHS ON dbo.OWHS.WhsCode = dbo.RDR1.WhsCode 
+Left Join [@BrandShelfLife] T1 on T1.U_ItmsGrpCod = OITM.ItmsGrpCod and ISNULL(T1.U_cardcode,'') = ''
+Left Join [@BrandShelfLife] T2 on T2.U_ItmsGrpCod = OITM.ItmsGrpCod and T2.U_CardCode = ORDR.CardCode                      
+                      LEft JOIN
+					  (
+						SELECT DocType,DocLine,DocEntry,obtn.itemcode,DistNumber,SUM(itl1.AllocQty) as Quantity
+						FROM OITL 
+						INNER JOIN ITL1 ON ITL1.LogEntry = OITL.LogEntry and 1 = 2
+						INNER JOIN OBTN ON OBTN.ItemCode = ITL1.ItemCode AND OBTN.SysNumber = ITL1.SysNumber
+						group by DocType,DocLine,DocEntry,obtn.itemcode,DistNumber
+					  )	OITL on OITL.DocEntry = dbo.ORDR.DocEntry AND OITL.DocLine = dbo.RDR1.LineNum  and OITL.DocType = 17
+                      and OITL.Quantity <> 0
+WHERE     (dbo.OPKL.Status <> 'C') 
+and ordr.DocStatus = 'O'
+GO
+
+
+
+/****** Object:  View [dbo].[CPS_VIEW_OWTR]    Script Date: 04/12/2016 22:07:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER VIEW [dbo].[CPS_VIEW_OWTR]
+AS
+SELECT     dbo.OWTQ.DocEntry, 
+dbo.WTQ1.LineNum,  
+dbo.OWTQ.DocNum, 
+CONVERT(nvarchar(10), dbo.OWTQ.DocDueDate, 120) AS DocDueDate, dbo.WTQ1.ItemCode, 
+                      dbo.OITM.ItemName,
+                       WTQ1.Quantity as LineQuantity,
+                       WTQ1.OpenQty,isNull(T.Quantity, WTQ1.OpenQty) as BatchQuantity,
+                        isNull(dbo.WTQ1.unitMsr,'') AS UOM, 
+                        dbo.OWTQ.Filler AS FrmWhsCode, 
+                        dbo.WTQ1.WhsCode AS ToWhsCode, 
+                      dbo.OITM.U_OldItemNo AS OldItemcode, 
+                      ISNULL(T.DistNumber, N'') AS BatchNum,
+                      OWTQ.U_COUNTER as 'Counter',
+                        case when dbo.OWTQ.Filler  = 'C-00-001' then OWTQ.U_COUNTER --Header
+						when  dbo.OWTQ.Filler = 'K-OP-001' then OWTQ.U_Keeper --Line
+						else '' end as [FrmLocCode],
+						 case when WTQ1.WhsCode= 'C-00-001' then OWTQ.U_COUNTER --Header
+						when  WTQ1.WhsCode = 'K-OP-001' then OWTQ.U_Keeper --Line
+						else '' end as [ToLocCode],
+						CASE WHEN WTQ1.WhsCode= 'C-00-001' THEN 'Y'
+						ELSE 'N' END AS [AllowBTChange]
+FROM         dbo.OWTQ INNER JOIN
+                      dbo.WTQ1 ON dbo.OWTQ.DocEntry = dbo.WTQ1.DocEntry INNER JOIN
+                      dbo.OITM ON dbo.WTQ1.ItemCode = dbo.OITM.ItemCode INNER JOIN
+                      dbo.OWHS AS T1 ON dbo.WTQ1.WhsCode = T1.WhsCode INNER JOIN
+                      dbo.OWHS AS T2 ON dbo.OWTQ.Filler = T2.WhsCode 
+                     
+                      
+                      Left JOIN
+                      (
+						select DocEntry,DocLine,DocType,OBTN.DistNumber,SUM(ITL1.AllocQty) as Quantity From 
+						OITL
+						Inner Join ITL1 on ITL1.LogEntry = OITL.LogEntry
+						Inner Join OBTN on OBTN.ItemCode = ITL1.ItemCode and OBTN.SysNumber = ITl1.SysNumber
+						Where OITL.DocType = '1250000001'
+						Group By DocEntry,DocLine,DocType,OBTN.DistNumber
+						
+                      )  T on T.DocEntry = WTQ1.DocEntry and T.DocLine = WTQ1.LineNum and WTQ1.ObjType = T.DocType
+                      /*
+                      dbo.OITL ON dbo.OITL.DocNum = dbo.OWTQ.DocNum AND dbo.OITL.DocLine = dbo.WTQ1.LineNum LEFT OUTER JOIN
+                      dbo.ITL1 ON dbo.ITL1.LogEntry = dbo.OITL.LogEntry LEFT OUTER JOIN
+                      dbo.OBTN ON dbo.OBTN.ItemCode = dbo.ITL1.ItemCode AND dbo.OBTN.SysNumber = dbo.ITL1.SysNumber
+                      */
+WHERE     (dbo.OWTQ.DocStatus = 'O') AND (dbo.WTQ1.LineStatus = 'O')
+GO
+
+/*SECOND: ALTER UDT IN SAP DB*/
+ALTER TABLE CPS_TBL_OWTR ADD FrmLocCode NVARCHAR(50)
+ALTER TABLE CPS_TBL_OWTR ADD ToLocCode NVARCHAR(50)
+ALTER TABLE CPS_TBL_OWTR ADD AllowBTChange NVARCHAR(10) 
+/*SECOND: ALTER UDT IN SAP DB*/
+
+
+/*3: SAP 添加 UDF */
+FrmLocCode
+ToLocCode
+AllowBTChange
+/*SAP 添加 UDF */
+
+/*4: MID DB CHANGE*/
+ALTER Procedure [dbo].[CPS_Proc_LogInventoryTransfer]
+(
+	@DocEntry int,
+	@LineNum int,
+	@DocNum nvarchar(9),	
+	@DocDate datetime,
+	@ItemCode nvarchar(20),
+	@Quantity Decimal(19,6),
+	@UOM nvarchar(10),
+	@FrmWhsCode nvarchar(8),
+	@ToWhsCode nvarchar(8),
+	@LineQuantity numeric(19,6),
+	@OldItemCode nvarchar(20),
+	@BatchNum nvarchar(50),
+	@TransferType nvarchar(1),
+	@LocCode nvarchar(20),
+	@BatchQuantity numeric(19,6),
+	@ItemPerUnit numeric(19,6),
+	@ReceiveLineNum int,
+	@ReceiveEntry nvarchar(50),
+	@Counter nvarchar(50),
+	@FrmLocCode nvarchar(50),
+	@ToLocCode nvarchar(50),
+	@AllowBTChange nvarchar(10)
+)
+as
+Begin
+           
+INSERT INTO [dbo].[CPS_TBL_OWTR]
+           ([DocEntry]
+           ,[LineNum]
+           ,[DocNum]
+           ,[DocDate]
+           ,[ItemCode]
+           ,[ItemName]
+           ,[Quantity]
+           ,[UoM]
+           ,[FrmWhsCode]
+           ,[WhsName]
+           ,[ToWhsCode]
+           ,[ToWhsName]
+           ,[LineQuantity]
+           ,[OldItemCode]
+           ,[BatchNum]
+           ,[TransferType]
+           ,[LocCode]
+           ,[Remark]
+           ,[TgtEntry]
+           ,[TgtNum]
+           ,[ErrCode]
+           ,[ErrDscr]
+           ,[TrtCreateDate]
+           ,[ReceiveEntry]
+           ,[CreateDate]
+           ,[LastRunDate]
+           ,[TrxStatus]
+           ,[BatchQuantity]
+           ,[ItemPerUnit]
+           ,[ReceiveLineNum]
+           ,[Counter]
+           ,[FrmLocCode]
+           ,[ToLocCode]
+           ,[AllowBTChange])
+     VALUES
+           (@DocEntry
+           ,@LineNum
+           ,@DocNum   
+           ,@DocDate
+           ,@ItemCode
+           ,''
+           ,@Quantity
+           ,@UOM
+           ,@FrmWhsCode
+           ,''
+           ,@ToWhsCode
+           ,''
+           ,@LineQuantity
+           ,@OldItemCode
+           ,@BatchNum
+           ,@TransferType
+           ,null
+           ,null
+           ,null
+           ,null
+           ,null
+           ,null
+           ,null
+           ,@ReceiveEntry
+           ,GETDATE()
+           ,null
+           ,null
+           ,@BatchQuantity
+           ,@ItemPerUnit
+           ,@ReceiveLineNum
+           ,@Counter
+           ,@FrmLocCode
+           ,@ToLocCode
+           ,@AllowBTChange)           
+ End
+/*MID DB CHANGE*/
+
+

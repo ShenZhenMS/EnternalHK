@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="StatesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="StatesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StateParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteStateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:State" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStateListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StatesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="State">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Country" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="StateParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Country" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="StateParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Country" type="s:string" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="StatesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="StatesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:State" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:State" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StateParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:StateParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStateList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddStateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddState" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddStateSoapOut">
+    <wsdl:part name="parameters" element="s1:AddStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateState" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteStateSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteState" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteStateSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetState" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetStateSoapOut">
+    <wsdl:part name="parameters" element="s1:GetStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStateListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStateList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetStateListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetStateListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StatesServiceSoap">
+    <wsdl:operation name="AddState">
+      <wsdl:input message="tns:AddStateSoapIn" />
+      <wsdl:output message="tns:AddStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <wsdl:input message="tns:UpdateStateSoapIn" />
+      <wsdl:output message="tns:UpdateStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteState">
+      <wsdl:input message="tns:DeleteStateSoapIn" />
+      <wsdl:output message="tns:DeleteStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <wsdl:input message="tns:GetStateSoapIn" />
+      <wsdl:output message="tns:GetStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStateList">
+      <wsdl:input message="tns:GetStateListSoapIn" />
+      <wsdl:output message="tns:GetStateListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatesServiceSoap" type="tns:StatesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddState">
+      <soap:operation soapAction="StatesService/AddState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <soap:operation soapAction="StatesService/UpdateState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteState">
+      <soap:operation soapAction="StatesService/DeleteState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap:operation soapAction="StatesService/GetState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateList">
+      <soap:operation soapAction="StatesService/GetStateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetStateListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StatesServiceSoap12" type="tns:StatesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddState">
+      <soap12:operation soapAction="StatesService/AddState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <soap12:operation soapAction="StatesService/UpdateState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteState">
+      <soap12:operation soapAction="StatesService/DeleteState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap12:operation soapAction="StatesService/GetState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetStateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateList">
+      <soap12:operation soapAction="StatesService/GetStateList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetStateListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatesService">
+    <wsdl:port name="StatesServiceSoap" binding="tns:StatesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StatesServiceSoap12" binding="tns:StatesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

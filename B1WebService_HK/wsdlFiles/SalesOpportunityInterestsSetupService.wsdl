@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="SalesOpportunityInterestsSetupService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="SalesOpportunityInterestsSetupService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddSalesOpportunityInterestSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesOpportunityInterestSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSalesOpportunityInterestSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityInterestSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityInterestSetupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetupParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityInterestSetup">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+            <s:element minOccurs="0" name="Sort" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityInterestSetupParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesOpportunityInterestSetupParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="SalesOpportunityInterestSetupParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="SequenceNo" type="s:long" />
+                  <s:element minOccurs="0" name="Description" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="SalesOpportunityInterestsSetupService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="SalesOpportunityInterestsSetupService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddSalesOpportunityInterestSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesOpportunityInterestSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSalesOpportunityInterestSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityInterestSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:SalesOpportunityInterestSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSalesOpportunityInterestSetupList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSalesOpportunityInterestSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSalesOpportunityInterestSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSalesOpportunityInterestSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:AddSalesOpportunityInterestSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesOpportunityInterestSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSalesOpportunityInterestSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesOpportunityInterestSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateSalesOpportunityInterestSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSalesOpportunityInterestSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSalesOpportunityInterestSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSalesOpportunityInterestSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteSalesOpportunityInterestSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityInterestSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSalesOpportunityInterestSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityInterestSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSalesOpportunityInterestSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityInterestSetupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSalesOpportunityInterestSetupList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesOpportunityInterestSetupListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetSalesOpportunityInterestSetupListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SalesOpportunityInterestsSetupServiceSoap">
+    <wsdl:operation name="AddSalesOpportunityInterestSetup">
+      <wsdl:input message="tns:AddSalesOpportunityInterestSetupSoapIn" />
+      <wsdl:output message="tns:AddSalesOpportunityInterestSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityInterestSetup">
+      <wsdl:input message="tns:UpdateSalesOpportunityInterestSetupSoapIn" />
+      <wsdl:output message="tns:UpdateSalesOpportunityInterestSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityInterestSetup">
+      <wsdl:input message="tns:DeleteSalesOpportunityInterestSetupSoapIn" />
+      <wsdl:output message="tns:DeleteSalesOpportunityInterestSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityInterestSetup">
+      <wsdl:input message="tns:GetSalesOpportunityInterestSetupSoapIn" />
+      <wsdl:output message="tns:GetSalesOpportunityInterestSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityInterestSetupList">
+      <wsdl:input message="tns:GetSalesOpportunityInterestSetupListSoapIn" />
+      <wsdl:output message="tns:GetSalesOpportunityInterestSetupListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesOpportunityInterestsSetupServiceSoap" type="tns:SalesOpportunityInterestsSetupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSalesOpportunityInterestSetup">
+      <soap:operation soapAction="SalesOpportunityInterestsSetupService/AddSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityInterestSetup">
+      <soap:operation soapAction="SalesOpportunityInterestsSetupService/UpdateSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityInterestSetup">
+      <soap:operation soapAction="SalesOpportunityInterestsSetupService/DeleteSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityInterestSetup">
+      <soap:operation soapAction="SalesOpportunityInterestsSetupService/GetSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityInterestSetupList">
+      <soap:operation soapAction="SalesOpportunityInterestsSetupService/GetSalesOpportunityInterestSetupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetSalesOpportunityInterestSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesOpportunityInterestsSetupServiceSoap12" type="tns:SalesOpportunityInterestsSetupServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSalesOpportunityInterestSetup">
+      <soap12:operation soapAction="SalesOpportunityInterestsSetupService/AddSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesOpportunityInterestSetup">
+      <soap12:operation soapAction="SalesOpportunityInterestsSetupService/UpdateSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSalesOpportunityInterestSetup">
+      <soap12:operation soapAction="SalesOpportunityInterestsSetupService/DeleteSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityInterestSetup">
+      <soap12:operation soapAction="SalesOpportunityInterestsSetupService/GetSalesOpportunityInterestSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSalesOpportunityInterestSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOpportunityInterestSetupList">
+      <soap12:operation soapAction="SalesOpportunityInterestsSetupService/GetSalesOpportunityInterestSetupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetSalesOpportunityInterestSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesOpportunityInterestsSetupService">
+    <wsdl:port name="SalesOpportunityInterestsSetupServiceSoap" binding="tns:SalesOpportunityInterestsSetupServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesOpportunityInterestsSetupServiceSoap12" binding="tns:SalesOpportunityInterestsSetupServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

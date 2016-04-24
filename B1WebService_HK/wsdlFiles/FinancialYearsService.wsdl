@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="FinancialYearsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="FinancialYearsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddFinancialYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYearParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFinancialYearResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFinancialYearResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFinancialYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYear" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFinancialYearListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYearsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinancialYear">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+            <s:element minOccurs="0" name="StartDate" type="s:date" />
+            <s:element minOccurs="0" name="EndDate" type="s:date" />
+            <s:element minOccurs="0" name="AssessYear" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinancialYearParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinancialYearsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="FinancialYearParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Description" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="FinancialYearsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="FinancialYearsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddFinancialYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYear" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFinancialYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYear" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFinancialYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYearParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFinancialYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FinancialYearParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFinancialYearList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddFinancialYearSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFinancialYear" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddFinancialYearSoapOut">
+    <wsdl:part name="parameters" element="s1:AddFinancialYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFinancialYearSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFinancialYear" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFinancialYearSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateFinancialYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFinancialYearSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFinancialYear" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFinancialYearSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteFinancialYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFinancialYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFinancialYear" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFinancialYearSoapOut">
+    <wsdl:part name="parameters" element="s1:GetFinancialYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFinancialYearListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFinancialYearList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFinancialYearListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetFinancialYearListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FinancialYearsServiceSoap">
+    <wsdl:operation name="AddFinancialYear">
+      <wsdl:input message="tns:AddFinancialYearSoapIn" />
+      <wsdl:output message="tns:AddFinancialYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFinancialYear">
+      <wsdl:input message="tns:UpdateFinancialYearSoapIn" />
+      <wsdl:output message="tns:UpdateFinancialYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFinancialYear">
+      <wsdl:input message="tns:DeleteFinancialYearSoapIn" />
+      <wsdl:output message="tns:DeleteFinancialYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialYear">
+      <wsdl:input message="tns:GetFinancialYearSoapIn" />
+      <wsdl:output message="tns:GetFinancialYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialYearList">
+      <wsdl:input message="tns:GetFinancialYearListSoapIn" />
+      <wsdl:output message="tns:GetFinancialYearListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FinancialYearsServiceSoap" type="tns:FinancialYearsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddFinancialYear">
+      <soap:operation soapAction="FinancialYearsService/AddFinancialYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFinancialYear">
+      <soap:operation soapAction="FinancialYearsService/UpdateFinancialYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFinancialYear">
+      <soap:operation soapAction="FinancialYearsService/DeleteFinancialYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialYear">
+      <soap:operation soapAction="FinancialYearsService/GetFinancialYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialYearList">
+      <soap:operation soapAction="FinancialYearsService/GetFinancialYearList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetFinancialYearListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FinancialYearsServiceSoap12" type="tns:FinancialYearsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddFinancialYear">
+      <soap12:operation soapAction="FinancialYearsService/AddFinancialYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFinancialYear">
+      <soap12:operation soapAction="FinancialYearsService/UpdateFinancialYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFinancialYear">
+      <soap12:operation soapAction="FinancialYearsService/DeleteFinancialYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialYear">
+      <soap12:operation soapAction="FinancialYearsService/GetFinancialYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetFinancialYearSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialYearList">
+      <soap12:operation soapAction="FinancialYearsService/GetFinancialYearList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetFinancialYearListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FinancialYearsService">
+    <wsdl:port name="FinancialYearsServiceSoap" binding="tns:FinancialYearsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FinancialYearsServiceSoap12" binding="tns:FinancialYearsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="CustomsDeclarationService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="CustomsDeclarationService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddCustomsDeclarationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CustomsDeclarationParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomsDeclarationResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomsDeclarationResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomsDeclarationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CustomsDeclaration" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomsDeclaration">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CCDNum" type="s:string" />
+            <s:element minOccurs="0" name="Date" type="s:date" />
+            <s:element minOccurs="0" name="CustomsBroker" type="s:string" />
+            <s:element minOccurs="0" name="DocNum" type="s:string" />
+            <s:element minOccurs="0" name="DocDate" type="s:date" />
+            <s:element minOccurs="0" name="SupplyNum" type="s:string" />
+            <s:element minOccurs="0" name="SupplyDate" type="s:date" />
+            <s:element minOccurs="0" name="CustomsTerminal" type="s:string" />
+            <s:element minOccurs="0" name="PaymentKey" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomsDeclarationParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CCDNum" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="CustomsDeclarationService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="CustomsDeclarationService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddCustomsDeclaration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CustomsDeclaration" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomsDeclaration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CustomsDeclaration" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomsDeclaration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CustomsDeclarationParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomsDeclaration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CustomsDeclarationParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddCustomsDeclarationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCustomsDeclaration" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomsDeclarationSoapOut">
+    <wsdl:part name="parameters" element="s1:AddCustomsDeclarationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomsDeclarationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomsDeclaration" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomsDeclarationSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCustomsDeclarationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomsDeclarationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCustomsDeclaration" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomsDeclarationSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteCustomsDeclarationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomsDeclarationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomsDeclaration" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomsDeclarationSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCustomsDeclarationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CustomsDeclarationServiceSoap">
+    <wsdl:operation name="AddCustomsDeclaration">
+      <wsdl:input message="tns:AddCustomsDeclarationSoapIn" />
+      <wsdl:output message="tns:AddCustomsDeclarationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomsDeclaration">
+      <wsdl:input message="tns:UpdateCustomsDeclarationSoapIn" />
+      <wsdl:output message="tns:UpdateCustomsDeclarationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomsDeclaration">
+      <wsdl:input message="tns:DeleteCustomsDeclarationSoapIn" />
+      <wsdl:output message="tns:DeleteCustomsDeclarationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomsDeclaration">
+      <wsdl:input message="tns:GetCustomsDeclarationSoapIn" />
+      <wsdl:output message="tns:GetCustomsDeclarationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomsDeclarationServiceSoap" type="tns:CustomsDeclarationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCustomsDeclaration">
+      <soap:operation soapAction="CustomsDeclarationService/AddCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomsDeclaration">
+      <soap:operation soapAction="CustomsDeclarationService/UpdateCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomsDeclaration">
+      <soap:operation soapAction="CustomsDeclarationService/DeleteCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomsDeclaration">
+      <soap:operation soapAction="CustomsDeclarationService/GetCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomsDeclarationServiceSoap12" type="tns:CustomsDeclarationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCustomsDeclaration">
+      <soap12:operation soapAction="CustomsDeclarationService/AddCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomsDeclaration">
+      <soap12:operation soapAction="CustomsDeclarationService/UpdateCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomsDeclaration">
+      <soap12:operation soapAction="CustomsDeclarationService/DeleteCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomsDeclaration">
+      <soap12:operation soapAction="CustomsDeclarationService/GetCustomsDeclaration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCustomsDeclarationSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomsDeclarationService">
+    <wsdl:port name="CustomsDeclarationServiceSoap" binding="tns:CustomsDeclarationServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomsDeclarationServiceSoap12" binding="tns:CustomsDeclarationServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

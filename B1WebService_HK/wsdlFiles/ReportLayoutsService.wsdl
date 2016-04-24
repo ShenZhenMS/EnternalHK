@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ReportLayoutsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ReportLayoutsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="SetDefaultReportResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DefaultReportParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReportLayoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayoutParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReportLayoutResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportLayoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultReportLayoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportLayoutListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayoutsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLanguageReportResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReportLayoutToMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayoutParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReportLayoutAndMenuResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DefaultReportParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ReportCode" type="s:string" />
+            <s:element minOccurs="0" name="LayoutCode" type="s:string" />
+            <s:element minOccurs="0" name="UserID" type="s:long" />
+            <s:element minOccurs="0" name="CardCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ReportCode" type="s:string" />
+            <s:element minOccurs="0" name="UserID" type="s:long" />
+            <s:element minOccurs="0" name="CardCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportLayout">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Author" type="s:string" />
+            <s:element minOccurs="0" name="Remarks" type="s:string" />
+            <s:element minOccurs="0" name="Width" type="s:long" />
+            <s:element minOccurs="0" name="Height" type="s:long" />
+            <s:element minOccurs="0" name="LeftMargin" type="s:long" />
+            <s:element minOccurs="0" name="RightMargin" type="s:long" />
+            <s:element minOccurs="0" name="TopMargin" type="s:long" />
+            <s:element minOccurs="0" name="BottomMargin" type="s:long" />
+            <s:element minOccurs="0" name="Editable">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PaperSize" type="s:string" />
+            <s:element minOccurs="0" name="Orientation">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ortVertical" />
+                  <s:enumeration value="ortHorizontal" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="GridSize" type="s:long" />
+            <s:element minOccurs="0" name="GridType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="gtCombination" />
+                  <s:enumeration value="gtContinuousLine" />
+                  <s:enumeration value="gtBrokenLine" />
+                  <s:enumeration value="gtDots" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ShowGrid">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="SnapToGrid">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Picture" type="s:string" />
+            <s:element minOccurs="0" name="TypeCode" type="s:string" />
+            <s:element minOccurs="0" name="ForeignLanguageReport">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Sortable">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="LeaderReport" type="s:string" />
+            <s:element minOccurs="0" name="FollowUpReport" type="s:string" />
+            <s:element minOccurs="0" name="ConvertFontInPrintPreview">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PreviewPrintingFont" type="s:string" />
+            <s:element minOccurs="0" name="ChangeFontSizeInPreview" type="s:long" />
+            <s:element minOccurs="0" name="ConvertFontForEMail">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="EMailFont" type="s:string" />
+            <s:element minOccurs="0" name="ChangeFontSizeForEMail" type="s:long" />
+            <s:element minOccurs="0" name="Query" type="s:string" />
+            <s:element minOccurs="0" name="QueryType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="qtRegular" />
+                  <s:enumeration value="qtWizard" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="language" type="s:long" />
+            <s:element minOccurs="0" name="ImpExpObjCode" type="s:long" />
+            <s:element minOccurs="0" name="ExtensionName" type="s:string" />
+            <s:element minOccurs="0" name="ExtensionErrorAction">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="eeaStop" />
+                  <s:enumeration value="eeaIgnore" />
+                  <s:enumeration value="eeaPrompt" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="RepetitiveAreasNumber" type="s:long" />
+            <s:element minOccurs="0" name="AllignFooterToBottom">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="LayoutCode" type="s:string" />
+            <s:element minOccurs="0" name="Category">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="rlcPLD" />
+                  <s:enumeration value="rlcCrystal" />
+                  <s:enumeration value="rlcLegalList" />
+                  <s:enumeration value="rlcUserDefinedType" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Printer" type="s:string" />
+            <s:element minOccurs="0" name="PrinterFirstPage" type="s:string" />
+            <s:element minOccurs="0" name="NumberOfCopies" type="s:long" />
+            <s:element minOccurs="0" name="Localization" type="s:string" />
+            <s:element minOccurs="0" name="UseFirstPrinter">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="B1Version" type="s:string" />
+            <s:element minOccurs="0" name="CRVersion" type="s:string" />
+            <s:element minOccurs="0" name="TypeDetail" type="s:string" />
+            <s:element minOccurs="0" name="ReportLayoutItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ReportLayoutItem">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="FieldIdentifier" type="s:string" />
+                        <s:element minOccurs="0" name="ParentType" type="s:long" />
+                        <s:element minOccurs="0" name="Type">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlitPageHeader" />
+                              <s:enumeration value="rlitStartOfReport" />
+                              <s:enumeration value="rlitRepetitiveAreaHeader" />
+                              <s:enumeration value="rlitRepetitiveArea" />
+                              <s:enumeration value="rlitRepetitiveAreaFooter" />
+                              <s:enumeration value="rlitEndOfReport" />
+                              <s:enumeration value="rlitPageFooter" />
+                              <s:enumeration value="rlitTextField" />
+                              <s:enumeration value="rlitPictureField" />
+                              <s:enumeration value="rlitUserField" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Visible">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SuppressZeros">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Left" type="s:long" />
+                        <s:element minOccurs="0" name="Top" type="s:long" />
+                        <s:element minOccurs="0" name="Width" type="s:long" />
+                        <s:element minOccurs="0" name="Height" type="s:long" />
+                        <s:element minOccurs="0" name="LeftMargin" type="s:long" />
+                        <s:element minOccurs="0" name="RightMargin" type="s:long" />
+                        <s:element minOccurs="0" name="TopMargin" type="s:long" />
+                        <s:element minOccurs="0" name="BottomMargin" type="s:long" />
+                        <s:element minOccurs="0" name="LeftBorderLineThickness" type="s:long" />
+                        <s:element minOccurs="0" name="RightBorderLineThickness" type="s:long" />
+                        <s:element minOccurs="0" name="TopBorderLineThickness" type="s:long" />
+                        <s:element minOccurs="0" name="BottomBorderLineThickness" type="s:long" />
+                        <s:element minOccurs="0" name="ShadowThickness" type="s:long" />
+                        <s:element minOccurs="0" name="BackgroundRed" type="s:long" />
+                        <s:element minOccurs="0" name="BackgroundGreen" type="s:long" />
+                        <s:element minOccurs="0" name="BackgroundBlue" type="s:long" />
+                        <s:element minOccurs="0" name="TextRed" type="s:long" />
+                        <s:element minOccurs="0" name="TextGreen" type="s:long" />
+                        <s:element minOccurs="0" name="TextBlue" type="s:long" />
+                        <s:element minOccurs="0" name="HighlightRed" type="s:long" />
+                        <s:element minOccurs="0" name="HighlightGreen" type="s:long" />
+                        <s:element minOccurs="0" name="HighlightBlue" type="s:long" />
+                        <s:element minOccurs="0" name="BorderRed" type="s:long" />
+                        <s:element minOccurs="0" name="BorderGreen" type="s:long" />
+                        <s:element minOccurs="0" name="BorderBlue" type="s:long" />
+                        <s:element minOccurs="0" name="GroupNumber" type="s:long" />
+                        <s:element minOccurs="0" name="FontName" type="s:string" />
+                        <s:element minOccurs="0" name="FontSize" type="s:long" />
+                        <s:element minOccurs="0" name="TextStyle" type="s:long" />
+                        <s:element minOccurs="0" name="HorizontalAlignment">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlhjRight" />
+                              <s:enumeration value="rlhjLeft" />
+                              <s:enumeration value="rlhjCentralized" />
+                              <s:enumeration value="rlhjLanguageDependent" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="LineBreak">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlsAllowOverflow" />
+                              <s:enumeration value="rlsAdjustToCell" />
+                              <s:enumeration value="rlsDivideIntoRows" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="PictureSize">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlpsOriginalSize" />
+                              <s:enumeration value="rlpsFitFieldSizeNonProportionally" />
+                              <s:enumeration value="rlpsFitFieldSizeProportionally" />
+                              <s:enumeration value="rlpsFitFieldHeight" />
+                              <s:enumeration value="rlpsFitFieldWidth" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DataSource">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rldsFreeText" />
+                              <s:enumeration value="rldsSystemVariable" />
+                              <s:enumeration value="rldsDatabase" />
+                              <s:enumeration value="rldsFormula" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="String" type="s:string" />
+                        <s:element minOccurs="0" name="VariableNumber" type="s:long" />
+                        <s:element minOccurs="0" name="TableName" type="s:string" />
+                        <s:element minOccurs="0" name="FieldName" type="s:string" />
+                        <s:element minOccurs="0" name="DisplayDescription">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Editable" type="s:long" />
+                        <s:element minOccurs="0" name="ItemNumber" type="s:long" />
+                        <s:element minOccurs="0" name="VerticalAlignment">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlvaTop" />
+                              <s:enumeration value="rlvaBottom" />
+                              <s:enumeration value="rlvaCentralized" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SortLevel" type="s:long" />
+                        <s:element minOccurs="0" name="ReverseSort">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SortType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlstAlpha" />
+                              <s:enumeration value="rlstNumeric" />
+                              <s:enumeration value="rlstMoney" />
+                              <s:enumeration value="rlstDate" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Unique">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="SetAsGroup">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="NewPage">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="PrintAsBarCode">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="LinkToField" type="s:string" />
+                        <s:element minOccurs="0" name="BarCodeStandard">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="rlbsan13" />
+                              <s:enumeration value="rlbsCode39" />
+                              <s:enumeration value="rlbsCode128" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DisplayTotalAsAWord">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="BlockFontChange">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="ParentIndex" type="s:long" />
+                        <s:element minOccurs="0" name="ItemIndex" type="s:long" />
+                        <s:element minOccurs="0" name="StringLength" type="s:long" />
+                        <s:element minOccurs="0" name="StringFiller" type="s:string" />
+                        <s:element minOccurs="0" name="RelateToField" type="s:string" />
+                        <s:element minOccurs="0" name="NextSegmentItemNumber" type="s:string" />
+                        <s:element minOccurs="0" name="HeightAdjustments">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DuplicateRepetitiveArea">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="NumberOfLinesInRepetitiveArea" type="s:long" />
+                        <s:element minOccurs="0" name="DistanceToRepetitiveDuplicate" type="s:long" />
+                        <s:element minOccurs="0" name="HideRepetitiveAreaIfEmpty">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DisplayRepetitiveAreaFooterOnAllPages">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ReportLayout_TranslationLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ReportLayout_TranslationLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DocEntry" type="s:string" />
+                        <s:element minOccurs="0" name="LineNumber" type="s:long" />
+                        <s:element minOccurs="0" name="DocName" type="s:string" />
+                        <s:element minOccurs="0" name="LanguageCode" type="s:long" />
+                        <s:element minOccurs="0" name="CreateDate" type="s:date" />
+                        <s:element minOccurs="0" name="UpdateDate" type="s:date" />
+                        <s:element minOccurs="0" name="CreateTime" type="s:long" />
+                        <s:element minOccurs="0" name="UpdateTime" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportLayoutParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="LayoutCode" type="s:string" />
+            <s:element minOccurs="0" name="LayoutName" type="s:string" />
+            <s:element minOccurs="0" name="Category">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="rlcPLD" />
+                  <s:enumeration value="rlcCrystal" />
+                  <s:enumeration value="rlcLegalList" />
+                  <s:enumeration value="rlcUserDefinedType" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportLayoutsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="ReportLayoutParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="LayoutCode" type="s:string" />
+                  <s:element minOccurs="0" name="LayoutName" type="s:string" />
+                  <s:element minOccurs="0" name="Category">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="rlcPLD" />
+                        <s:enumeration value="rlcCrystal" />
+                        <s:enumeration value="rlcLegalList" />
+                        <s:enumeration value="rlcUserDefinedType" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ReportLayoutsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ReportLayoutsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="SetDefaultReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DefaultReportParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReportLayout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReportLayout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayoutParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportLayout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayoutParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultReportLayout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportLayoutList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLanguageReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReportLayoutToMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReportLayoutAndMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ReportLayoutParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetDefaultReportSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultReport" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultReportSoapOut">
+    <wsdl:part name="parameters" element="s1:SetDefaultReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultReportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultReport" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultReportSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDefaultReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddReportLayoutSoapIn">
+    <wsdl:part name="parameters" element="tns:AddReportLayout" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddReportLayoutSoapOut">
+    <wsdl:part name="parameters" element="s1:AddReportLayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReportLayoutSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteReportLayout" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReportLayoutSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteReportLayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportLayoutSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportLayout" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetReportLayoutSoapOut">
+    <wsdl:part name="parameters" element="s1:GetReportLayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultReportLayoutSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultReportLayout" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultReportLayoutSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDefaultReportLayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportLayoutListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportLayoutList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetReportLayoutListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetReportLayoutListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLanguageReportSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLanguageReport" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLanguageReportSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateLanguageReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddReportLayoutToMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:AddReportLayoutToMenu" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddReportLayoutToMenuSoapOut">
+    <wsdl:part name="parameters" element="s1:AddReportLayoutToMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReportLayoutAndMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteReportLayoutAndMenu" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReportLayoutAndMenuSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteReportLayoutAndMenuResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportLayoutsServiceSoap">
+    <wsdl:operation name="SetDefaultReport">
+      <wsdl:input message="tns:SetDefaultReportSoapIn" />
+      <wsdl:output message="tns:SetDefaultReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReport">
+      <wsdl:input message="tns:GetDefaultReportSoapIn" />
+      <wsdl:output message="tns:GetDefaultReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReportLayout">
+      <wsdl:input message="tns:AddReportLayoutSoapIn" />
+      <wsdl:output message="tns:AddReportLayoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportLayout">
+      <wsdl:input message="tns:DeleteReportLayoutSoapIn" />
+      <wsdl:output message="tns:DeleteReportLayoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportLayout">
+      <wsdl:input message="tns:GetReportLayoutSoapIn" />
+      <wsdl:output message="tns:GetReportLayoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReportLayout">
+      <wsdl:input message="tns:GetDefaultReportLayoutSoapIn" />
+      <wsdl:output message="tns:GetDefaultReportLayoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportLayoutList">
+      <wsdl:input message="tns:GetReportLayoutListSoapIn" />
+      <wsdl:output message="tns:GetReportLayoutListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLanguageReport">
+      <wsdl:input message="tns:UpdateLanguageReportSoapIn" />
+      <wsdl:output message="tns:UpdateLanguageReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReportLayoutToMenu">
+      <wsdl:input message="tns:AddReportLayoutToMenuSoapIn" />
+      <wsdl:output message="tns:AddReportLayoutToMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportLayoutAndMenu">
+      <wsdl:input message="tns:DeleteReportLayoutAndMenuSoapIn" />
+      <wsdl:output message="tns:DeleteReportLayoutAndMenuSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportLayoutsServiceSoap" type="tns:ReportLayoutsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDefaultReport">
+      <soap:operation soapAction="ReportLayoutsService/SetDefaultReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:SetDefaultReportSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReport">
+      <soap:operation soapAction="ReportLayoutsService/GetDefaultReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDefaultReportSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReportLayout">
+      <soap:operation soapAction="ReportLayoutsService/AddReportLayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportLayout">
+      <soap:operation soapAction="ReportLayoutsService/DeleteReportLayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportLayout">
+      <soap:operation soapAction="ReportLayoutsService/GetReportLayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReportLayout">
+      <soap:operation soapAction="ReportLayoutsService/GetDefaultReportLayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDefaultReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportLayoutList">
+      <soap:operation soapAction="ReportLayoutsService/GetReportLayoutList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetReportLayoutListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLanguageReport">
+      <soap:operation soapAction="ReportLayoutsService/UpdateLanguageReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateLanguageReportSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReportLayoutToMenu">
+      <soap:operation soapAction="ReportLayoutsService/AddReportLayoutToMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddReportLayoutToMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportLayoutAndMenu">
+      <soap:operation soapAction="ReportLayoutsService/DeleteReportLayoutAndMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteReportLayoutAndMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportLayoutsServiceSoap12" type="tns:ReportLayoutsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDefaultReport">
+      <soap12:operation soapAction="ReportLayoutsService/SetDefaultReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:SetDefaultReportSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReport">
+      <soap12:operation soapAction="ReportLayoutsService/GetDefaultReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDefaultReportSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReportLayout">
+      <soap12:operation soapAction="ReportLayoutsService/AddReportLayout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportLayout">
+      <soap12:operation soapAction="ReportLayoutsService/DeleteReportLayout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportLayout">
+      <soap12:operation soapAction="ReportLayoutsService/GetReportLayout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReportLayout">
+      <soap12:operation soapAction="ReportLayoutsService/GetDefaultReportLayout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDefaultReportLayoutSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportLayoutList">
+      <soap12:operation soapAction="ReportLayoutsService/GetReportLayoutList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetReportLayoutListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLanguageReport">
+      <soap12:operation soapAction="ReportLayoutsService/UpdateLanguageReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateLanguageReportSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReportLayoutToMenu">
+      <soap12:operation soapAction="ReportLayoutsService/AddReportLayoutToMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddReportLayoutToMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReportLayoutAndMenu">
+      <soap12:operation soapAction="ReportLayoutsService/DeleteReportLayoutAndMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteReportLayoutAndMenuSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportLayoutsService">
+    <wsdl:port name="ReportLayoutsServiceSoap" binding="tns:ReportLayoutsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportLayoutsServiceSoap12" binding="tns:ReportLayoutsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

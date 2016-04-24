@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="DistributionRulesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="DistributionRulesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddDistributionRuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRuleParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDistributionRuleResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDistributionRuleResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionRuleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionRuleListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRulesParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistributionRule">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="FactorCode" type="s:string" />
+            <s:element minOccurs="0" name="FactorDescription" type="s:string" />
+            <s:element minOccurs="0" name="TotalFactor" type="s:double" />
+            <s:element minOccurs="0" name="Direct" type="s:string" />
+            <s:element minOccurs="0" name="InWhichDimension" type="s:long" />
+            <s:element minOccurs="0" name="Active">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DistributionRuleLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="DistributionRuleLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="CenterCode" type="s:string" />
+                        <s:element minOccurs="0" name="TotalInCenter" type="s:double" />
+                        <s:element minOccurs="0" name="EffectiveFrom" type="s:date" />
+                        <s:element minOccurs="0" name="EffectiveTo" type="s:date" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistributionRuleParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="FactorCode" type="s:string" />
+            <s:element minOccurs="0" name="FactorDescription" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistributionRulesParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="DistributionRuleParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="FactorCode" type="s:string" />
+                  <s:element minOccurs="0" name="FactorDescription" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="DistributionRulesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="DistributionRulesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddDistributionRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDistributionRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDistributionRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRuleParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionRule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DistributionRuleParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionRuleList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDistributionRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDistributionRule" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddDistributionRuleSoapOut">
+    <wsdl:part name="parameters" element="s1:AddDistributionRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDistributionRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDistributionRule" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDistributionRuleSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateDistributionRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDistributionRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDistributionRule" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDistributionRuleSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteDistributionRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRuleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistributionRule" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRuleSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDistributionRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRuleListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistributionRuleList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRuleListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDistributionRuleListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DistributionRulesServiceSoap">
+    <wsdl:operation name="AddDistributionRule">
+      <wsdl:input message="tns:AddDistributionRuleSoapIn" />
+      <wsdl:output message="tns:AddDistributionRuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDistributionRule">
+      <wsdl:input message="tns:UpdateDistributionRuleSoapIn" />
+      <wsdl:output message="tns:UpdateDistributionRuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDistributionRule">
+      <wsdl:input message="tns:DeleteDistributionRuleSoapIn" />
+      <wsdl:output message="tns:DeleteDistributionRuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRule">
+      <wsdl:input message="tns:GetDistributionRuleSoapIn" />
+      <wsdl:output message="tns:GetDistributionRuleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRuleList">
+      <wsdl:input message="tns:GetDistributionRuleListSoapIn" />
+      <wsdl:output message="tns:GetDistributionRuleListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DistributionRulesServiceSoap" type="tns:DistributionRulesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDistributionRule">
+      <soap:operation soapAction="DistributionRulesService/AddDistributionRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDistributionRule">
+      <soap:operation soapAction="DistributionRulesService/UpdateDistributionRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDistributionRule">
+      <soap:operation soapAction="DistributionRulesService/DeleteDistributionRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRule">
+      <soap:operation soapAction="DistributionRulesService/GetDistributionRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRuleList">
+      <soap:operation soapAction="DistributionRulesService/GetDistributionRuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDistributionRuleListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DistributionRulesServiceSoap12" type="tns:DistributionRulesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDistributionRule">
+      <soap12:operation soapAction="DistributionRulesService/AddDistributionRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDistributionRule">
+      <soap12:operation soapAction="DistributionRulesService/UpdateDistributionRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDistributionRule">
+      <soap12:operation soapAction="DistributionRulesService/DeleteDistributionRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRule">
+      <soap12:operation soapAction="DistributionRulesService/GetDistributionRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDistributionRuleSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRuleList">
+      <soap12:operation soapAction="DistributionRulesService/GetDistributionRuleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDistributionRuleListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DistributionRulesService">
+    <wsdl:port name="DistributionRulesServiceSoap" binding="tns:DistributionRulesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DistributionRulesServiceSoap12" binding="tns:DistributionRulesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

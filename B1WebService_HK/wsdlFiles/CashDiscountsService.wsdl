@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="CashDiscountsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="CashDiscountsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddCashDiscountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscountParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCashDiscountResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCashDiscountResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDiscountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDiscountListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscountsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashDiscount">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="ByDate">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Freight">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Tax">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DiscountLines">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="DiscountLine">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="DiscountCode" type="s:string" />
+                        <s:element minOccurs="0" name="LineId" type="s:long" />
+                        <s:element minOccurs="0" name="NumOfDays" type="s:long" />
+                        <s:element minOccurs="0" name="Discount" type="s:double" />
+                        <s:element minOccurs="0" name="Day" type="s:long" />
+                        <s:element minOccurs="0" name="Month" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashDiscountParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:string" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="CashDiscountsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="CashDiscountParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="CashDiscountsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="CashDiscountsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddCashDiscount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCashDiscount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCashDiscount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscountParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDiscount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CashDiscountParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDiscountList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddCashDiscountSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCashDiscount" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddCashDiscountSoapOut">
+    <wsdl:part name="parameters" element="s1:AddCashDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCashDiscountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCashDiscount" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCashDiscountSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateCashDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCashDiscountSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCashDiscount" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCashDiscountSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteCashDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDiscountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashDiscount" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDiscountSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCashDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDiscountListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashDiscountList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDiscountListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetCashDiscountListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CashDiscountsServiceSoap">
+    <wsdl:operation name="AddCashDiscount">
+      <wsdl:input message="tns:AddCashDiscountSoapIn" />
+      <wsdl:output message="tns:AddCashDiscountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashDiscount">
+      <wsdl:input message="tns:UpdateCashDiscountSoapIn" />
+      <wsdl:output message="tns:UpdateCashDiscountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashDiscount">
+      <wsdl:input message="tns:DeleteCashDiscountSoapIn" />
+      <wsdl:output message="tns:DeleteCashDiscountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDiscount">
+      <wsdl:input message="tns:GetCashDiscountSoapIn" />
+      <wsdl:output message="tns:GetCashDiscountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDiscountList">
+      <wsdl:input message="tns:GetCashDiscountListSoapIn" />
+      <wsdl:output message="tns:GetCashDiscountListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CashDiscountsServiceSoap" type="tns:CashDiscountsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCashDiscount">
+      <soap:operation soapAction="CashDiscountsService/AddCashDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashDiscount">
+      <soap:operation soapAction="CashDiscountsService/UpdateCashDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashDiscount">
+      <soap:operation soapAction="CashDiscountsService/DeleteCashDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDiscount">
+      <soap:operation soapAction="CashDiscountsService/GetCashDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDiscountList">
+      <soap:operation soapAction="CashDiscountsService/GetCashDiscountList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetCashDiscountListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CashDiscountsServiceSoap12" type="tns:CashDiscountsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCashDiscount">
+      <soap12:operation soapAction="CashDiscountsService/AddCashDiscount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCashDiscount">
+      <soap12:operation soapAction="CashDiscountsService/UpdateCashDiscount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCashDiscount">
+      <soap12:operation soapAction="CashDiscountsService/DeleteCashDiscount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDiscount">
+      <soap12:operation soapAction="CashDiscountsService/GetCashDiscount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCashDiscountSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDiscountList">
+      <soap12:operation soapAction="CashDiscountsService/GetCashDiscountList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetCashDiscountListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CashDiscountsService">
+    <wsdl:port name="CashDiscountsServiceSoap" binding="tns:CashDiscountsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CashDiscountsServiceSoap12" binding="tns:CashDiscountsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="BusinessPartnersService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="BusinessPartnersService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartner" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOpenBalanceResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFromXMLResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="BusinessPartner">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CardCode" type="s:string" />
+            <s:element minOccurs="0" name="CardName" type="s:string" />
+            <s:element minOccurs="0" name="CardType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="cCustomer" />
+                  <s:enumeration value="cSupplier" />
+                  <s:enumeration value="cLid" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="GroupCode" type="s:long" />
+            <s:element minOccurs="0" name="Address" type="s:string" />
+            <s:element minOccurs="0" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" name="MailAddress" type="s:string" />
+            <s:element minOccurs="0" name="MailZipCode" type="s:string" />
+            <s:element minOccurs="0" name="Phone1" type="s:string" />
+            <s:element minOccurs="0" name="Phone2" type="s:string" />
+            <s:element minOccurs="0" name="Fax" type="s:string" />
+            <s:element minOccurs="0" name="ContactPerson" type="s:string" />
+            <s:element minOccurs="0" name="Notes" type="s:string" />
+            <s:element minOccurs="0" name="PayTermsGrpCode" type="s:long" />
+            <s:element minOccurs="0" name="CreditLimit" type="s:double" />
+            <s:element minOccurs="0" name="MaxCommitment" type="s:double" />
+            <s:element minOccurs="0" name="DiscountPercent" type="s:double" />
+            <s:element minOccurs="0" name="VatLiable">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="vExempted" />
+                  <s:enumeration value="vLiable" />
+                  <s:enumeration value="vEC" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FederalTaxID" type="s:string" />
+            <s:element minOccurs="0" name="DeductibleAtSource">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DeductionPercent" type="s:double" />
+            <s:element minOccurs="0" name="DeductionValidUntil" type="s:date" />
+            <s:element minOccurs="0" name="PriceListNum" type="s:long" />
+            <s:element minOccurs="0" name="IntrestRatePercent" type="s:double" />
+            <s:element minOccurs="0" name="CommissionPercent" type="s:double" />
+            <s:element minOccurs="0" name="CommissionGroupCode" type="s:long" />
+            <s:element minOccurs="0" name="FreeText" type="s:string" />
+            <s:element minOccurs="0" name="SalesPersonCode" type="s:long" />
+            <s:element minOccurs="0" name="Currency" type="s:string" />
+            <s:element minOccurs="0" name="RateDiffAccount" type="s:string" />
+            <s:element minOccurs="0" name="Cellular" type="s:string" />
+            <s:element minOccurs="0" name="AvarageLate" type="s:long" />
+            <s:element minOccurs="0" name="City" type="s:string" />
+            <s:element minOccurs="0" name="County" type="s:string" />
+            <s:element minOccurs="0" name="Country" type="s:string" />
+            <s:element minOccurs="0" name="MailCity" type="s:string" />
+            <s:element minOccurs="0" name="MailCounty" type="s:string" />
+            <s:element minOccurs="0" name="MailCountry" type="s:string" />
+            <s:element minOccurs="0" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" name="Picture" type="s:string" />
+            <s:element minOccurs="0" name="DefaultAccount" type="s:string" />
+            <s:element minOccurs="0" name="DefaultBranch" type="s:string" />
+            <s:element minOccurs="0" name="DefaultBankCode" type="s:string" />
+            <s:element minOccurs="0" name="AdditionalID" type="s:string" />
+            <s:element minOccurs="0" name="Pager" type="s:string" />
+            <s:element minOccurs="0" name="FatherCard" type="s:string" />
+            <s:element minOccurs="0" name="CardForeignName" type="s:string" />
+            <s:element minOccurs="0" name="FatherType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="cPayments_sum" />
+                  <s:enumeration value="cDelivery_sum" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DeductionOffice" type="s:string" />
+            <s:element minOccurs="0" name="ExportCode" type="s:string" />
+            <s:element minOccurs="0" name="MinIntrest" type="s:double" />
+            <s:element minOccurs="0" name="CurrentAccountBalance" type="s:double" />
+            <s:element minOccurs="0" name="OpenDeliveryNotesBalance" type="s:double" />
+            <s:element minOccurs="0" name="OpenOrdersBalance" type="s:double" />
+            <s:element minOccurs="0" name="VatGroup" type="s:string" />
+            <s:element minOccurs="0" name="ShippingType" type="s:long" />
+            <s:element minOccurs="0" name="Password" type="s:string" />
+            <s:element minOccurs="0" name="Indicator" type="s:string" />
+            <s:element minOccurs="0" name="IBAN" type="s:string" />
+            <s:element minOccurs="0" name="CreditCardCode" type="s:long" />
+            <s:element minOccurs="0" name="CreditCardNum" type="s:string" />
+            <s:element minOccurs="0" name="CreditCardExpiration" type="s:date" />
+            <s:element minOccurs="0" name="DebitorAccount" type="s:string" />
+            <s:element minOccurs="0" name="OpenOpportunities" type="s:long" />
+            <s:element minOccurs="0" name="Valid">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ValidFrom" type="s:date" />
+            <s:element minOccurs="0" name="ValidTo" type="s:date" />
+            <s:element minOccurs="0" name="ValidRemarks" type="s:string" />
+            <s:element minOccurs="0" name="Frozen">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="FrozenFrom" type="s:date" />
+            <s:element minOccurs="0" name="FrozenTo" type="s:date" />
+            <s:element minOccurs="0" name="FrozenRemarks" type="s:string" />
+            <s:element minOccurs="0" name="Block" type="s:string" />
+            <s:element minOccurs="0" name="BillToState" type="s:string" />
+            <s:element minOccurs="0" name="ExemptNum" type="s:string" />
+            <s:element minOccurs="0" name="Priority" type="s:long" />
+            <s:element minOccurs="0" name="FormCode1099" type="s:long" />
+            <s:element minOccurs="0" name="Box1099" type="s:string" />
+            <s:element minOccurs="0" name="PeymentMethodCode" type="s:string" />
+            <s:element minOccurs="0" name="BackOrder">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PartialDelivery">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BlockDunning">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BankCountry" type="s:string" />
+            <s:element minOccurs="0" name="HouseBank" type="s:string" />
+            <s:element minOccurs="0" name="HouseBankCountry" type="s:string" />
+            <s:element minOccurs="0" name="HouseBankAccount" type="s:string" />
+            <s:element minOccurs="0" name="ShipToDefault" type="s:string" />
+            <s:element minOccurs="0" name="DunningLevel" type="s:long" />
+            <s:element minOccurs="0" name="DunningDate" type="s:date" />
+            <s:element minOccurs="0" name="CollectionAuthorization">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DME" type="s:string" />
+            <s:element minOccurs="0" name="InstructionKey" type="s:string" />
+            <s:element minOccurs="0" name="SinglePayment">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ISRBillerID" type="s:string" />
+            <s:element minOccurs="0" name="PaymentBlock">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ReferenceDetails" type="s:string" />
+            <s:element minOccurs="0" name="HouseBankBranch" type="s:string" />
+            <s:element minOccurs="0" name="OwnerIDNumber" type="s:string" />
+            <s:element minOccurs="0" name="PaymentBlockDescription" type="s:long" />
+            <s:element minOccurs="0" name="TaxExemptionLetterNum" type="s:string" />
+            <s:element minOccurs="0" name="MaxAmountOfExemption" type="s:double" />
+            <s:element minOccurs="0" name="ExemptionValidityDateFrom" type="s:date" />
+            <s:element minOccurs="0" name="ExemptionValidityDateTo" type="s:date" />
+            <s:element minOccurs="0" name="LinkedBusinessPartner" type="s:string" />
+            <s:element minOccurs="0" name="LastMultiReconciliationNum" type="s:long" />
+            <s:element minOccurs="0" name="DeferredTax">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Equalization">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="SubjectToWithholdingTax">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="CertificateNumber" type="s:string" />
+            <s:element minOccurs="0" name="ExpirationDate" type="s:date" />
+            <s:element minOccurs="0" name="NationalInsuranceNum" type="s:string" />
+            <s:element minOccurs="0" name="AccrualCriteria">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="WTCode" type="s:string" />
+            <s:element minOccurs="0" name="BillToBuildingFloorRoom" type="s:string" />
+            <s:element minOccurs="0" name="DownPaymentClearAct" type="s:string" />
+            <s:element minOccurs="0" name="ChannelBP" type="s:string" />
+            <s:element minOccurs="0" name="DefaultTechnician" type="s:long" />
+            <s:element minOccurs="0" name="BilltoDefault" type="s:string" />
+            <s:element minOccurs="0" name="CustomerBillofExchangDisc" type="s:string" />
+            <s:element minOccurs="0" name="Territory" type="s:long" />
+            <s:element minOccurs="0" name="ShipToBuildingFloorRoom" type="s:string" />
+            <s:element minOccurs="0" name="CustomerBillofExchangPres" type="s:string" />
+            <s:element minOccurs="0" name="ProjectCode" type="s:string" />
+            <s:element minOccurs="0" name="VatGroupLatinAmerica" type="s:string" />
+            <s:element minOccurs="0" name="DunningTerm" type="s:string" />
+            <s:element minOccurs="0" name="Website" type="s:string" />
+            <s:element minOccurs="0" name="OtherReceivablePayable" type="s:string" />
+            <s:element minOccurs="0" name="BillofExchangeonCollection" type="s:string" />
+            <s:element minOccurs="0" name="CompanyPrivate">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="cCompany" />
+                  <s:enumeration value="cPrivate" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="LanguageCode" type="s:long" />
+            <s:element minOccurs="0" name="UnpaidBillofExchange" type="s:string" />
+            <s:element minOccurs="0" name="WithholdingTaxDeductionGroup" type="s:long" />
+            <s:element minOccurs="0" name="ClosingDateProcedureNumber" type="s:long" />
+            <s:element minOccurs="0" name="Profession" type="s:string" />
+            <s:element minOccurs="0" name="BankChargesAllocationCode" type="s:string" />
+            <s:element minOccurs="0" name="TaxRoundingRule">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="trr_RoundDown" />
+                  <s:enumeration value="trr_RoundUp" />
+                  <s:enumeration value="trr_RoundOff" />
+                  <s:enumeration value="trr_CompanyDefault" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties1">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties2">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties3">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties4">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties5">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties6">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties7">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties8">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties9">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties10">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties11">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties12">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties13">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties14">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties15">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties16">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties17">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties18">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties19">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties20">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties21">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties22">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties23">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties24">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties25">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties26">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties27">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties28">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties29">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties30">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties31">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties32">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties33">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties34">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties35">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties36">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties37">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties38">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties39">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties40">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties41">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties42">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties43">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties44">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties45">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties46">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties47">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties48">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties49">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties50">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties51">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties52">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties53">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties54">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties55">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties56">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties57">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties58">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties59">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties60">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties61">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties62">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties63">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Properties64">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="CompanyRegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" name="VerificationNumber" type="s:string" />
+            <s:element minOccurs="0" name="DiscountBaseObject">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="dgboNone" />
+                  <s:enumeration value="dgboItemGroups" />
+                  <s:enumeration value="dgboItemProperties" />
+                  <s:enumeration value="dgboManufacturer" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DiscountRelations">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="dgrLowestDiscount" />
+                  <s:enumeration value="dgrHighestDiscount" />
+                  <s:enumeration value="dgrAverageDiscount" />
+                  <s:enumeration value="dgrDiscountTotals" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="TypeReport">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="atCompany" />
+                  <s:enumeration value="atOthers" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ThresholdOverlook">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="SurchargeOverlook">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="DownPaymentInterimAccount" type="s:string" />
+            <s:element minOccurs="0" name="OperationCode347">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ocGoodsOrServiciesAcquisitions" />
+                  <s:enumeration value="ocPublicEntitiesAcquisitions" />
+                  <s:enumeration value="ocTravelAgenciesPurchases" />
+                  <s:enumeration value="ocSalesOrServicesRevenues" />
+                  <s:enumeration value="ocPublicSubsidies" />
+                  <s:enumeration value="ocTravelAgenciesSales" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="InsuranceOperation347">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="HierarchicalDeduction">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ShaamGroup">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="sgServicesAndAsset" />
+                  <s:enumeration value="sgAgriculturalProducts" />
+                  <s:enumeration value="sgInsuranceCommissions" />
+                  <s:enumeration value="sgWHTaxInstructions" />
+                  <s:enumeration value="sgInterestExchangeRateDiffs" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="WithholdingTaxCertified">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="BookkeepingCertified">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PlanningGroup" type="s:string" />
+            <s:element minOccurs="0" name="Affiliate">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Industry" type="s:long" />
+            <s:element minOccurs="0" name="VatIDNum" type="s:string" />
+            <s:element minOccurs="0" name="DatevAccount" type="s:long" />
+            <s:element minOccurs="0" name="DatevFirstDataEntry">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="GTSRegNo" type="s:string" />
+            <s:element minOccurs="0" name="GTSBankAccountNo" type="s:string" />
+            <s:element minOccurs="0" name="GTSBillingAddrTel" type="s:string" />
+            <s:element minOccurs="0" name="ETaxWebSite" type="s:long" />
+            <s:element minOccurs="0" name="HouseBankIBAN" type="s:string" />
+            <s:element minOccurs="0" name="VATRegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" name="RepresentativeName" type="s:string" />
+            <s:element minOccurs="0" name="IndustryType" type="s:string" />
+            <s:element minOccurs="0" name="BusinessType" type="s:string" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="AutomaticPosting">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="apNo" />
+                  <s:enumeration value="apInterestAndFee" />
+                  <s:enumeration value="apInterestOnly" />
+                  <s:enumeration value="apFeeOnly" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="InterestAccount" type="s:string" />
+            <s:element minOccurs="0" name="FeeAccount" type="s:string" />
+            <s:element minOccurs="0" name="CampaignNumber" type="s:long" />
+            <s:element minOccurs="0" name="AliasName" type="s:string" />
+            <s:element minOccurs="0" name="U_BPInvRmk1" type="s:string" />
+            <s:element minOccurs="0" name="U_BPInvRmk2" type="s:string" />
+            <s:element minOccurs="0" name="U_PurLeadDay" type="s:string" />
+            <s:element minOccurs="0" name="U_ShowPacking" type="s:string" />
+            <s:element minOccurs="0" name="U_ShowBPCat" type="s:string" />
+            <s:element minOccurs="0" name="U_ShowItemForNam" type="s:string" />
+            <s:element minOccurs="0" name="U_Updated" type="s:string" />
+            <s:element minOccurs="0" name="BPAddresses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPAddress">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="AddressName" type="s:string" />
+                        <s:element minOccurs="0" name="Street" type="s:string" />
+                        <s:element minOccurs="0" name="Block" type="s:string" />
+                        <s:element minOccurs="0" name="ZipCode" type="s:string" />
+                        <s:element minOccurs="0" name="City" type="s:string" />
+                        <s:element minOccurs="0" name="County" type="s:string" />
+                        <s:element minOccurs="0" name="Country" type="s:string" />
+                        <s:element minOccurs="0" name="State" type="s:string" />
+                        <s:element minOccurs="0" name="FederalTaxID" type="s:string" />
+                        <s:element minOccurs="0" name="TaxCode" type="s:string" />
+                        <s:element minOccurs="0" name="BuildingFloorRoom" type="s:string" />
+                        <s:element minOccurs="0" name="AddressType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bo_ShipTo" />
+                              <s:enumeration value="bo_BillTo" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="AddressName2" type="s:string" />
+                        <s:element minOccurs="0" name="AddressName3" type="s:string" />
+                        <s:element minOccurs="0" name="TypeOfAddress" type="s:string" />
+                        <s:element minOccurs="0" name="StreetNo" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                        <s:element minOccurs="0" name="RowNum" type="s:long" />
+                        <s:element minOccurs="0" name="U_District" type="s:string" />
+                        <s:element minOccurs="0" name="U_BPDelRmk1" type="s:string" />
+                        <s:element minOccurs="0" name="U_BPDelRmk2" type="s:string" />
+                        <s:element minOccurs="0" name="U_ShpToTel" type="s:string" />
+                        <s:element minOccurs="0" name="U_Mon" type="s:string" />
+                        <s:element minOccurs="0" name="U_Tue" type="s:string" />
+                        <s:element minOccurs="0" name="U_Wed" type="s:string" />
+                        <s:element minOccurs="0" name="U_Thur" type="s:string" />
+                        <s:element minOccurs="0" name="U_Fri" type="s:string" />
+                        <s:element minOccurs="0" name="U_Sat" type="s:string" />
+                        <s:element minOccurs="0" name="U_Sun" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ContactEmployees">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ContactEmployee">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="CardCode" type="s:string" />
+                        <s:element minOccurs="0" name="Name" type="s:string" />
+                        <s:element minOccurs="0" name="Position" type="s:string" />
+                        <s:element minOccurs="0" name="Address" type="s:string" />
+                        <s:element minOccurs="0" name="Phone1" type="s:string" />
+                        <s:element minOccurs="0" name="Phone2" type="s:string" />
+                        <s:element minOccurs="0" name="MobilePhone" type="s:string" />
+                        <s:element minOccurs="0" name="Fax" type="s:string" />
+                        <s:element minOccurs="0" name="E_Mail" type="s:string" />
+                        <s:element minOccurs="0" name="Pager" type="s:string" />
+                        <s:element minOccurs="0" name="Remarks1" type="s:string" />
+                        <s:element minOccurs="0" name="Remarks2" type="s:string" />
+                        <s:element minOccurs="0" name="Password" type="s:string" />
+                        <s:element minOccurs="0" name="InternalCode" type="s:long" />
+                        <s:element minOccurs="0" name="PlaceOfBirth" type="s:string" />
+                        <s:element minOccurs="0" name="DateOfBirth" type="s:date" />
+                        <s:element minOccurs="0" name="Gender">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="gt_Female" />
+                              <s:enumeration value="gt_Male" />
+                              <s:enumeration value="gt_Undefined" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="Profession" type="s:string" />
+                        <s:element minOccurs="0" name="Title" type="s:string" />
+                        <s:element minOccurs="0" name="CityOfBirth" type="s:string" />
+                        <s:element minOccurs="0" name="Active">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="tNO" />
+                              <s:enumeration value="tYES" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="FirstName" type="s:string" />
+                        <s:element minOccurs="0" name="MiddleName" type="s:string" />
+                        <s:element minOccurs="0" name="LastName" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPAccountReceivablePaybleCollection">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPAccountReceivablePayble">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="AccountType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bpat_General" />
+                              <s:enumeration value="bpat_DownPayment" />
+                              <s:enumeration value="bpat_AssetsAccount" />
+                              <s:enumeration value="bpat_Receivable" />
+                              <s:enumeration value="bpat_Payable" />
+                              <s:enumeration value="bpat_OnCollection" />
+                              <s:enumeration value="bpat_Presentation" />
+                              <s:enumeration value="bpat_AssetsPayable" />
+                              <s:enumeration value="bpat_Discounted" />
+                              <s:enumeration value="bpat_Unpaid" />
+                              <s:enumeration value="bpat_OpenDebts" />
+                              <s:enumeration value="bpat_Domestic" />
+                              <s:enumeration value="bpat_Foreign" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="AccountCode" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPPaymentMethods">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPPaymentMethod">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="PaymentMethodCode" type="s:string" />
+                        <s:element minOccurs="0" name="RowNumber" type="s:long" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPWithholdingTaxCollection">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPWithholdingTax">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="WTCode" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPPaymentDates">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPPaymentDate">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="PaymentDate" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPBranchAssignment">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPBranchAssignmentItem">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                        <s:element minOccurs="0" name="BPLID" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPBankAccounts">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPBankAccount">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LogInstance" type="s:long" />
+                        <s:element minOccurs="0" name="UserNo4" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                        <s:element minOccurs="0" name="County" type="s:string" />
+                        <s:element minOccurs="0" name="State" type="s:string" />
+                        <s:element minOccurs="0" name="UserNo2" type="s:string" />
+                        <s:element minOccurs="0" name="IBAN" type="s:string" />
+                        <s:element minOccurs="0" name="ZipCode" type="s:string" />
+                        <s:element minOccurs="0" name="City" type="s:string" />
+                        <s:element minOccurs="0" name="Block" type="s:string" />
+                        <s:element minOccurs="0" name="Branch" type="s:string" />
+                        <s:element minOccurs="0" name="Country" type="s:string" />
+                        <s:element minOccurs="0" name="Street" type="s:string" />
+                        <s:element minOccurs="0" name="ControlKey" type="s:string" />
+                        <s:element minOccurs="0" name="UserNo3" type="s:string" />
+                        <s:element minOccurs="0" name="BankCode" type="s:string" />
+                        <s:element minOccurs="0" name="AccountNo" type="s:string" />
+                        <s:element minOccurs="0" name="UserNo1" type="s:string" />
+                        <s:element minOccurs="0" name="InternalKey" type="s:long" />
+                        <s:element minOccurs="0" name="BuildingFloorRoom" type="s:string" />
+                        <s:element minOccurs="0" name="BIK" type="s:string" />
+                        <s:element minOccurs="0" name="AccountName" type="s:string" />
+                        <s:element minOccurs="0" name="CorrespondentAccount" type="s:string" />
+                        <s:element minOccurs="0" name="Phone" type="s:string" />
+                        <s:element minOccurs="0" name="Fax" type="s:string" />
+                        <s:element minOccurs="0" name="CustomerIdNumber" type="s:string" />
+                        <s:element minOccurs="0" name="ISRBillerID" type="s:string" />
+                        <s:element minOccurs="0" name="ISRType" type="s:long" />
+                        <s:element minOccurs="0" name="BICSwiftCode" type="s:string" />
+                        <s:element minOccurs="0" name="ABARoutingNumber" type="s:string" />
+                        <s:element minOccurs="0" name="MandateID" type="s:string" />
+                        <s:element minOccurs="0" name="SignatureDate" type="s:date" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="BPFiscalTaxIDCollection">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BPFiscalTaxID">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="Address" type="s:string" />
+                        <s:element minOccurs="0" name="CNAECode" type="s:long" />
+                        <s:element minOccurs="0" name="TaxId0" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId1" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId2" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId3" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId4" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId5" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId6" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId7" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId8" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId9" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId10" type="s:string" />
+                        <s:element minOccurs="0" name="TaxId11" type="s:string" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                        <s:element minOccurs="0" name="AddrType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bo_ShipTo" />
+                              <s:enumeration value="bo_BillTo" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="DiscountGroups">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="DiscountGroup">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="ObjectEntry" type="s:string" />
+                        <s:element minOccurs="0" name="DiscountPercentage" type="s:double" />
+                        <s:element minOccurs="0" name="BPCode" type="s:string" />
+                        <s:element minOccurs="0" name="BaseObjectType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="dgboNone" />
+                              <s:enumeration value="dgboItemGroups" />
+                              <s:enumeration value="dgboItemProperties" />
+                              <s:enumeration value="dgboManufacturer" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BusinessPartnerParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CardCode" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenningBalanceAccount">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="OpenBalanceAccount" type="s:string" />
+            <s:element minOccurs="0" name="Date" type="s:date" />
+            <s:element minOccurs="0" name="Ref1" type="s:string" />
+            <s:element minOccurs="0" name="Ref2" type="s:string" />
+            <s:element minOccurs="0" name="Details" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="BPCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="BPCode">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:string" />
+                  <s:element minOccurs="0" name="DueDate" type="s:date" />
+                  <s:element minOccurs="0" name="Debit" type="s:double" />
+                  <s:element minOccurs="0" name="Credit" type="s:double" />
+                  <s:element minOccurs="0" name="SystemDebit" type="s:double" />
+                  <s:element minOccurs="0" name="SystemCredit" type="s:double" />
+                  <s:element minOccurs="0" name="ForeignDebit" type="s:double" />
+                  <s:element minOccurs="0" name="ForeignCredit" type="s:double" />
+                  <s:element minOccurs="0" name="ForeignCurrency" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="BusinessPartnersService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="BusinessPartnersService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartner" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartner" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartnerParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOpenBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:OpenningBalanceAccount" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BPCodes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFromXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessPartner" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOpenBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOpenBalance" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateOpenBalanceSoapOut">
+    <wsdl:part name="parameters" element="s1:CreateOpenBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFromXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFromXML" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFromXMLSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateFromXMLResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BusinessPartnersServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOpenBalance">
+      <wsdl:input message="tns:CreateOpenBalanceSoapIn" />
+      <wsdl:output message="tns:CreateOpenBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFromXML">
+      <wsdl:input message="tns:UpdateFromXMLSoapIn" />
+      <wsdl:output message="tns:UpdateFromXMLSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BusinessPartnersServiceSoap" type="tns:BusinessPartnersServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="BusinessPartnersService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="BusinessPartnersService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="BusinessPartnersService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="BusinessPartnersService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOpenBalance">
+      <soap:operation soapAction="BusinessPartnersService/CreateOpenBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CreateOpenBalanceSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFromXML">
+      <soap:operation soapAction="BusinessPartnersService/UpdateFromXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateFromXMLSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BusinessPartnersServiceSoap12" type="tns:BusinessPartnersServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="BusinessPartnersService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="BusinessPartnersService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="BusinessPartnersService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="BusinessPartnersService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOpenBalance">
+      <soap12:operation soapAction="BusinessPartnersService/CreateOpenBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CreateOpenBalanceSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFromXML">
+      <soap12:operation soapAction="BusinessPartnersService/UpdateFromXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateFromXMLSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BusinessPartnersService">
+    <wsdl:port name="BusinessPartnersServiceSoap" binding="tns:BusinessPartnersServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BusinessPartnersServiceSoap12" binding="tns:BusinessPartnersServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="DepartmentsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="DepartmentsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddDepartmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DepartmentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepartmentResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DepartmentsParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Department">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepartmentParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="Code" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepartmentsParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="DepartmentParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="Code" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="DepartmentsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="DepartmentsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddDepartment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepartment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DepartmentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:DepartmentParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDepartmentSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDepartment" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddDepartmentSoapOut">
+    <wsdl:part name="parameters" element="s1:AddDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDepartment" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartmentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDepartment" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartmentSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartment" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartmentList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetDepartmentListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DepartmentsServiceSoap">
+    <wsdl:operation name="AddDepartment">
+      <wsdl:input message="tns:AddDepartmentSoapIn" />
+      <wsdl:output message="tns:AddDepartmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartment">
+      <wsdl:input message="tns:UpdateDepartmentSoapIn" />
+      <wsdl:output message="tns:UpdateDepartmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartment">
+      <wsdl:input message="tns:DeleteDepartmentSoapIn" />
+      <wsdl:output message="tns:DeleteDepartmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartment">
+      <wsdl:input message="tns:GetDepartmentSoapIn" />
+      <wsdl:output message="tns:GetDepartmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <wsdl:input message="tns:GetDepartmentListSoapIn" />
+      <wsdl:output message="tns:GetDepartmentListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DepartmentsServiceSoap" type="tns:DepartmentsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDepartment">
+      <soap:operation soapAction="DepartmentsService/AddDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartment">
+      <soap:operation soapAction="DepartmentsService/UpdateDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartment">
+      <soap:operation soapAction="DepartmentsService/DeleteDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartment">
+      <soap:operation soapAction="DepartmentsService/GetDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <soap:operation soapAction="DepartmentsService/GetDepartmentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetDepartmentListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DepartmentsServiceSoap12" type="tns:DepartmentsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDepartment">
+      <soap12:operation soapAction="DepartmentsService/AddDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartment">
+      <soap12:operation soapAction="DepartmentsService/UpdateDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartment">
+      <soap12:operation soapAction="DepartmentsService/DeleteDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartment">
+      <soap12:operation soapAction="DepartmentsService/GetDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDepartmentSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <soap12:operation soapAction="DepartmentsService/GetDepartmentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetDepartmentListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DepartmentsService">
+    <wsdl:port name="DepartmentsServiceSoap" binding="tns:DepartmentsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DepartmentsServiceSoap12" binding="tns:DepartmentsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

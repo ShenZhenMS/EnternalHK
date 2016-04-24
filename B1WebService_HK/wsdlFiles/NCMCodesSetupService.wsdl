@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="NCMCodesSetupService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="NCMCodesSetupService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddNCMCodeSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNCMCodeSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNCMCodeSetupResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNCMCodeSetupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNCMCodeSetupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetupParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NCMCodeSetup">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="NCMCode" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="NCMCodeSetupParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+            <s:element minOccurs="0" name="NCMCode" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="NCMCodeSetupParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="NCMCodeSetupParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="AbsEntry" type="s:long" />
+                  <s:element minOccurs="0" name="NCMCode" type="s:string" />
+                  <s:element minOccurs="0" name="Description" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="NCMCodesSetupService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="NCMCodesSetupService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddNCMCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNCMCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNCMCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNCMCodeSetup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:NCMCodeSetupParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNCMCodeSetupList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddNCMCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNCMCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddNCMCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:AddNCMCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNCMCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateNCMCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNCMCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateNCMCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNCMCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteNCMCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNCMCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteNCMCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNCMCodeSetupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNCMCodeSetup" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNCMCodeSetupSoapOut">
+    <wsdl:part name="parameters" element="s1:GetNCMCodeSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNCMCodeSetupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNCMCodeSetupList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNCMCodeSetupListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetNCMCodeSetupListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NCMCodesSetupServiceSoap">
+    <wsdl:operation name="AddNCMCodeSetup">
+      <wsdl:input message="tns:AddNCMCodeSetupSoapIn" />
+      <wsdl:output message="tns:AddNCMCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNCMCodeSetup">
+      <wsdl:input message="tns:UpdateNCMCodeSetupSoapIn" />
+      <wsdl:output message="tns:UpdateNCMCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNCMCodeSetup">
+      <wsdl:input message="tns:DeleteNCMCodeSetupSoapIn" />
+      <wsdl:output message="tns:DeleteNCMCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNCMCodeSetup">
+      <wsdl:input message="tns:GetNCMCodeSetupSoapIn" />
+      <wsdl:output message="tns:GetNCMCodeSetupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNCMCodeSetupList">
+      <wsdl:input message="tns:GetNCMCodeSetupListSoapIn" />
+      <wsdl:output message="tns:GetNCMCodeSetupListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NCMCodesSetupServiceSoap" type="tns:NCMCodesSetupServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddNCMCodeSetup">
+      <soap:operation soapAction="NCMCodesSetupService/AddNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNCMCodeSetup">
+      <soap:operation soapAction="NCMCodesSetupService/UpdateNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNCMCodeSetup">
+      <soap:operation soapAction="NCMCodesSetupService/DeleteNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNCMCodeSetup">
+      <soap:operation soapAction="NCMCodesSetupService/GetNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNCMCodeSetupList">
+      <soap:operation soapAction="NCMCodesSetupService/GetNCMCodeSetupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetNCMCodeSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NCMCodesSetupServiceSoap12" type="tns:NCMCodesSetupServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddNCMCodeSetup">
+      <soap12:operation soapAction="NCMCodesSetupService/AddNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNCMCodeSetup">
+      <soap12:operation soapAction="NCMCodesSetupService/UpdateNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNCMCodeSetup">
+      <soap12:operation soapAction="NCMCodesSetupService/DeleteNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNCMCodeSetup">
+      <soap12:operation soapAction="NCMCodesSetupService/GetNCMCodeSetup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetNCMCodeSetupSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNCMCodeSetupList">
+      <soap12:operation soapAction="NCMCodesSetupService/GetNCMCodeSetupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetNCMCodeSetupListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NCMCodesSetupService">
+    <wsdl:port name="NCMCodesSetupServiceSoap" binding="tns:NCMCodesSetupServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NCMCodesSetupServiceSoap12" binding="tns:NCMCodesSetupServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

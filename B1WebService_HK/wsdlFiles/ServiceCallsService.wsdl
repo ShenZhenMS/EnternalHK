@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ServiceCallsService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ServiceCallsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCall" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCall">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ServiceCallID" type="s:long" />
+            <s:element minOccurs="0" name="Subject" type="s:string" />
+            <s:element minOccurs="0" name="CustomerCode" type="s:string" />
+            <s:element minOccurs="0" name="CustomerName" type="s:string" />
+            <s:element minOccurs="0" name="ContactCode" type="s:long" />
+            <s:element minOccurs="0" name="ManufacturerSerialNum" type="s:string" />
+            <s:element minOccurs="0" name="InternalSerialNum" type="s:string" />
+            <s:element minOccurs="0" name="ContractID" type="s:long" />
+            <s:element minOccurs="0" name="ContractEndDate" type="s:date" />
+            <s:element minOccurs="0" name="ResolutionDate" type="s:date" />
+            <s:element minOccurs="0" name="ResolutionTime" type="s:time" />
+            <s:element minOccurs="0" name="Origin" type="s:long" />
+            <s:element minOccurs="0" name="ItemCode" type="s:string" />
+            <s:element minOccurs="0" name="ItemDescription" type="s:string" />
+            <s:element minOccurs="0" name="ItemGroupCode" type="s:long" />
+            <s:element minOccurs="0" name="Status" type="s:long" />
+            <s:element minOccurs="0" name="Priority">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="scp_Low" />
+                  <s:enumeration value="scp_Medium" />
+                  <s:enumeration value="scp_High" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="CallType" type="s:long" />
+            <s:element minOccurs="0" name="ProblemType" type="s:long" />
+            <s:element minOccurs="0" name="AssigneeCode" type="s:long" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+            <s:element minOccurs="0" name="TechnicianCode" type="s:long" />
+            <s:element minOccurs="0" name="Resolution" type="s:string" />
+            <s:element minOccurs="0" name="CreationDate" type="s:date" />
+            <s:element minOccurs="0" name="CreationTime" type="s:time" />
+            <s:element minOccurs="0" name="Responder" type="s:long" />
+            <s:element minOccurs="0" name="UpdatedTime" type="s:time" />
+            <s:element minOccurs="0" name="BelongsToAQueue">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ResponseByTime" type="s:time" />
+            <s:element minOccurs="0" name="ResponseByDate" type="s:date" />
+            <s:element minOccurs="0" name="ResolutionOnDate" type="s:date" />
+            <s:element minOccurs="0" name="ResponseOnTime" type="s:time" />
+            <s:element minOccurs="0" name="ResponseOnDate" type="s:date" />
+            <s:element minOccurs="0" name="ClosingTime" type="s:time" />
+            <s:element minOccurs="0" name="AssignedDate" type="s:date" />
+            <s:element minOccurs="0" name="Queue" type="s:string" />
+            <s:element minOccurs="0" name="ResponseAssignee" type="s:long" />
+            <s:element minOccurs="0" name="EntitledforService">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ResolutionOnTime" type="s:time" />
+            <s:element minOccurs="0" name="AssignedTime" type="s:time" />
+            <s:element minOccurs="0" name="ClosingDate" type="s:date" />
+            <s:element minOccurs="0" name="Series" type="s:long" />
+            <s:element minOccurs="0" name="DocNum" type="s:long" />
+            <s:element minOccurs="0" name="HandWritten">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="PeriodIndicator" type="s:string" />
+            <s:element minOccurs="0" name="StartDate" type="s:date" />
+            <s:element minOccurs="0" name="StartTime" type="s:time" />
+            <s:element minOccurs="0" name="EndDueDate" type="s:date" />
+            <s:element minOccurs="0" name="EndTime" type="s:time" />
+            <s:element minOccurs="0" name="Duration" type="s:double" />
+            <s:element minOccurs="0" name="DurationType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="du_Minuts" />
+                  <s:enumeration value="du_Hours" />
+                  <s:enumeration value="du_Days" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Reminder">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ReminderPeriod" type="s:double" />
+            <s:element minOccurs="0" name="ReminderType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="du_Minuts" />
+                  <s:enumeration value="du_Hours" />
+                  <s:enumeration value="du_Days" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Location" type="s:long" />
+            <s:element minOccurs="0" name="AddressName" type="s:string" />
+            <s:element minOccurs="0" name="AddressType">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="bo_ShipTo" />
+                  <s:enumeration value="bo_BillTo" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="Street" type="s:string" />
+            <s:element minOccurs="0" name="City" type="s:string" />
+            <s:element minOccurs="0" name="Room" type="s:string" />
+            <s:element minOccurs="0" name="State" type="s:string" />
+            <s:element minOccurs="0" name="Country" type="s:string" />
+            <s:element minOccurs="0" name="DisplayInCalendar">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="tNO" />
+                  <s:enumeration value="tYES" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element minOccurs="0" name="ServiceCallActivities">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallActivity">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="ActivityCode" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ServiceCallInventoryExpenses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallInventoryExpense">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="PartType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="sep_Inventory" />
+                              <s:enumeration value="sep_NonInventory" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DocumentType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="edt_Invoice" />
+                              <s:enumeration value="edt_Delivery" />
+                              <s:enumeration value="edt_Return" />
+                              <s:enumeration value="edt_StockTransfer" />
+                              <s:enumeration value="edt_CreditMemo" />
+                              <s:enumeration value="edt_Order" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DocumentPostingDate" type="s:date" />
+                        <s:element minOccurs="0" name="DocumentNumber" type="s:long" />
+                        <s:element minOccurs="0" name="StockTransferDirection">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="bos_TransferToTechnician" />
+                              <s:enumeration value="bos_TransferFromTechnician" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" name="DocEntry" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" name="ServiceCallSolutions">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallSolution">
+                    <s:complexType>
+                      <s:all>
+                        <s:element minOccurs="0" name="LineNum" type="s:long" />
+                        <s:element minOccurs="0" name="SolutionID" type="s:long" />
+                      </s:all>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="ServiceCallID" type="s:long" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ServiceCallsService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ServiceCallsService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCall" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCall" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Remove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Close">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="s1:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapIn">
+    <wsdl:part name="parameters" element="tns:Remove" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSoapOut">
+    <wsdl:part name="parameters" element="s1:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByParams" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByParamsSoapOut">
+    <wsdl:part name="parameters" element="s1:GetByParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseSoapIn">
+    <wsdl:part name="parameters" element="tns:Close" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="CloseSoapOut">
+    <wsdl:part name="parameters" element="s1:CloseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceCallsServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveSoapIn" />
+      <wsdl:output message="tns:RemoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <wsdl:input message="tns:GetByParamsSoapIn" />
+      <wsdl:output message="tns:GetByParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <wsdl:input message="tns:CloseSoapIn" />
+      <wsdl:output message="tns:CloseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceCallsServiceSoap" type="tns:ServiceCallsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="ServiceCallsService/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="ServiceCallsService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="ServiceCallsService/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap:operation soapAction="ServiceCallsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <soap:operation soapAction="ServiceCallsService/Close" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:CloseSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceCallsServiceSoap12" type="tns:ServiceCallsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="ServiceCallsService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="ServiceCallsService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap12:operation soapAction="ServiceCallsService/Remove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:RemoveSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByParams">
+      <soap12:operation soapAction="ServiceCallsService/GetByParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetByParamsSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Close">
+      <soap12:operation soapAction="ServiceCallsService/Close" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:CloseSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCallsService">
+    <wsdl:port name="ServiceCallsServiceSoap" binding="tns:ServiceCallsServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceCallsServiceSoap12" binding="tns:ServiceCallsServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

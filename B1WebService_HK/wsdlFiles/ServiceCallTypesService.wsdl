@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ServiceCallTypesService" xmlns:s1="http://www.sap.com/SBO/DIS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="ServiceCallTypesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/SBO/DIS">
+      <s:element name="AddServiceCallTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceCallTypeResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceCallTypeResponse">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallTypeParamsCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallType">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CallTypeID" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+            <s:element minOccurs="0" name="Description" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallTypeParams">
+        <s:complexType>
+          <s:all>
+            <s:element minOccurs="0" name="CallTypeID" type="s:long" />
+            <s:element minOccurs="0" name="Name" type="s:string" />
+          </s:all>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCallTypeParamsCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallTypeParams">
+              <s:complexType>
+                <s:all>
+                  <s:element minOccurs="0" name="CallTypeID" type="s:long" />
+                  <s:element minOccurs="0" name="Name" type="s:string" />
+                </s:all>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MsgHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceName">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="ServiceCallTypesService" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ServiceCallTypesService">
+      <s:import namespace="http://www.sap.com/SBO/DIS" />
+      <s:element name="AddServiceCallType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceCallType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceCallType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ServiceCallTypeParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceCallTypeList">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddServiceCallTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddServiceCallType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddServiceCallTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:AddServiceCallTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceCallTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateServiceCallType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceCallTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:UpdateServiceCallTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceCallTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteServiceCallType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceCallTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:DeleteServiceCallTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceCallType" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallTypeSoapOut">
+    <wsdl:part name="parameters" element="s1:GetServiceCallTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceCallTypeList" />
+    <wsdl:part name="request_header" element="s1:MsgHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceCallTypeListSoapOut">
+    <wsdl:part name="parameters" element="s1:GetServiceCallTypeListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceCallTypesServiceSoap">
+    <wsdl:operation name="AddServiceCallType">
+      <wsdl:input message="tns:AddServiceCallTypeSoapIn" />
+      <wsdl:output message="tns:AddServiceCallTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallType">
+      <wsdl:input message="tns:UpdateServiceCallTypeSoapIn" />
+      <wsdl:output message="tns:UpdateServiceCallTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallType">
+      <wsdl:input message="tns:DeleteServiceCallTypeSoapIn" />
+      <wsdl:output message="tns:DeleteServiceCallTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallType">
+      <wsdl:input message="tns:GetServiceCallTypeSoapIn" />
+      <wsdl:output message="tns:GetServiceCallTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallTypeList">
+      <wsdl:input message="tns:GetServiceCallTypeListSoapIn" />
+      <wsdl:output message="tns:GetServiceCallTypeListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceCallTypesServiceSoap" type="tns:ServiceCallTypesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddServiceCallType">
+      <soap:operation soapAction="ServiceCallTypesService/AddServiceCallType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:AddServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallType">
+      <soap:operation soapAction="ServiceCallTypesService/UpdateServiceCallType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:UpdateServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallType">
+      <soap:operation soapAction="ServiceCallTypesService/DeleteServiceCallType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:DeleteServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallType">
+      <soap:operation soapAction="ServiceCallTypesService/GetServiceCallType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallTypeList">
+      <soap:operation soapAction="ServiceCallTypesService/GetServiceCallTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:GetServiceCallTypeListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceCallTypesServiceSoap12" type="tns:ServiceCallTypesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddServiceCallType">
+      <soap12:operation soapAction="ServiceCallTypesService/AddServiceCallType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:AddServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServiceCallType">
+      <soap12:operation soapAction="ServiceCallTypesService/UpdateServiceCallType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:UpdateServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceCallType">
+      <soap12:operation soapAction="ServiceCallTypesService/DeleteServiceCallType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:DeleteServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallType">
+      <soap12:operation soapAction="ServiceCallTypesService/GetServiceCallType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetServiceCallTypeSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCallTypeList">
+      <soap12:operation soapAction="ServiceCallTypesService/GetServiceCallTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" parts="parameters" />
+        <soap12:header message="tns:GetServiceCallTypeListSoapIn" part="request_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCallTypesService">
+    <wsdl:port name="ServiceCallTypesServiceSoap" binding="tns:ServiceCallTypesServiceSoap">
+      <soap:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceCallTypesServiceSoap12" binding="tns:ServiceCallTypesServiceSoap12">
+      <soap12:address location="http://localhost/B1WS/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
